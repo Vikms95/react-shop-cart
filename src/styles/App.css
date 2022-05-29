@@ -1,0 +1,136 @@
+*{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --background-color: #003049 ;
+  --font-color:#ff0000;
+  color: var(--font-color)
+}
+
+.navigation-bar{
+  width: 100%;
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding-right: 20rem;
+  justify-content: center;
+  border-bottom: 1px solid blue;
+}
+
+a{
+  text-decoration: none;
+}
+
+.homepage-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20rem;
+  align-items: center;
+}
+
+.gotoshop-button{
+  background-color: var(--background-color);
+  border: solid .1rem blue;
+  padding: 2rem;
+}
+
+.shop-container{
+  position: relative;
+  padding: 5rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cart-button{
+  position: fixed;
+  border-radius: 25px;
+  left: 90%;
+  bottom: 91%;
+  border: .2rem solid blue;
+  background-color: white;
+  padding: 1.5rem;
+  z-index: 9999;
+}
+
+.cart-button:hover{
+  cursor: pointer;
+}
+
+.item{
+  position: relative;
+  padding: 3rem;
+  padding-bottom: .5rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .7rem;
+  max-height: 15rem;
+}
+
+
+.item:hover{
+  background-color: rgb(218, 218, 218);
+}
+
+.item-image{
+  width: 15rem;
+  max-height: 8rem;
+}
+
+.item-text{
+  text-align: center;
+}
+
+.toggle-item-button{
+  visibility: hidden;
+  position: absolute;
+  bottom: 130px;
+  right: 100px;
+}
+
+
+.item-buttons{
+  display: flex;
+  visibility: hidden;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.item:hover .toggle-item-button{
+  visibility: visible;
+}
+
+
+.item:hover .item-image{
+  filter: brightness(50%);
+}
+
+.increment,
+.decrement,
+.toggle-item-button{
+  border-radius: 25px;
+  padding: .5rem;
+  border: none;
+  background-color: grey;
+  color: white;
+  font-weight: 900 ;
+}
+
+.toggle-item-button:hover,
+.decrement,
+.increment{
+  cursor: pointer;
+}
+
+.hidden:hover{
+  visibility: hidden;
+}
+
+.item:hover .show{
+  visibility: visible;
+}
