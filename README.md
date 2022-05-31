@@ -9,10 +9,11 @@ Shopping cart of the League of Legends champions where you can add champions to 
 
 ## Project Objectives
 
-1. Do my first project which incorporates React, Javascript, TDD and react-router
+1. Do my first project which incorporates React, Typescript, TDD and react-router
 2. Establish an ESLint config for future use
 3. Be able to spend my time to make this project portfolio worthy
 4. Use different git tools to solidify what I learnt on previous lessons
+5. Establish a good testing architecture combining unit and UI tests
 
 ## What I've learnt with this project
 
