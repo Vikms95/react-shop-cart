@@ -44,5 +44,5 @@
           "moduleDirectory": ["node_modules", "src/"]
         }
       }
-    },
+    }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import ItemCart from '../ItemCart';
+import ItemCart from '../ItemCart/ItemCart';
 
 interface Props {
   cartItems: any[]
@@ -20,6 +20,7 @@ function ShoppingCart(props: Props) {
 
   return (
     <>
+      {renderItemsCart()}
     </>
   );
 }

@@ -2,12 +2,17 @@ import React from 'react';
 
 function ItemCart(props) {
   const {
-    cartItems,
+    image, title,
   } = props;
 
   return (
     <div>
-      <div />
+      <img src={image} alt="hello" />
+      <div>
+        {' '}
+        {title}
+        {' '}
+      </div>
     </div>
   );
 }
