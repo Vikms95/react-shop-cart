@@ -14,7 +14,7 @@ function Shop(props) {
     setItems(data.results);
   };
 
-  const renderItems = () => items.map((item) => (
+  const renderItemsShop = () => items.map((item) => (
     <Item
       key={item.slug}
       alt={item.slug}
@@ -32,7 +32,7 @@ function Shop(props) {
 
   return (
     <div className="shop-container">
-      {renderItems()}
+      {renderItemsShop()}
     </div>
   );
 }

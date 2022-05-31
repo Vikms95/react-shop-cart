@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import ItemCart from '../ItemCart';
 
 interface Props {
   cartItems: any[]
@@ -7,26 +8,19 @@ interface Props {
 
 function ShoppingCart(props: Props) {
   const { cartItems } = props;
+
+  const renderItemsCart = () => {
+    cartItems.map((item) => (
+      <ItemCart
+        image={item.image}
+        title={item.title}
+      />
+    ));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    </>
   );
 }
 
