@@ -143,3 +143,12 @@ button{
 .item:hover .show{
   visibility: visible;
 }
+
+.shopping-cart-container{
+  padding: 5rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  justify-content: center;
+  align-items: flex-start; 
+}

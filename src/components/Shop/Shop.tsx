@@ -32,7 +32,7 @@ function Shop(props) {
 
   return (
     <>
-      <h2> Game List</h2>
+      <h2 className="section-header"> Game List</h2>
       <section
         className="shop-container"
       >
