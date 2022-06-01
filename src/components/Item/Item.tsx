@@ -5,6 +5,10 @@ function Item(props) {
     cartItems, image, title, slug, addItemToCart, isItemInCart, // removeItemFromCart,
   } = props;
 
+  /**
+   * Find item with the same title as the one
+   * on this Item component and return its amount key
+   */
   const renderItemAmount = () => {
     const item = cartItems.find((cartItem) => (
       cartItem.title === title
@@ -16,7 +20,6 @@ function Item(props) {
   useEffect(() => {
 
   }, []);
-
   return (
     <div
       className="item"
@@ -27,8 +30,8 @@ function Item(props) {
         <img className="item-image" src={image} alt={slug} />
         <button
           type="button"
-          className="toggle-item-button"
           onClick={(event) => addItemToCart(event, image, title)}
+          className="toggle-item-button"
         >
           +
         </button>

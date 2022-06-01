@@ -8,6 +8,12 @@ TODO
     *:item will be found within the array by its name
       :item is not being returned by find() method?
 
+- Test UI of all the components created so far
+  :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx
+  
+  : all components > https://github.com/TheOdinProject/theodinproject/tree/main/app/javascript/components/project-submissions/components
+
+  :structure of tests > http://wiki.c2.com/?ArrangeActAssert
 - Conditionally render which button should appear when hover an Item, either the remove button or the add button
     : remove button is always rendered at the beggining because the items are not in the cart :)
 
