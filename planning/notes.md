@@ -2,11 +2,12 @@ TODO
 - Functionality to add items to the cart
     <!-- :if item already in cart, early return  -->
     <!-- :show it in the cart button -->
-    :prepare ShoppingCart to show the items added
-    :only show inc/dec buttons if the item is already in the cart array
+    <!-- :prepare ShoppingCart to show the items added -->
+    <!-- :only show inc/dec buttons if the item is already in the cart array -->
     :increase/decrease > object in the cartItems will have a new property called amount which
      will be changed whenever the inc/dec buttons are pressed
     :item will be found within the array by its name
+      :item is not being returned by find() method?
 
 - Conditionally render which button should appear when hover an Item, either the remove button or the add button
     : remove button is always rendered at the beggining because the items are not in the cart :)

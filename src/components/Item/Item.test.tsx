@@ -3,9 +3,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Item from './Item';
 
-test.only('renders learn react link', () => {
-  render(<Item />);
+test('triggers add item function once', () => {
+  const mockAddItemToCart = jest.fn();
+  render(<Item addItemToCart={mockAddItemToCart} />);
+
   const button = screen.getByRole('button', { name: '+' });
   userEvent.click(button);
-  screen.getByText('0');
+  expect(mockAddItemToCart).toHaveBeenCalledTimes(1);
 });

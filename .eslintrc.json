@@ -24,6 +24,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "no-unused-vars":"off",
       "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
       "react/prop-types": "off",
       "import/extensions": [

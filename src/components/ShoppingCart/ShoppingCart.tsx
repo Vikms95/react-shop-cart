@@ -11,6 +11,7 @@ function ShoppingCart(props: Props) {
 
   const renderItemsCart = () => cartItems.map((item) => (
     <ItemCart
+      key={item.title}
       image={item.image}
       title={item.title}
     />

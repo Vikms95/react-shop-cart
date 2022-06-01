@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Item(props) {
   const {
-    image, title, slug, addItemToCart, isItemInCart, // removeItemFromCart,
+    cartItems, image, title, slug, addItemToCart, isItemInCart, // removeItemFromCart,
   } = props;
+
+  const renderItemAmount = () => {
+    const item = cartItems.find((cartItem) => (
+      cartItem.title === title
+    ));
+    console.log(title);
+    return 0;
+  };
+
+  useEffect(() => {
+
+  }, []);
 
   return (
     <div
@@ -22,9 +34,13 @@ function Item(props) {
         </button>
         <h2 className="item-text">{title}</h2>
       </div>
-      <div className={`item-buttons ${isItemInCart(title) ? 'show' : 'hidden'}`}>
+      <div className={`item-buttons ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
         <button type="button" className="decrement">-</button>
-        <div className="amount-display"> 5 </div>
+        <div className="amount-display">
+          {' '}
+          {title && renderItemAmount()}
+          {' '}
+        </div>
         <button type="button" className="increment">+</button>
       </div>
     </div>

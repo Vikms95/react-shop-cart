@@ -4,7 +4,9 @@ import Item from '../Item/Item';
 import BestItems from '../../url';
 
 function Shop(props) {
-  const { addItemToCart, removeItemFromCart, isItemInCart } = props;
+  const {
+    cartItems, addItemToCart, removeItemFromCart, isItemInCart,
+  } = props;
 
   const [items, setItems] = useState([]);
 
@@ -16,6 +18,7 @@ function Shop(props) {
 
   const renderItemsShop = () => items.map((item) => (
     <Item
+      cartItems={cartItems}
       key={item.slug}
       alt={item.slug}
       image={item.background_image}

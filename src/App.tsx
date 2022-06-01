@@ -47,6 +47,7 @@ function App() {
           path="/shop"
           element={(
             <Shop
+              cartItems={cartItems}
               addItemToCart={addItemToCart}
               removeItemFromCart={removeItemFromCart}
               isItemInCart={isItemInCart}
