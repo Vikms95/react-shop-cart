@@ -146,9 +146,32 @@ button{
 
 .shopping-cart-container{
   padding: 5rem;
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fill, 15rem);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   align-items: flex-start; 
+}
+
+.item-cart-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-display{
+  padding: 3rem;
+  padding-bottom: .5rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: .7rem;
+  max-height: 15rem; 
+}
+
+.item-display-title{
+  font-size: 1.3rem;
 }

@@ -1,11 +1,17 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ShoppingCart from './ShoppingCart';
 
 test('renders shopping cart section with the right styles', () => {
   const cartItems = [
-    { image: 'hello', title: 'bye' },
+    { image: 'item-image', title: 'item-title', amount: 3 },
   ];
-  const container = render(<ShoppingCart cartItems={cartItems} />);
-  expect(container.findByRole('regin')).toBeDefined();
+
+  render(<ShoppingCart
+    cartItems={cartItems}
+  />);
+
+  screen.getAllByAltText('item-title');
+  screen.getByRole('heading', { name: 'item-title' });
+  // screen.getByText('3');
 });

@@ -20,11 +20,11 @@ function App() {
      *will appear
      */
   const addItemToCart = (event, itemImage, itemTitle) => {
-    // Obsolete when conditional rendering add
+    // Obsolete when conditional rendering is added
     if (isItemInCart(itemTitle)) return;
 
     setCartItems((prevCartItems) => (
-      [...prevCartItems, { image: itemImage, title: itemTitle }]
+      [...prevCartItems, { image: itemImage, title: itemTitle, amount: 0 }]
     ));
   };
 

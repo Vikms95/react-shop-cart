@@ -6,14 +6,16 @@ function ItemCart(props) {
   } = props;
 
   return (
-    <div>
-      <img src={image} alt="hello" />
-      <div>
-        {' '}
-        {title}
-        {' '}
-      </div>
-    </div>
+    <section className="item-cart-container">
+      <section className="item-display">
+        <h4 className="item-display-title">{title}</h4>
+        <img className="item-image" src={image} alt={title} />
+      </section>
+
+      <section className="info-item-cart">
+        we have 3
+      </section>
+    </section>
   );
 }
 
