@@ -21,6 +21,15 @@ a{
   text-decoration: none;
 }
 
+button{
+  cursor: pointer;
+}
+
+.header-button{
+  background-color: #003049;
+  border: none;
+}
+
 .homepage-container{
   display: flex;
   flex-direction: column;

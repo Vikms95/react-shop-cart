@@ -20,6 +20,7 @@ function ShoppingCart(props: Props) {
 
   return (
     <>
+      <h2>Check-out</h2>
       {renderItemsCart()}
     </>
   );

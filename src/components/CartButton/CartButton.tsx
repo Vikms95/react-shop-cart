@@ -5,8 +5,7 @@ function CartButton(props) {
   const { cartItems } = props;
   return (
     <button className="cart-button" type="button">
-      <div>{cartItems.length}</div>
-
+      <span>{cartItems.length}</span>
     </button>
   );
 }

@@ -7,10 +7,14 @@ function Header(props) {
   return (
     <nav className="navigation-bar">
       <Link to="/">
-        <h2> Home </h2>
+        <button type="button" className="header-button">
+          <h2>Home</h2>
+        </button>
       </Link>
       <Link to="/shop">
-        <h2> Shop </h2>
+        <button type="button" className="header-button">
+          <h2>Shop</h2>
+        </button>
       </Link>
       <Link to="/cart">
         <CartButton

@@ -31,9 +31,14 @@ function Shop(props) {
   }, []);
 
   return (
-    <div className="shop-container">
-      {renderItemsShop()}
-    </div>
+    <>
+      <h2> Game List</h2>
+      <section
+        className="shop-container"
+      >
+        {renderItemsShop()}
+      </section>
+    </>
   );
 }
 
