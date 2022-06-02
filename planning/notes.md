@@ -4,9 +4,10 @@ TODO
     <!-- :show it in the cart button -->
     <!-- :prepare ShoppingCart to show the items added -->
     <!-- :only show inc/dec buttons if the item is already in the cart array -->
+    <!-- *:item will be found within the array by its name -->
+      <!-- :item is not being returned by find() method? -->
     :increase/decrease > object in the cartItems will have a new property called amount which will be changed whenever the inc/dec buttons are pressed
-    *:item will be found within the array by its name
-      :item is not being returned by find() method?
+        :how to modify cartItems object    
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx

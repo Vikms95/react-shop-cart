@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function Item(props) {
   const {
-    cartItems, image, title, slug, addItemToCart, isItemInCart, // removeItemFromCart,
+    cartItems,
+    image,
+    title,
+    slug,
+    addItemToCart,
+    incrementItem,
+    decrementItem,
+    isItemInCart,
   } = props;
 
   /**
@@ -10,16 +17,10 @@ function Item(props) {
    * on this Item component and return its amount key
    */
   const renderItemAmount = () => {
-    const item = cartItems.find((cartItem) => (
-      cartItem.title === title
-    ));
-    console.log(title);
-    return 0;
+    const item = cartItems.find((cartItem) => cartItem.title === title);
+    return item.amount;
   };
 
-  useEffect(() => {
-
-  }, []);
   return (
     <div
       className="item"
@@ -30,21 +31,37 @@ function Item(props) {
         <img className="item-image" src={image} alt={slug} />
         <button
           type="button"
-          onClick={(event) => addItemToCart(event, image, title)}
+          onClick={() => addItemToCart(image, title)}
           className="toggle-item-button"
         >
           +
         </button>
+        <div className="display-item-amount">
+          {isItemInCart(title) && `x${renderItemAmount()}` }
+        </div>
+
         <h2 className="item-text">{title}</h2>
       </div>
-      <div className={`item-buttons ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
-        <button type="button" className="decrement">-</button>
+      <div className={`item-buttons ${isItemInCart(title) ? 'show' : 'hidden'}`}>
+        <button
+          type="button"
+          className="decrement"
+          onClick={() => decrementItem(title)}
+        >
+          -
+        </button>
         <div className="amount-display">
           {' '}
-          {title && renderItemAmount()}
+          {isItemInCart(title) && renderItemAmount()}
           {' '}
         </div>
-        <button type="button" className="increment">+</button>
+        <button
+          type="button"
+          className="increment"
+          onClick={() => incrementItem(title)}
+        >
+          +
+        </button>
       </div>
     </div>
   );

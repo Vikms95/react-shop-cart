@@ -89,6 +89,7 @@ button{
 .item-image{
   width: 15rem;
   max-height: 8rem;
+  border-radius: 15px;
 }
 
 .item-text{
@@ -98,15 +99,22 @@ button{
 .toggle-item-button{
   visibility: hidden;
   position: absolute;
-  bottom: 130px;
-  right: 100px;
+  bottom: 230px;
+  right: 200px;
 }
 
+.display-item-amount{
+  position: absolute;
+  bottom: 230px;
+  right: 10px;
+  font-weight: 400;
+  font-size: 2rem;
+}
 
 .item-buttons{
   display: flex;
   visibility: hidden;
-  gap: 1rem;
+  gap: 1.3rem;
   font-size: 1.2rem;
 }
 

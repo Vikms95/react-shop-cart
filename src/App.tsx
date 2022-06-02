@@ -19,21 +19,53 @@ function App() {
      *if element is already in Cart, removeItemFromCart button
      *will appear
      */
-  const addItemToCart = (event, itemImage, itemTitle) => {
+  const addItemToCart = (itemImage, itemTitle) => {
     // Obsolete when conditional rendering is added
     if (isItemInCart(itemTitle)) return;
 
     setCartItems((prevCartItems) => (
-      [...prevCartItems, { image: itemImage, title: itemTitle, amount: 0 }]
+      [...prevCartItems, { image: itemImage, title: itemTitle, amount: 1 }]
     ));
   };
 
-  const removeItemFromCart = (event, itemTitle) => {
+  const removeItemFromCart = (itemTitle) => {
     if (!isItemInCart(itemTitle)) return;
 
     setCartItems((prevCartItems) => (
       prevCartItems.filter((item) => item.title === itemTitle)
     ));
+  };
+
+  /**
+   * Increments an Item that has been already
+   * added to the cart by one unit
+   */
+  const incrementItem = (itemTitle) => {
+    const itemToIncrement = cartItems.find((item) => item.title === itemTitle);
+    setCartItems((prevCartItems) => (
+      prevCartItems.map((item) => (
+        (item === itemToIncrement)
+          ? { ...item, amount: item.amount + 1 }
+          : { ...item }
+
+      ))));
+  };
+
+  /**
+   * Decrements an Item that has been already
+   * added to the cart by one unit
+   */
+  const decrementItem = (itemTitle) => {
+    const itemToDecrement = cartItems.find((item) => item.title === itemTitle);
+    if (itemToDecrement.amount === 1) return;
+
+    setCartItems((prevCartItems) => (
+      prevCartItems.map((item) => (
+        (item === itemToDecrement)
+          ? { ...item, amount: item.amount - 1 }
+          : { ...item }
+
+      ))));
   };
 
   return (
@@ -50,6 +82,8 @@ function App() {
               cartItems={cartItems}
               addItemToCart={addItemToCart}
               removeItemFromCart={removeItemFromCart}
+              incrementItem={incrementItem}
+              decrementItem={decrementItem}
               isItemInCart={isItemInCart}
             />
 )}

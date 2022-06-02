@@ -5,7 +5,12 @@ import BestItems from '../../url';
 
 function Shop(props) {
   const {
-    cartItems, addItemToCart, removeItemFromCart, isItemInCart,
+    cartItems,
+    incrementItem,
+    decrementItem,
+    addItemToCart,
+    removeItemFromCart,
+    isItemInCart,
   } = props;
 
   const [items, setItems] = useState([]);
@@ -25,6 +30,8 @@ function Shop(props) {
       title={item.name}
       addItemToCart={addItemToCart}
       removeItemFromCart={removeItemFromCart}
+      incrementItem={incrementItem}
+      decrementItem={decrementItem}
       isItemInCart={isItemInCart}
     />
   ));
