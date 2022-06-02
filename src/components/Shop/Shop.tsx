@@ -49,14 +49,11 @@ function Shop(props) {
   }, []);
 
   return (
-    <>
-      <h2 className="section-header"> Game List</h2>
-      <section
-        className="shop-container"
-      >
-        {renderItemsShop()}
-      </section>
-    </>
+    <section
+      className="shop-container"
+    >
+      {renderItemsShop()}
+    </section>
   );
 }
 

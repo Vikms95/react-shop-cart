@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faTrashCan, faCirclePlus, faCircleMinus, faShoppingCart,
+  faCartPlus, faTrashCan, faCirclePlus, faCircleMinus, faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 
 function Item(props) {
@@ -45,7 +45,7 @@ function Item(props) {
         >
           {(isItemInCart(title))
             ? <FontAwesomeIcon icon={faTrashCan} />
-            : <button type="button" className="add-to-cart-button">Buy</button>}
+            : <FontAwesomeIcon icon={faCartPlus} />}
 
         </button>
         <div className={`display-item-in-cart ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
