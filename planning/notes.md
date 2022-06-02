@@ -1,14 +1,19 @@
 TODO
-- Functionality to add items to the cart
-    <!-- :if item already in cart, early return  -->
-    <!-- :show it in the cart button -->
-    <!-- :prepare ShoppingCart to show the items added -->
-    <!-- :only show inc/dec buttons if the item is already in the cart array -->
-    <!-- *:item will be found within the array by its name -->
-      <!-- :item is not being returned by find() method? -->
-    <!-- :increase/decrease > object in the cartItems will have a new property called amount which will be changed whenever the inc/dec buttons are pressed
-        :how to modify cartItems object     -->
-    - Remove button appear instead of Add button when item is added
+<!-- - Functionality to add items to the cart -->
+<!-- :if item already in cart, early return  -->
+<!-- :show it in the cart button -->
+<!-- :prepare ShoppingCart to show the items added -->
+<!-- :only show inc/dec buttons if the item is already in the cart array -->
+<!-- *:item will be found within the array by its name -->
+<!-- :item is not being returned by find() method? -->
+<!-- :increase/decrease > object in the cartItems will have a new property called amount which will be changed whenever the inc/dec buttons are pressed
+    :how to modify cartItems object     -->
+<!-- - Remove button appear instead of Add button when item is added -->
+
+- Adjust icon overlap on Items with the title occupying 2 rows
+- Adjust CartButton number expands when more than 2 digits
+- Make console platform appear on the top right spot of the Item
+- Create checkout div
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx

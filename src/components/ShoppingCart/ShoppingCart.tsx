@@ -13,6 +13,7 @@ function ShoppingCart(props: Props) {
     <ItemCart
       image={item.image}
       title={item.title}
+      amount={item.amount}
     />
   ));
 
@@ -20,7 +21,12 @@ function ShoppingCart(props: Props) {
     <>
       <h2 className="section-header">Check-out</h2>
       <section className="shopping-cart-container">
-        {renderItemsCart()}
+        <section className="shopping-cart-item">
+          {renderItemsCart()}
+        </section>
+        <section className="check-out-info">
+          this is checkout
+        </section>
       </section>
 
     </>
