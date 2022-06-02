@@ -33,7 +33,7 @@ function App() {
     if (!isItemInCart(itemTitle)) return;
 
     setCartItems((prevCartItems) => (
-      prevCartItems.filter((item) => item.title === itemTitle)
+      prevCartItems.filter((item) => item.title !== itemTitle)
     ));
   };
 

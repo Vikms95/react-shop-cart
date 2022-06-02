@@ -6,8 +6,9 @@ TODO
     <!-- :only show inc/dec buttons if the item is already in the cart array -->
     <!-- *:item will be found within the array by its name -->
       <!-- :item is not being returned by find() method? -->
-    :increase/decrease > object in the cartItems will have a new property called amount which will be changed whenever the inc/dec buttons are pressed
-        :how to modify cartItems object    
+    <!-- :increase/decrease > object in the cartItems will have a new property called amount which will be changed whenever the inc/dec buttons are pressed
+        :how to modify cartItems object     -->
+    - Remove button appear instead of Add button when item is added
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx

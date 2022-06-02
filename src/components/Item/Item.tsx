@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faPlus, /* faTrashCan */ faCirclePlus, faCircleMinus,
+  faPlus, faTrashCan, faCirclePlus, faCircleMinus,
 } from '@fortawesome/free-solid-svg-icons';
 
 function Item(props) {
@@ -11,6 +11,7 @@ function Item(props) {
     title,
     slug,
     addItemToCart,
+    removeItemFromCart,
     incrementItem,
     decrementItem,
     isItemInCart,
@@ -35,18 +36,25 @@ function Item(props) {
         <img className="item-image" src={image} alt={slug} />
         <button
           type="button"
-          onClick={() => addItemToCart(image, title)}
+          onClick={
+            (isItemInCart(title))
+              ? () => removeItemFromCart(title)
+              : () => addItemToCart(image, title)
+          }
           className="toggle-item-button"
         >
-          <FontAwesomeIcon icon={faPlus} />
+          {(isItemInCart(title))
+            ? <FontAwesomeIcon icon={faTrashCan} />
+            : <FontAwesomeIcon icon={faPlus} />}
+
         </button>
         <div className="display-item-amount">
-          {isItemInCart(title) && `x${renderItemAmount()}` }
+          {(isItemInCart(title)) && `x${renderItemAmount()}` }
         </div>
 
         <h2 className="item-text">{title}</h2>
       </div>
-      <div className={`item-buttons ${isItemInCart(title) ? 'show' : 'hidden'}`}>
+      <div className={`item-buttons ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
         <button
           type="button"
           className="decrement"
