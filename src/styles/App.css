@@ -11,8 +11,8 @@
   justify-content: flex-start;
   align-items: center;
   gap: 3rem;
-  padding-right: 20%;
-  padding-left: 20%;
+  padding-right: 40%;
+  padding-left: 40%;
   padding-bottom: 2rem;
 }
 
@@ -24,7 +24,29 @@ button{
   cursor: pointer;
 }
 
+.logo-title-container{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 5%;
+  top: 1.5%;
+  gap: .5rem;
+}
+
+.title{
+  /* font-family: 'IBM Plex Mono', monospace; */
+  letter-spacing: .1rem;
+  font-size: 3rem;
+  font-variant: small-caps;
+}
+
+.logo{
+  transform: rotate(-20deg);
+  width: 4rem;
+}
+
 .header-button{
+
   font-family: 'IBM Plex Mono', monospace;
   position: relative;
   display: inline-block;
@@ -36,13 +58,14 @@ button{
   padding: 1rem;
 }
 
+
 .header-button::after{
   content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
-  top: 55px;
+  top: 59px;
   left: 0;
   background-color: #ff0000;
   transform-origin: bottom right;
@@ -71,24 +94,34 @@ button{
 }
 
 .homepage-container{
+  position: relative;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  row-gap: 20rem;
-  align-items: center;
+  align-items: stretch;
 }
 
-.gotoshop-button{
-  background-color: var(--background-color);
-  border: solid .1rem blue;
-  color: var(--font-color);
-  padding: 2rem;
+#hero-video{
+  min-height: 50vh;
+  min-width:90%;
+}
+
+.video-text-1{
+  position:absolute;
+  top: 30%;
+  color: #ff0000;
+  z-index: 99999;
+}
+
+.video-text-2{
+  
 }
 
 .shop-container{
   position: relative;
-  padding: 8rem;
+  padding: 4rem;
   display: grid;
-  gap: 3rem;
+  column-gap: 5rem;
+  row-gap: 1rem;
   grid-template-columns: repeat(auto-fill, 15rem);
   justify-content: center;
   align-items: flex-start;
@@ -156,13 +189,15 @@ button{
 }
 
 .item-image.cart{
-  width: 23rem;
+  width: 10rem;
   max-height: 19rem;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .item-text{
   text-align: center;
-  color: #ff0000;
+  color:#082534;
 }
 
 .add-to-cart-button{
@@ -246,7 +281,9 @@ button{
 
 .shopping-cart-container{
   display: grid;
-  grid-template-columns: repeat(2, auto-fill);
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .shopping-cart-items{
@@ -263,6 +300,7 @@ button{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border-radius: 35px;
 }
 
 .item-display{
@@ -279,4 +317,30 @@ button{
 
 .item-display-title{
   font-size: 1.3rem;
+}
+
+.check-out-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  border: 25px;
+  padding: 3rem;
+  margin: 4rem;
+  border-radius: 35px;
+}
+
+.pay-button{
+  border: none;
+  padding:1rem;
+  font-size: 1rem;
+  margin-top: 5rem;
+  border-radius: 15px;
+  background-color: #003049;
+  color: white;
+}
+
+.pay-button:hover{
+  background-color: #01273b;
 }

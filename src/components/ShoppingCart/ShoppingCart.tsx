@@ -18,18 +18,26 @@ function ShoppingCart(props: Props) {
   ));
 
   return (
-    <>
-      <h2 className="section-header">Check-out</h2>
-      <section className="shopping-cart-container">
-        <section className="shopping-cart-item">
-          {renderItemsCart()}
-        </section>
-        <section className="check-out-info">
-          this is checkout
-        </section>
+    <section className="shopping-cart-container">
+      <section className="shopping-cart-item">
+        {renderItemsCart()}
       </section>
+      <section className="check-out-info">
 
-    </>
+        <h2>
+          {' '}
+          Check-out
+        </h2>
+        <div>
+          {' '}
+          Total units ordered
+          <hr />
+          {' '}
+          <span>{cartItems.length}</span>
+        </div>
+        <button type="button" className="pay-button">Proceed to pay</button>
+      </section>
+    </section>
   );
 }
 

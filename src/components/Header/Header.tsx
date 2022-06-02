@@ -1,6 +1,10 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-absolute-path */
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import CartButton from '../CartButton/CartButton';
+import logo from './logo.png';
 
 function Header(props) {
   const { cartItems, isShopRendered } = props;
@@ -12,6 +16,12 @@ function Header(props) {
   };
   return (
     <nav className="navigation-bar">
+      <div className="logo-title-container">
+        <div className="logo-container">
+          <img src={logo} alt="logo" className="logo" />
+        </div>
+        <div className="title">VGKeys</div>
+      </div>
       <Link to="/">
         <button
           type="button"

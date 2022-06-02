@@ -8,11 +8,11 @@ function ItemCart(props) {
   return (
     <section className="item-cart-container">
       <section className="item-display">
-        <h4 className="item-display-title">{title}</h4>
         <img className="item-image cart" src={image} alt={title} />
       </section>
 
       <section className="info-item-cart">
+        <h4 className="item-display-title">{title}</h4>
         Units ordered:
         {' '}
         <b>

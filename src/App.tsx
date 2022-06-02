@@ -58,7 +58,10 @@ function App() {
    */
   const decrementItem = (itemTitle) => {
     const itemToDecrement = cartItems.find((item) => item.title === itemTitle);
-    if (itemToDecrement.amount === 1) return;
+    if (itemToDecrement.amount === 1) {
+      removeItemFromCart(itemTitle);
+      return;
+    }
 
     setCartItems((prevCartItems) => (
       prevCartItems.map((item) => (
