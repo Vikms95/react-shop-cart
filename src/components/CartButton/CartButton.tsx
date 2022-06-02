@@ -6,8 +6,10 @@ function CartButton(props) {
   const { cartItems } = props;
   return (
     <button className="cart-button" type="button">
-      <span>{cartItems.length}</span>
-      <FontAwesomeIcon icon={faCartShopping} />
+      <div className="cart-icon">
+        <FontAwesomeIcon icon={faCartShopping} />
+        <span className="cart-items-amount">{cartItems.length}</span>
+      </div>
     </button>
   );
 }

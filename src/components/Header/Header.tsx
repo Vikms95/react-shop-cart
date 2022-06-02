@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CartButton from '../CartButton/CartButton';
 
 function Header(props) {
-  const { cartItems } = props;
+  const { cartItems, isShopRendered } = props;
   return (
     <nav className="navigation-bar">
       <Link to="/">
@@ -16,11 +16,14 @@ function Header(props) {
           <h2>Shop</h2>
         </button>
       </Link>
-      <Link to="/cart">
-        <CartButton
-          cartItems={cartItems}
-        />
-      </Link>
+      { (isShopRendered)
+        && (
+        <Link to="/cart">
+          <CartButton
+            cartItems={cartItems}
+          />
+        </Link>
+        )}
     </nav>
 
   );

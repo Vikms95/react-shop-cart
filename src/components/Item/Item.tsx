@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus, /* faTrashCan */ faCirclePlus, faCircleMinus,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Item(props) {
   const {

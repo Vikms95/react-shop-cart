@@ -11,6 +11,7 @@ function Shop(props) {
     addItemToCart,
     removeItemFromCart,
     isItemInCart,
+    setIsShopRendered,
   } = props;
 
   const [items, setItems] = useState([]);
@@ -38,6 +39,13 @@ function Shop(props) {
 
   useEffect(() => {
     fetchItems();
+  }, []);
+
+  useEffect(() => {
+    setIsShopRendered(true);
+    return () => {
+      setIsShopRendered(false);
+    };
   }, []);
 
   return (

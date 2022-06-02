@@ -8,6 +8,7 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [isShopRendered, setIShopRendered] = useState(false);
 
   const isItemInCart = (itemTitle) => (
     cartItems.some((item) => item.title === itemTitle)
@@ -72,6 +73,7 @@ function App() {
     <BrowserRouter>
       <Header
         cartItems={cartItems}
+        isShopRendered={isShopRendered}
       />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -84,6 +86,7 @@ function App() {
               removeItemFromCart={removeItemFromCart}
               incrementItem={incrementItem}
               decrementItem={decrementItem}
+              setIsShopRendered={setIShopRendered}
               isItemInCart={isItemInCart}
             />
 )}
