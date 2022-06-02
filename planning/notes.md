@@ -10,13 +10,15 @@ TODO
     :how to modify cartItems object     -->
 <!-- - Remove button appear instead of Add button when item is added -->
 
-- Adjust icon overlap on Items with the title occupying 2 rows
+<!-- - Adjust icon overlap on Items with the title occupying 2 rows -->
+<!-- - Header font family "IBM Plex Mono", monospace -->
+<!-- - When item is 1 and decrement is clicked, trigger the removeItemFromCart -->
+
 - Adjust CartButton number expands when more than 2 digits
 - Make console platform appear on the top right spot of the Item
-- Create checkout div
-- Header font family "IBM Plex Mono", monospace
-
-- When item is 1 and decrement is clicked, trigger the removeItemFromCart
+- Make dropdown menu showing different game lists options
+- Setup different fetch url based on the button clicked
+- Finish up
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx
