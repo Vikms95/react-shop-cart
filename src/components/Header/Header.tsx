@@ -16,14 +16,12 @@ function Header(props) {
           <h2>Shop</h2>
         </button>
       </Link>
-      { (isShopRendered)
-        && (
-        <Link to="/cart">
-          <CartButton
-            cartItems={cartItems}
-          />
-        </Link>
-        )}
+      <Link to="/cart">
+        <CartButton
+          isShopRendered={isShopRendered}
+          cartItems={cartItems}
+        />
+      </Link>
     </nav>
 
   );
