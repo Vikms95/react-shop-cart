@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 
 function Item(props) {
   const {
@@ -34,7 +36,7 @@ function Item(props) {
           onClick={() => addItemToCart(image, title)}
           className="toggle-item-button"
         >
-          +
+          <FontAwesomeIcon icon={faPlus} />
         </button>
         <div className="display-item-amount">
           {isItemInCart(title) && `x${renderItemAmount()}` }
@@ -48,7 +50,7 @@ function Item(props) {
           className="decrement"
           onClick={() => decrementItem(title)}
         >
-          -
+          <FontAwesomeIcon icon={faCircleMinus} />
         </button>
         <div className="amount-display">
           {' '}
@@ -60,7 +62,7 @@ function Item(props) {
           className="increment"
           onClick={() => incrementItem(title)}
         >
-          +
+          <FontAwesomeIcon icon={faCirclePlus} />
         </button>
       </div>
     </div>
