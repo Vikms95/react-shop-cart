@@ -73,6 +73,46 @@ button{
   font-variant: small-caps;
 }
 
+.gotoshop-button{
+  position: absolute;
+  top: 4%;
+  left: 80%;
+  overflow: hidden;
+  padding: 0.8em 1.8em;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: .3s;
+  font-family: inherit;
+  border: 1px solid #17C3B2;
+  color: #17C3B2;
+  z-index: 1;
+  font-weight: 900;
+}
+
+.gotoshop-button::before{
+  content:'';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #17C3B2;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.gotoshop-button:hover::before{
+  width: 105%;
+}
+
+.gotoshop-button:hover{
+  color: #111;
+}
+
 .header-button{
 
   font-family: 'IBM Plex Mono', monospace;

@@ -20,6 +20,9 @@ function HomePage(props) {
         <img src={logo} alt="logo" className="logo-homepage" />
         <div className="title-homepage">VGKeys</div>
       </div>
+      <Link to="/shop">
+        <button type="button" className="gotoshop-button"> GO TO SHOP </button>
+      </Link>
       <video autoPlay loop muted playsInline id="hero-video">
         <source src={heroVideo} type="video/mp4" />
       </video>
