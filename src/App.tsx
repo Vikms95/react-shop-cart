@@ -5,11 +5,13 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Shop from './components/Shop/Shop';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import urlHandler from './utils/urlHandler';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
+  const [url, setUrl] = useState('popular');
 
   const isItemInCart = (itemTitle) => (
     cartItems.some((item) => item.title === itemTitle)
@@ -77,6 +79,7 @@ function App() {
     <BrowserRouter>
       {!isHomePageRendered && (
       <Header
+        setUrl={setUrl}
         cartItems={cartItems}
         isShopRendered={isShopRendered}
       />
@@ -94,6 +97,7 @@ function App() {
           path="/shop"
           element={(
             <Shop
+              url={url}
               cartItems={cartItems}
               addItemToCart={addItemToCart}
               removeItemFromCart={removeItemFromCart}

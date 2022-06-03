@@ -1,12 +1,17 @@
 import React from 'react';
 
 function DropdownItem(props) {
-  const { itemText } = props;
+  const { setUrl, itemText, url } = props;
+
+  const changeUrl = () => {
+    setUrl(url);
+  };
+
   return (
     <>
-      <div className="dropdown-item">
+      <button type="button" className="dropdown-item" onClick={changeUrl}>
         {itemText}
-      </div>
+      </button>
       <hr />
     </>
   );

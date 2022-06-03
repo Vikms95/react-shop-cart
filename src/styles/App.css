@@ -205,8 +205,10 @@ button{
   display: flex;
   align-items: center;
   transition: background var(--speed);
-  padding: .5rem;
+  padding: 1.1rem;
   border-radius: 5px;
+  border: none;
+  background-color: transparent;
 }
 
 .dropdown-item:hover{

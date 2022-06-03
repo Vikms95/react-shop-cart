@@ -11,7 +11,7 @@ import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 
 function Header(props) {
-  const { cartItems, isShopRendered } = props;
+  const { setUrl, cartItems, isShopRendered } = props;
   const [open, setOpen] = useState(false);
   const dropdown = useRef(null);
 
@@ -60,7 +60,7 @@ function Header(props) {
       </Link>
       <button ref={dropdown} type="button" className="dropdown-button" onClick={() => setOpen(!open)}>
         <FontAwesomeIcon icon={faBars} />
-        {open && <Dropdown />}
+        {open && <Dropdown setUrl={setUrl} />}
       </button>
 
       <Link to="/cart">

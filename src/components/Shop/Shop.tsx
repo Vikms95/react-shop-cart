@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 // import itemsArray from '../data/items';
-import BestItems from '../../utils/urlHandler';
+import urlHandler from '../../utils/urlHandler';
 
 function Shop(props) {
   const {
+    url,
     cartItems,
     incrementItem,
     decrementItem,
@@ -18,7 +19,9 @@ function Shop(props) {
 
   // Everytime url variable changes, fetch data
   const fetchItems = async () => {
-    const response = await fetch(BestItems);
+    const urlToFetch = urlHandler(url);
+    console.log(urlToFetch);
+    const response = await fetch(urlToFetch);
     const data = await response.json();
     setItems(data.results);
   };
@@ -40,7 +43,7 @@ function Shop(props) {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     setIsShopRendered(true);
