@@ -15,10 +15,12 @@ TODO
 <!-- - When item is 1 and decrement is clicked, trigger the removeItemFromCart -->
 
 - Adjust CartButton number expands when more than 2 digits
+- Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
 - Make console platform appear on the top right spot of the Item
-- Make dropdown menu showing different game lists options
+- Make dropdown menu showing different game lists options(where the different 
+    url fetch will appear)
 - Setup different fetch url based on the button clicked
-- Finish up
+- Setup image gallery when clicking an Item image(new component ImageGallery) image will lower brightness when hovered and one eye icon will appear
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx
@@ -31,16 +33,15 @@ TODO
 
 FUNCTIONALITIES
 <!-- - A HomePage where you can click the "Shop" button to get into the Shop -->
-
-- Click an Item on the Shop to add them to the ShoppingCart, if the Item is already there, do nothing
+<!-- s -->
 
 <!-- - Both HomePage and Shop will be accessible from the Header component (use nav)  -->
+<!-- 
+- ShoppingCart will be accesible via a sticky element, and will show the amount of items in the cart -->
 
-- ShoppingCart will be accesible via a sticky element, and will show the amount of items in the cart
-
-- Item components will have a increment and decrement button which will determine how many of the Item do you want to add to the ShoppingCart when the buy button is clicked
+<!-- - Item components will have a increment and decrement button which will determine how many of the Item do you want to add to the ShoppingCart when the buy button is clicked
     :will have a title, number of products to submit and an "Add to Cart" button
-    :amount will be stored within each Item as state and passed as argument to the onClick handler. The onClick function will be passed as props to each Item component. That function will have access to the ShoppingCart component.(?)
+    :amount will be stored within each Item as state and passed as argument to the onClick handler. The onClick function will be passed as props to each Item component. That function will have access to the ShoppingCart component.(?) -->
 
 
 COMPONENTS
@@ -65,4 +66,4 @@ QUESTIONS
 <!-- - How do I pass each item to the cart? -->
 <!-- :function will be declared in Shop -->
 - 
-- How do I pass in the value of the amount of each Item to the cart?
+<!-- - How do I pass in the value of the amount of each Item to the cart? -->
