@@ -4,9 +4,10 @@ import DropdownItem from '../DropdownItem/DropdownItem';
 function Dropdown() {
   return (
     <div className="dropdown">
-      <div>hello</div>
-      <div>bye</div>
-      <div>no</div>
+      <DropdownItem itemText="Hot games" />
+      <DropdownItem itemText="Best games of this year" />
+      <DropdownItem itemText="Action games" />
+      <DropdownItem itemText="Racing games" />
     </div>
   );
 }

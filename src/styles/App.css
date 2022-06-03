@@ -165,7 +165,7 @@ button{
 
 .dropdown-button{
   position: relative;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
   border: none;
   background-color: transparent;
   font-size: 2rem;
@@ -177,26 +177,41 @@ button{
   flex-direction: column;
   top: 58px;
   width: 300px;
-  transform: translateX(-45%);
-  background-color: #ff0000;
+  background-color: #ffffff;
   padding: 1rem;
   overflow: hidden;
   border: #490000;
   border-radius: 5px;
   z-index: 1;
+  animation: rotateMenu 400ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+@keyframes rotateMenu {
+  0% {
+      transform: rotateX(-90deg)
+  }
+  70% {
+      transform: rotateX(20deg) 
+  }
+  100% {
+      transform: rotateX(0deg) 
+  }
 }
 
 .dropdown-item{
-  height: 50px;
+  font-size: 1rem;
+  height: 30px;
   display: flex;
   align-items: center;
-  border-radius: 15px;
   transition: background var(--speed);
   padding: .5rem;
+  border-radius: 5px;
 }
 
 .dropdown-item:hover{
   background-color: #01273b;
+  color: white;
 }
 
 .shop-container,
@@ -231,7 +246,7 @@ button{
   position: fixed;
   border: none;
   left: 92%;
-  bottom: 93%;
+  bottom: 92%;
   padding: .4rem;
   z-index: 1;
   background-color: transparent;
