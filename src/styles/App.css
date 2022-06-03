@@ -52,6 +52,27 @@ button{
   width: 4rem;
 }
 
+.logo-homepage{
+  transform: rotate(-20deg);
+  width: 9rem;
+}
+
+.logo-container-homepage{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 5%;
+  top: 1.5%;
+  gap: .5rem;
+}
+
+.title-homepage{
+  color: white;
+  letter-spacing: .1rem;
+  font-size: 3rem;
+  font-variant: small-caps;
+}
+
 .header-button{
 
   font-family: 'IBM Plex Mono', monospace;
@@ -74,7 +95,7 @@ button{
   height: 2px;
   top: 59px;
   left: 0;
-  background-color: #ff0000;
+  background-color: #c00cae;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -91,7 +112,7 @@ button{
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ff0000;
+  background-color: #c00cae;
 
 }
 
@@ -110,28 +131,6 @@ button{
 
 #hero-video{
   min-width:90%;
-}
-
-.video-text{
-  position:absolute;
-  display: flex;
-  top: 2%;
-  width: 100%;
-  justify-content: space-around;
-  height: 3px;
-  font-size: 1.3rem;
-}
-
-.video-text-1{
-  font-weight: 500;
-  color: white;
-  padding-top: .5%;
-}
-
-.video-text-2{
-  font-weight: 500;
-  color: #ffffff;
-  padding-top: 3%;
 }
 
 .shop-container{

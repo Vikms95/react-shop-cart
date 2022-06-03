@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// @ts-ignore
 import heroVideo from './hero-video.mp4';
+import logo from './logo.png';
 
-function HomePage() {
+function HomePage(props) {
+  const { setIsHomePageRendered } = props;
+
+  useEffect(() => {
+    setIsHomePageRendered(true);
+    return () => {
+      setIsHomePageRendered(false);
+    };
+  }, []);
+
   return (
     <div className="homepage-container">
-      <div className="video-text">
-        <div className="video-text-1">
-          Your favourite games ...
-        </div>
-        <div className="video-text-2">
-          ... at the best price you can find.
-        </div>
+      <div className="logo-container-homepage">
+        <img src={logo} alt="logo" className="logo-homepage" />
+        <div className="title-homepage">VGKeys</div>
       </div>
       <video autoPlay loop muted playsInline id="hero-video">
         <source src={heroVideo} type="video/mp4" />
