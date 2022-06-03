@@ -4,21 +4,34 @@
 /* eslint-disable import/no-absolute-path */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import logo from './logo.png';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
-import logo from './logo.png';
 
 function Header(props) {
   const { cartItems, isShopRendered } = props;
   const [open, setOpen] = useState(false);
+  const dropdown = useRef(null);
 
-  const toggleUnderline = (event) => {
-    const buttons = Array.from(document.querySelectorAll('[data-button]'));
-    buttons.forEach((button) => button.classList.remove('underline'));
-    event.target.classList.add('underline');
+  const isClickOutside = (event) => (
+    dropdown.current && open && !dropdown.current.contains(event.target)
+  );
+
+  const handleClickOutside = (event) => {
+    if (isClickOutside(event)) {
+      setOpen(false);
+    }
   };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
+
   return (
     <nav className="navigation-bar">
       <div className="logo-title-container">
@@ -32,7 +45,6 @@ function Header(props) {
           type="button"
           className="header-button"
           data-button="home"
-          onClick={(e) => toggleUnderline(e)}
         >
           Home
         </button>
@@ -42,12 +54,11 @@ function Header(props) {
           type="button"
           className="header-button"
           data-button="shop"
-          onClick={(e) => toggleUnderline(e)}
         >
           Shop
         </button>
       </Link>
-      <button type="button" className="dropdown-button" onClick={() => setOpen(!open)}>
+      <button ref={dropdown} type="button" className="dropdown-button" onClick={() => setOpen(!open)}>
         <FontAwesomeIcon icon={faBars} />
         {open && <Dropdown />}
       </button>

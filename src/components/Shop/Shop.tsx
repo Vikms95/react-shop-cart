@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 // import itemsArray from '../data/items';
-import BestItems from '../../url';
+import BestItems from '../../UrlHandler';
 
 function Shop(props) {
   const {
@@ -16,6 +16,7 @@ function Shop(props) {
 
   const [items, setItems] = useState([]);
 
+  // Everytime url variable changes, fetch data
   const fetchItems = async () => {
     const response = await fetch(BestItems);
     const data = await response.json();
