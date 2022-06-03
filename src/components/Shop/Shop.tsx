@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 // import itemsArray from '../data/items';
-import BestItems from '../../UrlHandler';
+import BestItems from '../../utils/urlHandler';
 
 function Shop(props) {
   const {

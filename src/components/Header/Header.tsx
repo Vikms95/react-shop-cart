@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from './logo.png';
+import logo from '../../assets/logo.png';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 

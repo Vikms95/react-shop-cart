@@ -17,8 +17,7 @@ TODO
 - Adjust CartButton number expands when more than 2 digits
 - Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
 - Make console platform appear on the top right spot of the Item
-- Make dropdown menu showing different game lists options(where the different 
-    url fetch will appear)
+<!-- - Make dropdown menu showing different game lists options(where the different url fetch will appear) -->
 - Setup different fetch url based on the button clicked
 - Setup image gallery when clicking an Item image(new component ImageGallery) image will lower brightness when hovered and one eye icon will appear
 

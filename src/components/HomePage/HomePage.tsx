@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import heroVideo from './hero-video.mp4';
-import logo from './logo.png';
+import heroVideo from '../../assets/hero-video.mp4';
+import logo from '../../assets/logo.png';
 
 function HomePage(props) {
   const { setIsHomePageRendered } = props;
