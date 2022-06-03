@@ -300,7 +300,7 @@ button{
 
 .item-image{
   width: 15rem;
-  max-height: 8rem;
+  height: 8rem;
   border-radius: 5px;
 }
 
