@@ -5,7 +5,7 @@
 ![alt text]( "screenshot of memory card gameplay")
 
 ## Description
-Shopping cart of the League of Legends champions where you can add champions to your shopping cart, sort and filter champions based on their role and check your shopping cart to proceed with the payment. 
+Videogame digital key webpage where you can filter videogames with the various options provided. You can later modify the amount of items of each unit and check-out to proceed with the payment. 
 
 ## Project Objectives
 
