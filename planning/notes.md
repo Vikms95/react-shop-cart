@@ -26,6 +26,7 @@ TODO
  <!-- :make sure fetch's are being done correctly -->
 - Setup image gallery when clicking an Item image(new component ImageGallery) image will lower brightness when hovered and one eye icon will appear
     :how to pass info from Item to App?
+        :check if the object passed by CurrentGameInfo is the desired one
     :make the rest of the screen brightness lower
     :make the rest of the screen unclickable
         :if the rest of the screen is clicked, close the modal

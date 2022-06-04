@@ -222,17 +222,31 @@ button{
 }
 
 .game-info-modal{
-  background-color: rgb(255, 255, 255);
+  color: black;
+  background-color: rgb(255,255,255);
   position:fixed;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   z-index: 1;
   display: flex;
-  /* visibility: hidden; */
+  visibility: hidden;
   min-height: 40rem;
   width: 80%;
   box-shadow: 1px 1px 1px 1px black;
+  font-size: 2rem;
+}
+
+.left-arrow{
+  position: absolute;
+  top:50%;
+  left: 2%;
+}
+
+.right-arrow{
+  position: absolute;
+  top:50%;
+  left: 98%;
 }
 
 .homepage-container{

@@ -23,7 +23,6 @@ function Shop(props) {
     const urlToFetch = urlHandler(url);
     const response = await fetch(urlToFetch);
     const data = await response.json();
-    console.log(data.results);
     setItems(data.results);
   };
 
