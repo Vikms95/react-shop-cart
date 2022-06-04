@@ -329,6 +329,39 @@ button{
   margin-bottom: .2rem;
 }
 
+.rating{
+  display: flex;
+  font-size:1rem;
+  color: rgb(255, 179, 0);
+  position: absolute;
+  bottom: 89%;
+  left: 80%;
+}
+
+.rating-score{
+  margin-right: .3rem;
+  color: #003049;
+  font-weight: 500;
+}
+
+.no-reviews{
+  font-size: 1rem;
+}
+
+.rating .no-reviews{
+  font-size: smaller;
+  margin-left: -2rem;
+}
+
+.game-details-icon{
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: white;
+  position: absolute;
+  top: 35%;
+  right: 45%;
+}
+
 .display-item-in-cart{
   background-color:var(--font-color);
   position: absolute;
@@ -357,7 +390,8 @@ button{
   align-items: center;
 }
 
-.item:hover .toggle-item-button{
+.item:hover .toggle-item-button,
+.item:hover .game-details-icon{
   visibility: visible;
 }
 

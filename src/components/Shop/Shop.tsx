@@ -20,9 +20,9 @@ function Shop(props) {
   // Everytime url variable changes, fetch data
   const fetchItems = async () => {
     const urlToFetch = urlHandler(url);
-    console.log(urlToFetch);
     const response = await fetch(urlToFetch);
     const data = await response.json();
+    console.log(data.results);
     setItems(data.results);
   };
 
@@ -33,6 +33,7 @@ function Shop(props) {
       alt={item.slug}
       image={item.background_image}
       title={item.name}
+      rating={item.rating}
       addItemToCart={addItemToCart}
       removeItemFromCart={removeItemFromCart}
       incrementItem={incrementItem}

@@ -1,8 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCartPlus, faTrashCan, faCirclePlus, faCircleMinus, faShoppingCart,
+  faCartPlus, faTrashCan, faStar, faEye, faCirclePlus, faCircleMinus, faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
+import toOneDecimal from '../../utils/toOneDecimal';
 
 function Item(props) {
   const {
@@ -10,6 +11,7 @@ function Item(props) {
     image,
     title,
     slug,
+    rating,
     addItemToCart,
     removeItemFromCart,
     incrementItem,
@@ -34,6 +36,7 @@ function Item(props) {
     >
       <div>
         <img className="item-image" src={image} alt={slug} />
+        <FontAwesomeIcon icon={faEye} className="game-details-icon" />
         <button
           type="button"
           onClick={
@@ -48,6 +51,10 @@ function Item(props) {
             : <FontAwesomeIcon icon={faCartPlus} />}
 
         </button>
+        <div className="rating">
+          <span className="rating-score">{rating === 0 ? <span className="no-reviews">Pending</span> : toOneDecimal(rating)}</span>
+          <FontAwesomeIcon icon={faStar} />
+        </div>
         <div className={`display-item-in-cart ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </div>

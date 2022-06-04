@@ -3,11 +3,6 @@ import DropdownItem from '../DropdownItem/DropdownItem';
 
 function Dropdown(props) {
   const { setUrl } = props;
-  const [isMenuRendered, setIsMenuRendered] = useState(false);
-  const toggle = () => setIsMenuRendered(!isMenuRendered);
-
-  const menuRef = useRef(null);
-  const [listening, setListening] = useState(false);
 
   return (
     <div className="dropdown">

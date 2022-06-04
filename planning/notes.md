@@ -18,7 +18,9 @@ TODO
 - Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
 - Make console platform appear on the top right spot of the Item
 <!-- - Make dropdown menu showing different game lists options(where the different url fetch will appear) -->
-- Setup different fetch url based on the button clicked
+<!-- - Setup different fetch url based on the button clicked
+ -->
+ <!-- :make sure fetch's are being done correctly -->
 - Setup image gallery when clicking an Item image(new component ImageGallery) image will lower brightness when hovered and one eye icon will appear
 
 - Test UI of all the components created so far
