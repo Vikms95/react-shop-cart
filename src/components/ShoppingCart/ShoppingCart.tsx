@@ -33,7 +33,13 @@ function ShoppingCart(props: Props) {
           Total units ordered
           <hr />
           {' '}
-          <span>{cartItems.length}</span>
+          <span className="amount-checkout">{cartItems.length}</span>
+        </div>
+        <div>
+          {' '}
+          <b>Final price: </b>
+          {' '}
+          FREE
         </div>
         <button type="button" className="pay-button">Proceed to pay</button>
       </section>

@@ -8,7 +8,7 @@ function ItemCart(props) {
   return (
     <section className="item-cart-container">
       <section className="item-display">
-        <img className="item-image cart" src={image} alt={title} />
+        <img className="item-image-cart" src={image} alt={title} />
       </section>
 
       <section className="info-item-cart">

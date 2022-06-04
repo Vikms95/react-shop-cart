@@ -7,6 +7,7 @@ import toOneDecimal from '../../utils/toOneDecimal';
 
 function Item(props) {
   const {
+    item,
     cartItems,
     image,
     title,
@@ -17,6 +18,7 @@ function Item(props) {
     incrementItem,
     decrementItem,
     isItemInCart,
+    setCurrentGameInfo,
   } = props;
 
   /**
@@ -24,8 +26,8 @@ function Item(props) {
    * on this Item component and return its amount key
    */
   const renderItemAmount = () => {
-    const item = cartItems.find((cartItem) => cartItem.title === title);
-    return item.amount;
+    const itemToRender = cartItems.find((cartItem) => cartItem.title === title);
+    return itemToRender.amount;
   };
 
   return (
@@ -35,8 +37,14 @@ function Item(props) {
       data-title={title}
     >
       <div>
-        <img className="item-image" src={image} alt={slug} />
-        <FontAwesomeIcon icon={faEye} className="game-details-icon" />
+        <img
+          className="item-image"
+          src={image}
+          alt={slug}
+          onClick={setCurrentGameInfo(item)}
+          aria-hidden="true"
+        />
+        <FontAwesomeIcon icon={faEye} className="game-details-icon" onClick={() => setCurrentGameInfo(item)} />
         <button
           type="button"
           onClick={

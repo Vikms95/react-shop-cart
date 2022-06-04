@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-// import itemsArray from '../data/items';
 import urlHandler from '../../utils/urlHandler';
+import GameInfoModal from '../GameInfoModal/GameInfoModal';
 
 function Shop(props) {
   const {
@@ -16,6 +16,7 @@ function Shop(props) {
   } = props;
 
   const [items, setItems] = useState([]);
+  const [currentGameInfo, setCurrentGameInfo] = useState('');
 
   // Everytime url variable changes, fetch data
   const fetchItems = async () => {
@@ -39,6 +40,7 @@ function Shop(props) {
       incrementItem={incrementItem}
       decrementItem={decrementItem}
       isItemInCart={isItemInCart}
+      setCurrentGameInfo={setCurrentGameInfo}
     />
   ));
 
@@ -54,9 +56,8 @@ function Shop(props) {
   }, []);
 
   return (
-    <section
-      className="shop-container"
-    >
+    <section className="shop-container">
+      <GameInfoModal currentGameInfo={currentGameInfo} />
       {renderItemsShop()}
     </section>
   );

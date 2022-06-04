@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Shop from './components/Shop/Shop';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import urlHandler from './utils/urlHandler';
+import GameInfoModal from './components/GameInfoModal/GameInfoModal';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);

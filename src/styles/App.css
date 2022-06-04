@@ -221,6 +221,20 @@ button{
   background-color: rgb(234, 234, 234);
 }
 
+.game-info-modal{
+  background-color: rgb(255, 255, 255);
+  position:fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  /* visibility: hidden; */
+  min-height: 40rem;
+  width: 80%;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
 .homepage-container{
   position: relative;
   width: 100%;
@@ -304,7 +318,7 @@ button{
   border-radius: 5px;
 }
 
-.item-image.cart{
+.item-image-cart{
   width: 10rem;
   max-height: 19rem;
   border-top-left-radius: 25px;
@@ -412,6 +426,8 @@ button{
 }
 
 .toggle-item-button:hover,
+.item-image,
+.game-details-icon,
 .decrement,
 .increment{
   cursor: pointer;
@@ -430,10 +446,11 @@ button{
 }
 
 .shopping-cart-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .shopping-cart-items{
@@ -470,15 +487,19 @@ button{
 }
 
 .check-out-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 2fr;
   align-items: flex-start;
   background-color: white;
   border: 25px;
   padding: 3rem;
   margin: 4rem;
   border-radius: 35px;
+}
+
+.amount-checkout{
+  display: flex;
+  justify-content: center;
 }
 
 .pay-button{
