@@ -233,6 +233,8 @@ button{
   z-index: 1;
   display: flex;
   min-height: 40rem;
+  max-height: 40rem;
+  max-width: 60rem;
   width: 80%;
   box-shadow: 1px 1px 1px 1px black;
   font-size: 2rem;
@@ -249,6 +251,12 @@ button{
   flex: 1;
   height: 30%;
   gap: 2rem;
+  z-index: 3;
+}
+
+.modal-gallery{
+  max-width: 40rem;
+  max-height: 80rem;
 }
 
 .left-arrow{
@@ -265,6 +273,9 @@ button{
 
 .game-info-top-row{
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
 }
 
 .game-info-title{
@@ -407,6 +418,12 @@ button{
   margin-right: .3rem;
   color: #003049;
   font-weight: 500;
+}
+
+.rating-score-game-info{
+  display: flex;
+  font-size:2rem;
+  color: rgb(255, 179, 0);
 }
 
 .no-reviews{

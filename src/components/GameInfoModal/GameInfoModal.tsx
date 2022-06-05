@@ -41,19 +41,18 @@ function GameInfoModal(props) {
       <FontAwesomeIcon icon={faAngleLeft} className="left-arrow" />
       <FontAwesomeIcon icon={faAngleRight} className="right-arrow" />
       <div className="game-info">
+        <img className="modal-gallery" src={images[5].image} alt="5" />
         <div className="game-info-top-row">
           <h4 className="game-info-title">
             {title}
-            {' '}
-            -
           </h4>
           <div className="rating-game-info">
             <span className="rating-score-game-info">
               {(rating === 0)
                 ? <span className="no-reviews">Pending</span>
                 : toOneDecimal(rating)}
+              <FontAwesomeIcon icon={faStar} />
             </span>
-            <FontAwesomeIcon icon={faStar} />
           </div>
         </div>
         <div className="game-platforms">
