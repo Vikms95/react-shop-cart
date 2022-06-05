@@ -7,6 +7,7 @@ function GameInfoModal(props) {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    document.querySelector('.App').classList.add('dim');
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };

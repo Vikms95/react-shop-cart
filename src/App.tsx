@@ -76,48 +76,50 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      {!isHomePageRendered && (
-      <Header
-        setUrl={setUrl}
-        cartItems={cartItems}
-        isShopRendered={isShopRendered}
-      />
-      )}
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <HomePage
-              setIsHomePageRendered={setIsHomePageRendered}
-            />
-)}
+    <main className="App">
+      <BrowserRouter>
+        {!isHomePageRendered && (
+        <Header
+          setUrl={setUrl}
+          cartItems={cartItems}
+          isShopRendered={isShopRendered}
         />
-        <Route
-          path="/shop"
-          element={(
-            <Shop
-              url={url}
-              cartItems={cartItems}
-              addItemToCart={addItemToCart}
-              removeItemFromCart={removeItemFromCart}
-              incrementItem={incrementItem}
-              decrementItem={decrementItem}
-              setIsShopRendered={setIsShopRendered}
-              isItemInCart={isItemInCart}
-            />
-)}
-        />
-        <Route
-          path="/cart"
-          element={(
-            <ShoppingCart
-              cartItems={cartItems}
-            />
-)}
-        />
-      </Routes>
-    </BrowserRouter>
+        )}
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              <HomePage
+                setIsHomePageRendered={setIsHomePageRendered}
+              />
+    )}
+          />
+          <Route
+            path="/shop"
+            element={(
+              <Shop
+                url={url}
+                cartItems={cartItems}
+                addItemToCart={addItemToCart}
+                removeItemFromCart={removeItemFromCart}
+                incrementItem={incrementItem}
+                decrementItem={decrementItem}
+                setIsShopRendered={setIsShopRendered}
+                isItemInCart={isItemInCart}
+              />
+    )}
+          />
+          <Route
+            path="/cart"
+            element={(
+              <ShoppingCart
+                cartItems={cartItems}
+              />
+    )}
+          />
+        </Routes>
+      </BrowserRouter>
+    </main>
   );
 }
 

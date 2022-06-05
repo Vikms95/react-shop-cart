@@ -65,16 +65,28 @@ function Item(props) {
 
         </button>
         <div className="rating">
-          <span className="rating-score">{rating === 0 ? <span className="no-reviews">Pending</span> : toOneDecimal(rating)}</span>
+          <span className="rating-score">
+            {(rating === 0)
+              ? <span className="no-reviews">Pending</span>
+              : toOneDecimal(rating)}
+          </span>
           <FontAwesomeIcon icon={faStar} />
         </div>
-        <div className={`display-item-in-cart ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
+        <div className={`display-item-in-cart ${(
+          isItemInCart(title))
+          ? 'show'
+          : 'hidden'}`}
+        >
           <FontAwesomeIcon icon={faShoppingCart} />
         </div>
 
         <h2 className="item-text">{title}</h2>
       </div>
-      <div className={`item-buttons ${(isItemInCart(title)) ? 'show' : 'hidden'}`}>
+      <div className={`item-buttons ${
+        (isItemInCart(title))
+          ? 'show'
+          : 'hidden'}`}
+      >
         <button
           type="button"
           className="decrement"

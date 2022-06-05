@@ -225,8 +225,8 @@ button{
   color: black;
   background-color: rgb(255,255,255);
   position:fixed;
-  transform: translate(-50%, -50%);
-  top: 50%;
+  /* transform: translate(-50%, -50%); */
+  top: 24%;
   left: 50%;
   z-index: 1;
   display: flex;
@@ -451,6 +451,10 @@ button{
 .hidden{
   visibility: hidden;
   opacity: 0;
+}
+
+.dim{
+  filter: brightness(70%);
 }
 
 .hidden:hover{
