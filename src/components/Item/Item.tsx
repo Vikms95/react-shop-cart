@@ -7,7 +7,6 @@ import toOneDecimal from '../../utils/toOneDecimal';
 
 function Item(props) {
   const {
-    item,
     cartItems,
     image,
     title,
@@ -18,7 +17,9 @@ function Item(props) {
     incrementItem,
     decrementItem,
     isItemInCart,
-    setCurrentGameInfo,
+    addItemToGameInfo,
+    gameInfoModalRef,
+    setIsModalRendered,
   } = props;
 
   /**
@@ -41,10 +42,14 @@ function Item(props) {
           className="item-image"
           src={image}
           alt={slug}
-          onClick={setCurrentGameInfo(item)}
+          onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
           aria-hidden="true"
         />
-        <FontAwesomeIcon icon={faEye} className="game-details-icon" onClick={() => setCurrentGameInfo(item)} />
+        <FontAwesomeIcon
+          icon={faEye}
+          className="game-details-icon"
+          onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
+        />
         <button
           type="button"
           onClick={

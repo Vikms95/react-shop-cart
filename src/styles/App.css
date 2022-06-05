@@ -230,11 +230,12 @@ button{
   left: 50%;
   z-index: 1;
   display: flex;
-  visibility: hidden;
   min-height: 40rem;
   width: 80%;
   box-shadow: 1px 1px 1px 1px black;
   font-size: 2rem;
+  /* transition: opacity 200ms; */
+  /* transition: 500ms; */
 }
 
 .left-arrow{
@@ -449,6 +450,7 @@ button{
 
 .hidden{
   visibility: hidden;
+  opacity: 0;
 }
 
 .hidden:hover{

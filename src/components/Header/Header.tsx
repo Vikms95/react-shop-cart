@@ -2,26 +2,29 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-absolute-path */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useRef, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 
 function Header(props) {
   const { setUrl, cartItems, isShopRendered } = props;
-  const [open, setOpen] = useState(false);
+  const [isDropdownRendered, setIsDropdownRendered] = useState(false);
   const dropdown = useRef(null);
 
-  const isClickOutside = (event) => (
-    dropdown.current && open && !dropdown.current.contains(event.target)
+  // Can merge with isClickOutsideModal
+  const isClickOutsideDropdown = (event) => (
+    dropdown.current
+    && isDropdownRendered
+    && !dropdown.current.contains(event.target)
   );
 
   const handleClickOutside = (event) => {
-    if (isClickOutside(event)) {
-      setOpen(false);
+    if (isClickOutsideDropdown(event)) {
+      setIsDropdownRendered(false);
     }
   };
 
@@ -58,9 +61,14 @@ function Header(props) {
           Shop
         </button>
       </Link>
-      <button ref={dropdown} type="button" className="dropdown-button" onClick={() => setOpen(!open)}>
+      <button
+        ref={dropdown}
+        type="button"
+        className="dropdown-button"
+        onClick={() => setIsDropdownRendered(!isDropdownRendered)}
+      >
         <FontAwesomeIcon icon={faBars} />
-        {open && <Dropdown setUrl={setUrl} />}
+        {isDropdownRendered && <Dropdown setUrl={setUrl} />}
       </button>
 
       <Link to="/cart">

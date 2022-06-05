@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Item from '../Item/Item';
 import urlHandler from '../../utils/urlHandler';
 import GameInfoModal from '../GameInfoModal/GameInfoModal';
@@ -16,14 +16,45 @@ function Shop(props) {
   } = props;
 
   const [items, setItems] = useState([]);
-  const [currentGameInfo, setCurrentGameInfo] = useState('');
+  const [gameInfoModal, setGameInfoModal] = useState({});
+  const [isModalRendered, setIsModalRendered] = useState(false);
+  const gameInfoModalRef = useRef(null);
 
-  // Everytime url variable changes, fetch data
   const fetchItems = async () => {
     const urlToFetch = urlHandler(url);
     const response = await fetch(urlToFetch);
     const data = await response.json();
     setItems(data.results);
+  };
+
+  const revealModal = () => {
+    setIsModalRendered(true);
+  };
+
+  const addItemToGameInfo = (itemTitle, infoModal) => {
+    const itemToAdd = items.find((item) => item.name === itemTitle);
+
+    setGameInfoModal((prevItemCart) => ({
+      images: [itemToAdd.background_image, ...itemToAdd.short_screenshots],
+      release: itemToAdd.released,
+      platforms: itemToAdd.platforms,
+      genres: itemToAdd.genres,
+      esrbRating: itemToAdd.esrb_rating,
+    }));
+
+    revealModal();
+  };
+
+  const isClickOutsideModal = (event) => (
+    gameInfoModalRef.current
+    && isModalRendered
+    && !gameInfoModalRef.current.contains(event.target)
+  );
+
+  const handleClickOutside = (event) => {
+    if (isClickOutsideModal(event)) {
+      setIsModalRendered(false);
+    }
   };
 
   const renderItemsShop = () => items.map((item) => (
@@ -39,7 +70,8 @@ function Shop(props) {
       incrementItem={incrementItem}
       decrementItem={decrementItem}
       isItemInCart={isItemInCart}
-      setCurrentGameInfo={setCurrentGameInfo}
+      gameInfoModalRef={gameInfoModalRef}
+      addItemToGameInfo={addItemToGameInfo}
     />
   ));
 
@@ -56,7 +88,13 @@ function Shop(props) {
 
   return (
     <section className="shop-container">
-      <GameInfoModal currentGameInfo={currentGameInfo} />
+      {isModalRendered && (
+      <GameInfoModal
+        gameInfoModal={gameInfoModal}
+        gameInfoModalRef={gameInfoModalRef}
+        handleClickOutside={handleClickOutside}
+      />
+      )}
       {renderItemsShop()}
     </section>
   );
