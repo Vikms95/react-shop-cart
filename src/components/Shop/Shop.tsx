@@ -36,6 +36,8 @@ function Shop(props) {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
     setGameInfoModal((prevItemCart) => ({
+      title: itemToAdd.name,
+      rating: itemToAdd.rating,
       images: [...itemToAdd.short_screenshots],
       release: itemToAdd.released,
       platforms: itemToAdd.parent_platforms,

@@ -37,6 +37,10 @@ TODO
     :make the sliders move automatically or let the user move them with the arrows
         :https://github.com/Vikms95/_playground/tree/master/image-slider
 
+- Game info structure: 
+    :title  : rating  :genres   
+      :platforms  :esrb rating
+
 - Check possible refactoring or new Components to create
 
 - Test UI of all the components created so far

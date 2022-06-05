@@ -245,6 +245,7 @@ button{
   padding: 1.5rem;
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
   flex: 1;
   height: 30%;
   gap: 2rem;
@@ -262,10 +263,27 @@ button{
   left: 98%;
 }
 
+.game-info-top-row{
+  display: flex;
+}
+
+.game-info-title{
+  display: flex;
+  color: black;
+}
+
+.game-platforms{
+  display: flex;
+  gap: 1rem;
+}
+
 .game-genres{
   font-size: 1.2rem;
   display: flex;
+}
 
+.age-rating{
+  font-size: 1.2rem;
 }
 
 .homepage-container{

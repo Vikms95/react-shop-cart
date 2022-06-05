@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faAngleLeft, faAngleRight, faDesktop, faGamepad,
+  faAngleLeft, faAngleRight, faDesktop, faGamepad, faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { faPlaystation, faXbox } from '@fortawesome/free-brands-svg-icons';
+import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
   const { gameInfoModal, gameInfoModalRef, handleClickOutside } = props;
   const {
-    images, platforms, genres, esrbRating,
+    title, rating, images, platforms, genres, esrbRating,
   } = gameInfoModal;
 
   useEffect(() => {
@@ -40,8 +41,22 @@ function GameInfoModal(props) {
       <FontAwesomeIcon icon={faAngleLeft} className="left-arrow" />
       <FontAwesomeIcon icon={faAngleRight} className="right-arrow" />
       <div className="game-info">
+        <div className="game-info-top-row">
+          <h4 className="game-info-title">
+            {title}
+            {' '}
+            -
+          </h4>
+          <div className="rating-game-info">
+            <span className="rating-score-game-info">
+              {(rating === 0)
+                ? <span className="no-reviews">Pending</span>
+                : toOneDecimal(rating)}
+            </span>
+            <FontAwesomeIcon icon={faStar} />
+          </div>
+        </div>
         <div className="game-platforms">
-
           {platforms.map((platform) => (
             <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
           ))}
@@ -59,7 +74,7 @@ function GameInfoModal(props) {
           ))}
 
         </div>
-        <div>{esrbRating?.name}</div>
+        <div className="age-rating">{esrbRating?.name}</div>
 
       </div>
     </div>

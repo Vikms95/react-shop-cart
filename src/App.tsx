@@ -5,7 +5,6 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Shop from './components/Shop/Shop';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import GameInfoModal from './components/GameInfoModal/GameInfoModal';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -22,7 +21,7 @@ function App() {
      *the clicked item and pass it to ShoppingCart state
      *if element is already in Cart, removeItemFromCart button
      *will appear
-     */
+  */
   const addItemToCart = (itemImage, itemTitle) => {
     // Obsolete when conditional rendering is added
     if (isItemInCart(itemTitle)) return;
