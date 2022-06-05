@@ -225,8 +225,10 @@ button{
   color: black;
   background-color: rgb(255,255,255);
   position:fixed;
-  /* transform: translate(-50%, -50%); */
-  top: 24%;
+  display: flex;
+  align-items: flex-end;
+  transform: translate(-50%, -50%);
+  top: 50%;
   left: 50%;
   z-index: 1;
   display: flex;
@@ -236,6 +238,16 @@ button{
   font-size: 2rem;
   /* transition: opacity 200ms; */
   /* transition: 500ms; */
+}
+
+.game-info{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  flex: 1;
+  height: 30%;
+  gap: 2rem;
 }
 
 .left-arrow{
@@ -248,6 +260,12 @@ button{
   position: absolute;
   top:50%;
   left: 98%;
+}
+
+.game-genres{
+  font-size: 1.2rem;
+  display: flex;
+
 }
 
 .homepage-container{

@@ -24,7 +24,8 @@ TODO
 <!-- - Setup different fetch url based on the button clicked
  -->
  <!-- :make sure fetch's are being done correctly -->
-- Setup image gallery when clicking an Item image(new component ImageGallery) image will lower brightness when hovered and one eye icon will appear
+- Setup image gallery when clicking an Item image(new component ImageGallery) 
+- Image will lower brightness when hovered and one eye icon will appear
     :how to pass info from Item to App?
         :check if the object passed by CurrentGameInfo is the desired one
     :make the rest of the screen brightness lower
@@ -35,7 +36,8 @@ TODO
     :show some info right below like game platforms, egb ratings etc..
     :make the sliders move automatically or let the user move them with the arrows
         :https://github.com/Vikms95/_playground/tree/master/image-slider
-- Make console platform appear on the top right spot of the GameDetailsModal
+
+- Check possible refactoring or new Components to create
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx

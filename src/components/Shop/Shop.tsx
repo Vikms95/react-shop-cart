@@ -24,6 +24,7 @@ function Shop(props) {
     const urlToFetch = urlHandler(url);
     const response = await fetch(urlToFetch);
     const data = await response.json();
+    console.log(data.results);
     setItems(data.results);
   };
 
@@ -35,9 +36,9 @@ function Shop(props) {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
     setGameInfoModal((prevItemCart) => ({
-      images: [itemToAdd.background_image, ...itemToAdd.short_screenshots],
+      images: [...itemToAdd.short_screenshots],
       release: itemToAdd.released,
-      platforms: itemToAdd.platforms,
+      platforms: itemToAdd.parent_platforms,
       genres: itemToAdd.genres,
       esrbRating: itemToAdd.esrb_rating,
     }));
