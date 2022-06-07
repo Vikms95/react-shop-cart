@@ -1,17 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleLeft, faAngleRight, faDesktop, faGamepad, faStar,
-} from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 import { faPlaystation, faXbox } from '@fortawesome/free-brands-svg-icons';
+import {
+  faAngleLeft,
+  faAngleRight,
+  faDesktop,
+  faGamepad,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
-  const { gameInfoModal, gameInfoModalRef, handleClickOutside } = props;
   const {
-    title, rating, images, platforms, genres, esrbRating,
+    gameInfoModal,
+    gameInfoModalRef,
+    handleClickOutside,
+  } = props;
+
+  const {
+    title,
+    rating,
+    images,
+    platforms,
+    genres,
+    esrbRating,
   } = gameInfoModal;
+
+  const [imageToShow, setImageToShow] = useState(0);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -20,9 +36,38 @@ function GameInfoModal(props) {
     };
   });
 
+  const changeToPreviousImage = () => {
+    setImageToShow((prevImageToShow) => (
+      (prevImageToShow === 0)
+        ? images.length - 1
+        : prevImageToShow - 1
+    ));
+  };
+
+  const changeToNextImage = () => {
+    setImageToShow((prevImageToShow) => (
+      (prevImageToShow === images.length - 1)
+        ? 0
+        : prevImageToShow + 1
+    ));
+  };
+
+  /**
+   * We set an interval to change to the next
+   * game every 8 seconds. We clear the interval
+   * when the component is unmounted
+   */
+  useEffect(() => {
+    const NEXT_IMAGE_INTERVAL = 8000;
+    const interval = setInterval(() => {
+      changeToNextImage();
+    }, NEXT_IMAGE_INTERVAL);
+    return () => clearInterval(interval);
+  }, []);
+
   const renderPlatformIcon = (platform) => {
-    // We return undefined with Linux and Apple to avoid
-    // repeated PC icons
+    // We return undefined with Linux and Apple
+    //  to avoid repeated PC icons
     if (platform === 'Linux' || platform === 'Apple Macintosh') return undefined;
 
     const PLATFORMS = {
@@ -41,14 +86,22 @@ function GameInfoModal(props) {
     <div
       ref={gameInfoModalRef}
       style={{
-        backgroundImage: `url(${images[1].image})`,
+        backgroundImage: `url(${images[imageToShow].image})`,
         backgroundSize: 'cover',
 
       }}
       className="game-info-modal"
     >
-      <FontAwesomeIcon icon={faAngleLeft} className="left-arrow" />
-      <FontAwesomeIcon icon={faAngleRight} className="right-arrow" />
+      <FontAwesomeIcon
+        onClick={changeToPreviousImage}
+        icon={faAngleLeft}
+        className="left-arrow"
+      />
+      <FontAwesomeIcon
+        onClick={changeToNextImage}
+        icon={faAngleRight}
+        className="right-arrow"
+      />
       <div className="game-info">
         <div className="game-info-top-row">
           <b className="game-info-title">
@@ -70,8 +123,8 @@ function GameInfoModal(props) {
               <hr />
             </div>
             <div className="game-platforms">
-              {platforms.map((platform) => (
-                <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
+              {platforms.map(({ platform }) => (
+                <FontAwesomeIcon icon={renderPlatformIcon(platform.name)} />
               ))}
             </div>
           </div>
