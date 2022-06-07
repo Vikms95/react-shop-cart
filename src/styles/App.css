@@ -226,7 +226,6 @@ button{
   color: #17C3B2;
   background-color: rgb(255,255,255);
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center center;
   position:fixed;
   display: flex;
@@ -236,12 +235,12 @@ button{
   left: 50%;
   display: flex;
   min-height: 40rem;
-  /* max-width: 60rem; */
   width: 80%;
   box-shadow: 1px 1px 1px 1px black;
   font-size: 2rem;
-  transition: opacity 200ms;
-  transition: 500ms; 
+  /* transition: opacity 200ms; */
+  transition: 500ms;
+  animation: fadein .5s;
   z-index: 1;
 }
 
@@ -256,6 +255,39 @@ button{
   height: 30%;
   gap: 2rem;
   z-index: 1;
+}
+
+.add-to-cart-modal{
+  position: absolute;
+  cursor: pointer;
+  top: 5%;
+  left: 5%;
+  padding: 0.8em 1.8em;
+  background-color: #17C3B2;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: .3s;
+  font-family: inherit;
+  min-width: 14rem;
+  color: black;
+  z-index: 1;
+  font-weight: 900;
+}
+
+.close-button{
+  font-size: 2rem;
+  position: absolute;
+  top:5%;
+  right: 5%;
+  cursor: pointer;
+  background-color: black;
+  border: .1rem solid black;
+  border-radius: 50%;
+}
+
+.close-button:hover{
+  transform: scale3d(1);
 }
 
 .left-arrow,
@@ -275,7 +307,7 @@ button{
 }
 
 .right-arrow{
-  left: 93.5%;
+  right: 2%;
 }
 
 .right-arrow:hover{
@@ -407,6 +439,7 @@ button{
   align-items: center;
   font-size: .7rem;
   max-height: 20rem;
+  animation: fadein 2s;
 }
 
 
@@ -432,17 +465,22 @@ button{
   color:#082534;
 }
 
-.add-to-cart-button{
-  display: flex;
-  font-size: .8rem;
-}
 
 .toggle-item-button{
   visibility: hidden;
   position: absolute;
-  bottom: 83%;
-  right: 200px;
-  margin-bottom: .2rem;
+  bottom: 87%;
+  right: 40%;
+  font-size: 1rem;
+  border: none;
+  min-width: 8rem;
+  border-radius: 15px;
+  padding: .1rem .5rem;
+  background-color:transparent;
+  border: solid .1rem #17C3B2;
+  color: #053631;
+  text-align: center;
+  z-index: 1;
 }
 
 .rating{
@@ -451,7 +489,7 @@ button{
   color: rgb(255, 179, 0);
   position: absolute;
   bottom: 89%;
-  left: 80%;
+  left: 77%;
 }
 
 .rating-score{
@@ -462,8 +500,10 @@ button{
 
 .rating-score-game-info{
   display: flex;
+  align-items: center;
   font-size:2rem;
   color: rgb(255, 179, 0);
+  gap: 1rem;
 }
 
 .no-reviews{
@@ -490,7 +530,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 72%;
+  top: 20%;
   right: 5%;
   font-size: 1rem;
   color: white;
@@ -510,6 +550,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 2rem;
 }
 
 .item:hover .toggle-item-button,
@@ -523,8 +564,7 @@ button{
 }
 
 .increment,
-.decrement,
-.toggle-item-button{
+.decrement{
   font-size: 1.4rem;
   border-radius: 25px;
   padding: .5rem;
@@ -623,4 +663,9 @@ button{
 
 .pay-button:hover{
   background-color: #01273b;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

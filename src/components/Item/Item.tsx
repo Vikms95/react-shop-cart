@@ -60,8 +60,8 @@ function Item(props) {
           className="toggle-item-button"
         >
           {(isItemInCart(title))
-            ? <FontAwesomeIcon icon={faTrashCan} />
-            : <FontAwesomeIcon icon={faCartPlus} />}
+            ? 'Remove'
+            : 'Add to cart'}
 
         </button>
         <div className="rating">

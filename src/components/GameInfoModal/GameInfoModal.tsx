@@ -8,19 +8,25 @@ import {
   faDesktop,
   faGamepad,
   faStar,
+  faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
   const {
+    isItemInCart,
+    addItemToCart,
+    removeItemFromCart,
     gameInfoModal,
     gameInfoModalRef,
     handleClickOutside,
+    setIsModalRendered,
   } = props;
 
   const {
     title,
     rating,
+    image,
     images,
     platforms,
     genres,
@@ -87,11 +93,28 @@ function GameInfoModal(props) {
       ref={gameInfoModalRef}
       style={{
         backgroundImage: `url(${images[imageToShow].image})`,
-        backgroundSize: 'cover',
-
       }}
       className="game-info-modal"
     >
+      <button
+        type="button"
+        onClick={
+            (isItemInCart(title))
+              ? () => removeItemFromCart(title)
+              : () => addItemToCart(image, title)
+          }
+        className="add-to-cart-modal"
+      >
+        {(isItemInCart(title))
+          ? 'Remove from cart'
+          : 'Add to cart'}
+
+      </button>
+      <FontAwesomeIcon
+        onClick={() => setIsModalRendered(false)}
+        icon={faCircleXmark}
+        className="close-button"
+      />
       <FontAwesomeIcon
         onClick={changeToPreviousImage}
         icon={faAngleLeft}

@@ -38,6 +38,7 @@ function Shop(props) {
     setGameInfoModal((prevItemCart) => ({
       title: itemToAdd.name,
       rating: itemToAdd.rating,
+      image: itemToAdd.background_image,
       images: [...itemToAdd.short_screenshots],
       release: itemToAdd.released,
       platforms: itemToAdd.parent_platforms,
@@ -93,8 +94,12 @@ function Shop(props) {
     <section className="shop-container">
       {isModalRendered && (
       <GameInfoModal
+        isItemInCart={isItemInCart}
+        addItemToCart={addItemToCart}
+        removeItemFromCart={removeItemFromCart}
         gameInfoModal={gameInfoModal}
         gameInfoModalRef={gameInfoModalRef}
+        setIsModalRendered={setIsModalRendered}
         handleClickOutside={handleClickOutside}
       />
       )}
