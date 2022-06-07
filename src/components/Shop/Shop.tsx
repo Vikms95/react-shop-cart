@@ -6,6 +6,7 @@ import GameInfoModal from '../GameInfoModal/GameInfoModal';
 function Shop(props) {
   const {
     url,
+    rootRef,
     cartItems,
     incrementItem,
     decrementItem,
@@ -94,6 +95,7 @@ function Shop(props) {
     <section className="shop-container">
       {isModalRendered && (
       <GameInfoModal
+        rootRef={rootRef}
         isItemInCart={isItemInCart}
         addItemToCart={addItemToCart}
         removeItemFromCart={removeItemFromCart}

@@ -10,10 +10,12 @@ import {
   faStar,
   faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
+import BackdropFilter from 'react-backdrop-filter';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
   const {
+    rootRef,
     isItemInCart,
     addItemToCart,
     removeItemFromCart,
@@ -37,8 +39,10 @@ function GameInfoModal(props) {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    gameInfoModalRef.current.style.backdropFilter = 'brightness(60%)';
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      gameInfoModalRef.current.style.backdropFilter = 'unset';
     };
   });
 

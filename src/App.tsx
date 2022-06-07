@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Shop from './components/Shop/Shop';
@@ -11,6 +11,7 @@ function App() {
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
   const [url, setUrl] = useState('popular');
+  const rootRef = useRef(null);
 
   const isItemInCart = (itemTitle) => (
     cartItems.some((item) => item.title === itemTitle)
@@ -75,7 +76,7 @@ function App() {
   };
 
   return (
-    <main className="App">
+    <main ref={rootRef} className="App">
       <BrowserRouter>
         {!isHomePageRendered && (
         <Header
@@ -98,6 +99,7 @@ function App() {
             element={(
               <Shop
                 url={url}
+                rootRef={rootRef}
                 cartItems={cartItems}
                 addItemToCart={addItemToCart}
                 removeItemFromCart={removeItemFromCart}
