@@ -13,7 +13,6 @@ function App() {
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
   const [url, setUrl] = useState('popular');
-  const rootRef = useRef(null);
 
   const isItemInCart = (itemTitle) => (
     cartItems.some((item) => item.title === itemTitle)
@@ -86,7 +85,7 @@ function App() {
   };
 
   return (
-    <main ref={rootRef} className="App">
+    <main className="App">
       <BrowserRouter>
         {!isHomePageRendered && (
         <Header
@@ -111,7 +110,6 @@ function App() {
             element={(
               <Shop
                 url={url}
-                rootRef={rootRef}
                 items={items}
                 setItems={setItems}
                 cartItems={cartItems}

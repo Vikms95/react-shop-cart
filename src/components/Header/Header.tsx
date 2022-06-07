@@ -12,33 +12,46 @@ import Dropdown from '../Dropdown/Dropdown';
 
 function Header(props) {
   const {
-    url,
     setUrl,
     cartItems,
-    fetchItems,
     isShopRendered,
   } = props;
+
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
-  const dropdown = useRef(null);
-  const input = useRef(null);
+  const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   // Can merge with isClickOutsideModal
   const isClickOutsideDropdown = (event) => (
-    dropdown.current
+    dropdownRef.current
     && isDropdownRendered
-    && !dropdown.current.contains(event.target)
+    && !dropdownRef.current.contains(event.target)
   );
 
-  const handleClickOutside = (event) => {
+  const handleClickOutsideDropdown = (event) => {
     if (isClickOutsideDropdown(event)) {
       setIsDropdownRendered(false);
     }
   };
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const eraseInputValue = () => {
+    setInputValue('');
+  };
+
+  const handleSearchClick = (url) => {
+    setUrl(url);
+    eraseInputValue();
+  };
+
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutsideDropdown);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutsideDropdown);
     };
   });
 
@@ -72,8 +85,10 @@ function Header(props) {
       <div className="search-container">
         <div className="search-input-container">
           <input
-            ref={input}
+            ref={inputRef}
+            value={inputValue}
             type="text"
+            onChange={handleInputChange}
             placeholder=" Search a game"
             className="search-input"
           />
@@ -83,20 +98,20 @@ function Header(props) {
         <button
           type="button"
           className="search-button"
-          onClick={() => setUrl(input.current.value)}
+          onClick={() => handleSearchClick(inputValue)}
         >
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
 
       </div>
       <button
-        ref={dropdown}
+        ref={dropdownRef}
         type="button"
         className="dropdown-button"
         onClick={() => setIsDropdownRendered(!isDropdownRendered)}
       >
         <FontAwesomeIcon icon={faBars} />
-        {isDropdownRendered && <Dropdown setUrl={setUrl} />}
+        {isDropdownRendered && <Dropdown handleSearchClick={handleSearchClick} />}
       </button>
 
       <Link to="/cart">

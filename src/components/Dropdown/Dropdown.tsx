@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
 function Dropdown(props) {
-  const { setUrl } = props;
+  const { handleSearchClick } = props;
 
   return (
     <div className="dropdown">
-      <DropdownItem itemText="Popular" url="popular" setUrl={setUrl} />
-      <DropdownItem itemText="Best rated" url="highestrated" setUrl={setUrl} />
-      <DropdownItem itemText="Recently released" url="recentlyreleased" setUrl={setUrl} />
-      <DropdownItem itemText="Upcoming" url="upcoming" setUrl={setUrl} />
+      <DropdownItem itemText="Popular" url="popular" handleSearchClick={handleSearchClick} />
+      <DropdownItem itemText="Best rated" url="highestrated" handleSearchClick={handleSearchClick} />
+      <DropdownItem itemText="Recently released" url="recentlyreleased" handleSearchClick={handleSearchClick} />
+      <DropdownItem itemText="Upcoming" url="upcoming" handleSearchClick={handleSearchClick} />
     </div>
   );
 }
