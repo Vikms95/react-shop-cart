@@ -23,8 +23,8 @@ body
   background-color:white;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   gap: 3rem;
   padding-right: 40%;
   padding-left: 40%;
@@ -166,7 +166,7 @@ button{
 
 .dropdown-button{
   position: relative;
-  margin-top: 1.5rem;
+  margin-bottom: -.3rem;
   border: none;
   background-color: transparent;
   font-size: 2rem;
@@ -215,6 +215,13 @@ button{
 .dropdown-item:hover{
   background-color: #01273b;
   color: white;
+}
+
+.category-shown{
+  font-size: 1.2rem;
+  display: flex;
+  align-content: center;
+  min-width: 10rem;
 }
 
 .shop-container,

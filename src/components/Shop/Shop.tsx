@@ -33,7 +33,7 @@ function Shop(props) {
     setIsModalRendered(true);
   };
 
-  const addItemToGameInfo = (itemTitle, infoModal) => {
+  const addItemToGameInfo = (itemTitle) => {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
     setGameInfoModal((prevItemCart) => ({

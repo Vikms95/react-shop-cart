@@ -24,22 +24,20 @@ TODO
 <!-- - Setup different fetch url based on the button clicked
  -->
  <!-- :make sure fetch's are being done correctly -->
-- Setup image gallery when clicking an Item image(new component ImageGallery) 
-- Image will lower brightness when hovered and one eye icon will appear
-    :how to pass info from Item to App?
-        :check if the object passed by CurrentGameInfo is the desired one
-    :make the rest of the screen brightness lower
-    :make the rest of the screen unclickable
-        :if the rest of the screen is clicked, close the modal
-        :if the cross button is clicked, close the modal
-    :make a slider on fullscreen within the modal
-    :show some info right below like game platforms, egb ratings etc..
-    :make the sliders move automatically or let the user move them with the arrows
-        :https://github.com/Vikms95/_playground/tree/master/image-slider
+<!-- - Setup image gallery when clicking an Item image(new component ImageGallery)  -->
+<!-- - Image will lower brightness when hovered and one eye icon will appear -->
+<!-- :how to pass info from Item to App? -->
+<!-- :check if the object passed by CurrentGameInfo is the desired one -->
+<!-- :make the rest of the screen brightness lower -->
+<!-- :make the rest of the screen unclickable -->
+<!-- :if the rest of the screen is clicked, close the modal -->
+<!-- :if the cross button is clicked, close the modal -->
+<!-- :make a slider on fullscreen within the modal -->
+<!-- :show some info right below like game platforms, egb ratings etc.. -->
+<!-- :make the sliders move automatically or let the user move them with the arrows -->
+<!-- :https://github.com/Vikms95/_playground/tree/master/image-slider -->
 
-- Game info structure: 
-    :title  : rating  :genres   
-      :platforms  :esrb rating
+- Show which games you are showing next to the list icon
 
 - Check possible refactoring or new Components to create
 

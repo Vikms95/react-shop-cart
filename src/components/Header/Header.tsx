@@ -11,7 +11,9 @@ import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 
 function Header(props) {
-  const { setUrl, cartItems, isShopRendered } = props;
+  const {
+    url, setUrl, cartItems, isShopRendered,
+  } = props;
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
   const dropdown = useRef(null);
 
@@ -26,6 +28,16 @@ function Header(props) {
     if (isClickOutsideDropdown(event)) {
       setIsDropdownRendered(false);
     }
+  };
+
+  const renderCategoryShown = () => {
+    const CATEGORIES = {
+      popular: 'Popular games',
+      highestrated: 'Best rated games',
+      recentlyreleased: 'Recently released games',
+      upcoming: 'Upcoming games',
+    };
+    return CATEGORIES[url];
   };
 
   useEffect(() => {
@@ -70,7 +82,9 @@ function Header(props) {
         <FontAwesomeIcon icon={faBars} />
         {isDropdownRendered && <Dropdown setUrl={setUrl} />}
       </button>
-
+      <div className="category-shown">
+        {renderCategoryShown()}
+      </div>
       <Link to="/cart">
         <CartButton
           isShopRendered={isShopRendered}

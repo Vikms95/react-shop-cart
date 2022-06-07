@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // @ts-ignore
@@ -35,6 +36,8 @@ function GameInfoModal(props) {
   } = gameInfoModal;
 
   const [imageToShow, setImageToShow] = useState(0);
+  const NEXT_IMAGE_INTERVAL = useRef(8000);
+  const interval = useRef(null);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -42,20 +45,29 @@ function GameInfoModal(props) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
-
-  const changeToPreviousImage = () => {
-    setImageToShow((prevImageToShow) => (
-      (prevImageToShow === 0)
-        ? images.length - 1
-        : prevImageToShow - 1
-    ));
-  };
+  const setNextImageInterval = () => setInterval(() => {
+    changeToNextImage();
+  }, NEXT_IMAGE_INTERVAL.current);
 
   const changeToNextImage = () => {
+    clearInterval(interval.current);
+    interval.current = setNextImageInterval();
+
     setImageToShow((prevImageToShow) => (
       (prevImageToShow === images.length - 1)
         ? 0
         : prevImageToShow + 1
+    ));
+  };
+
+  const changeToPreviousImage = () => {
+    clearInterval(interval.current);
+    interval.current = setNextImageInterval();
+
+    setImageToShow((prevImageToShow) => (
+      (prevImageToShow === 0)
+        ? images.length - 1
+        : prevImageToShow - 1
     ));
   };
 
@@ -65,11 +77,8 @@ function GameInfoModal(props) {
    * when the component is unmounted
    */
   useEffect(() => {
-    const NEXT_IMAGE_INTERVAL = 8000;
-    const interval = setInterval(() => {
-      changeToNextImage();
-    }, NEXT_IMAGE_INTERVAL);
-    return () => clearInterval(interval);
+    interval.current = setNextImageInterval();
+    return () => clearInterval(interval.current);
   }, []);
 
   const renderPlatformIcon = (platform) => {
@@ -93,6 +102,7 @@ function GameInfoModal(props) {
     <div className="modal-background-blur">
       <div
         ref={gameInfoModalRef}
+        key={images[imageToShow].id}
         style={{
           backgroundImage: `url(${images[imageToShow].image})`,
         }}
@@ -148,7 +158,10 @@ function GameInfoModal(props) {
               </div>
               <div className="game-platforms">
                 {platforms.map(({ platform }) => (
-                  <FontAwesomeIcon icon={renderPlatformIcon(platform.name)} />
+                  <FontAwesomeIcon
+                    key={platform.name}
+                    icon={renderPlatformIcon(platform.name)}
+                  />
                 ))}
               </div>
             </div>
@@ -159,7 +172,9 @@ function GameInfoModal(props) {
               </div>
               <div className="game-genres">
                 {genres.map((genre) => (
-                  <div>
+                  <div
+                    key={genre.name}
+                  >
                     {' '}
                     {genre.name}
                     {' '}

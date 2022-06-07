@@ -80,6 +80,7 @@ function App() {
       <BrowserRouter>
         {!isHomePageRendered && (
         <Header
+          url={url}
           setUrl={setUrl}
           cartItems={cartItems}
           isShopRendered={isShopRendered}

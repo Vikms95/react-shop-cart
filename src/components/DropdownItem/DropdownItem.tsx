@@ -9,9 +9,15 @@ function DropdownItem(props) {
 
   return (
     <>
-      <button type="button" className="dropdown-item" onClick={changeUrl}>
+      <div
+        role="button"
+        className="dropdown-item"
+        onClick={changeUrl}
+        onKeyDown={changeUrl}
+        tabIndex={0}
+      >
         {itemText}
-      </button>
+      </div>
       <hr />
     </>
   );
