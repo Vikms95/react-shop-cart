@@ -10,7 +10,6 @@ import {
   faStar,
   faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import BackdropFilter from 'react-backdrop-filter';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
@@ -39,10 +38,8 @@ function GameInfoModal(props) {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
-    gameInfoModalRef.current.style.backdropFilter = 'brightness(60%)';
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      gameInfoModalRef.current.style.backdropFilter = 'unset';
     };
   });
 
@@ -93,98 +90,96 @@ function GameInfoModal(props) {
   const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
 
   return (
-    <div
-      ref={gameInfoModalRef}
-      style={{
-        backgroundImage: `url(${images[imageToShow].image})`,
-      }}
-      className="game-info-modal"
-    >
-      <button
-        type="button"
-        onClick={
-            (isItemInCart(title))
-              ? () => removeItemFromCart(title)
-              : () => addItemToCart(image, title)
-          }
-        className="add-to-cart-modal"
+    <div className="modal-background-blur">
+      <div
+        ref={gameInfoModalRef}
+        style={{
+          backgroundImage: `url(${images[imageToShow].image})`,
+        }}
+        className="game-info-modal"
       >
-        {(isItemInCart(title))
-          ? 'Remove from cart'
-          : 'Add to cart'}
-
-      </button>
-      <FontAwesomeIcon
-        onClick={() => setIsModalRendered(false)}
-        icon={faCircleXmark}
-        className="close-button"
-      />
-      <FontAwesomeIcon
-        onClick={changeToPreviousImage}
-        icon={faAngleLeft}
-        className="left-arrow"
-      />
-      <FontAwesomeIcon
-        onClick={changeToNextImage}
-        icon={faAngleRight}
-        className="right-arrow"
-      />
-      <div className="game-info">
-        <div className="game-info-top-row">
-          <b className="game-info-title">
-            {title}
-          </b>
-          <div className="rating-game-info">
-            <span className="rating-score-game-info">
-              {(rating === 0)
-                ? <span className="no-reviews">Pending</span>
-                : toOneDecimal(rating)}
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-          </div>
-        </div>
-        <div className="game-info-bottom-row">
-          <div className="game-platforms-container">
-            <div className="game-platforms-title">
-              Platforms
-              <hr />
-            </div>
-            <div className="game-platforms">
-              {platforms.map(({ platform }) => (
-                <FontAwesomeIcon icon={renderPlatformIcon(platform.name)} />
-              ))}
+        <button
+          type="button"
+          onClick={
+              (isItemInCart(title))
+                ? () => removeItemFromCart(title)
+                : () => addItemToCart(image, title)
+            }
+          className="add-to-cart-modal"
+        >
+          {(isItemInCart(title))
+            ? 'Remove from cart'
+            : 'Add to cart'}
+        </button>
+        <FontAwesomeIcon
+          onClick={() => setIsModalRendered(false)}
+          icon={faCircleXmark}
+          className="close-button"
+        />
+        <FontAwesomeIcon
+          onClick={changeToPreviousImage}
+          icon={faAngleLeft}
+          className="left-arrow"
+        />
+        <FontAwesomeIcon
+          onClick={changeToNextImage}
+          icon={faAngleRight}
+          className="right-arrow"
+        />
+        <div className="game-info">
+          <div className="game-info-top-row">
+            <b className="game-info-title">
+              {title}
+            </b>
+            <div className="rating-game-info">
+              <span className="rating-score-game-info">
+                {(rating === 0)
+                  ? <span className="no-reviews">Pending</span>
+                  : toOneDecimal(rating)}
+                <FontAwesomeIcon icon={faStar} />
+              </span>
             </div>
           </div>
-
-          <div className="game-genres-container">
-            <div className="game-genres-title">
-              Genres
-              <hr />
+          <div className="game-info-bottom-row">
+            <div className="game-platforms-container">
+              <div className="game-platforms-title">
+                Platforms
+                <hr />
+              </div>
+              <div className="game-platforms">
+                {platforms.map(({ platform }) => (
+                  <FontAwesomeIcon icon={renderPlatformIcon(platform.name)} />
+                ))}
+              </div>
             </div>
-            <div className="game-genres">
-              {genres.map((genre) => (
-                <div>
-                  {' '}
-                  {genre.name}
-                  {' '}
-                  {isNotLastIndex(genres, genre) && '/'}
-                </div>
-              ))}
-
+            <div className="game-genres-container">
+              <div className="game-genres-title">
+                Genres
+                <hr />
+              </div>
+              <div className="game-genres">
+                {genres.map((genre) => (
+                  <div>
+                    {' '}
+                    {genre.name}
+                    {' '}
+                    {isNotLastIndex(genres, genre) && '/'}
+                  </div>
+                ))}
+              </div>
             </div>
+            {esrbRating && (
+            <div className="game-esrb-rating-container">
+              <div className="game-esrb-rating-title">
+                ESRB
+                <hr />
+              </div>
+              <div className="game-esrb-rating">
+                {esrbRating.name}
+              </div>
+            </div>
+            )}
           </div>
-
-          {esrbRating && (
-          <div className="game-esrb-rating-container">
-            <div className="game-esrb-rating-title">
-              ESRB
-              <hr />
-            </div>
-            <div className="game-esrb-rating">
-              {esrbRating.name}
-            </div>
-          </div>
-          )}
         </div>
       </div>
     </div>
