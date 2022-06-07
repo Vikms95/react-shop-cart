@@ -443,11 +443,12 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
   color: white;
   border-radius: 50%;
-  padding: .1rem .5rem;
-  font-size: 70%;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  font-size: 15px;
   top: 25px;
   right: 30px;
 }

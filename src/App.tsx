@@ -5,12 +5,14 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Shop from './components/Shop/Shop';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import urlHandler from './utils/urlHandler';
 
 function App() {
+  const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
-  const [url, setUrl] = useState('popular');
+  const [url, setUrl] = useState('shin megami tensei');
   const rootRef = useRef(null);
 
   const isItemInCart = (itemTitle) => (
@@ -75,6 +77,14 @@ function App() {
       ))));
   };
 
+  const fetchItems = async (urlToPass) => {
+    const urlToFetch = urlHandler(urlToPass);
+    const response = await fetch(urlToFetch);
+    const data = await response.json();
+    console.log(data.results);
+    setItems(data.results);
+  };
+
   return (
     <main ref={rootRef} className="App">
       <BrowserRouter>
@@ -83,6 +93,7 @@ function App() {
           url={url}
           setUrl={setUrl}
           cartItems={cartItems}
+          fetchItems={fetchItems}
           isShopRendered={isShopRendered}
         />
         )}
@@ -101,7 +112,10 @@ function App() {
               <Shop
                 url={url}
                 rootRef={rootRef}
+                items={items}
+                setItems={setItems}
                 cartItems={cartItems}
+                fetchItems={fetchItems}
                 addItemToCart={addItemToCart}
                 removeItemFromCart={removeItemFromCart}
                 incrementItem={incrementItem}

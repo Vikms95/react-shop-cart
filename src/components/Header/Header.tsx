@@ -5,17 +5,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 
 function Header(props) {
   const {
-    url, setUrl, cartItems, isShopRendered,
+    url,
+    setUrl,
+    cartItems,
+    fetchItems,
+    isShopRendered,
   } = props;
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
   const dropdown = useRef(null);
+  const input = useRef(null);
 
   // Can merge with isClickOutsideModal
   const isClickOutsideDropdown = (event) => (
@@ -82,9 +87,19 @@ function Header(props) {
         <FontAwesomeIcon icon={faBars} />
         {isDropdownRendered && <Dropdown setUrl={setUrl} />}
       </button>
+      <div className="search-container">
+        <button
+          type="button"
+          className="search-button"
+          onClick={() => setUrl(input.current.value)}
+        />
+        <input ref={input} type="text" placeholder="Search a game" />
+      </div>
+
       <div className="category-shown">
         {renderCategoryShown()}
       </div>
+
       <Link to="/cart">
         <CartButton
           isShopRendered={isShopRendered}

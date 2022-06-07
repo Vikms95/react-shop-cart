@@ -17,8 +17,7 @@ TODO
 <!-- - Header font family "IBM Plex Mono", monospace -->
 <!-- - When item is 1 and decrement is clicked, trigger the removeItemFromCart -->
 
-- Adjust CartButton number expands when more than 2 digits
-- Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
+<!-- - Adjust CartButton number expands when more than 2 digits -->
 
 <!-- - Make dropdown menu showing different game lists options(where the different url fetch will appear) -->
 <!-- - Setup different fetch url based on the button clicked
@@ -37,7 +36,15 @@ TODO
 <!-- :make the sliders move automatically or let the user move them with the arrows -->
 <!-- :https://github.com/Vikms95/_playground/tree/master/image-slider -->
 
-- Show which games you are showing next to the list icon
+<!-- - Show which games you are showing next to the list icon -->
+
+- Check API to search for specific games
+https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fetch-and-hooks-6b76e2bf83a2
+  :managed to get it working, needs styling
+
+- Loading screen on API call?
+
+- Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
 
 - Check possible refactoring or new Components to create
 

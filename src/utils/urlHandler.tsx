@@ -13,6 +13,12 @@ const upcoming = (currentYear, currentMonth, nextMonth, today) => (
   `https://api.rawg.io/api/games?page_size=24&dates=${currentYear}-${currentMonth}-${today},${currentYear}-${nextMonth}-${today}&ordering=-added&key=888f6e198d894fcdac3d561150fc3732`
 );
 
+const search = (searchTerm) => {
+  console.log(searchTerm);
+  const formattedSearchTerm = searchTerm.split(' ').join('-').toLowerCase();
+  return `https://rawg.io/api/games?search=${formattedSearchTerm}&ordering=-added&key=888f6e198d894fcdac3d561150fc3732`;
+};
+
 function urlHandler(url) {
   const currentYear = new Date().getFullYear().toString();
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
@@ -25,6 +31,9 @@ function urlHandler(url) {
     recentlyreleased: lastReleased(currentYear, currentMonth),
     upcoming: upcoming(currentYear, currentMonth, nextMonth, today),
   };
+  console.log(search(url));
+  if (!RETURN_URL[url]) return search(url);
+
   return RETURN_URL[url];
 }
 

@@ -7,7 +7,10 @@ function Shop(props) {
   const {
     url,
     rootRef,
+    items,
+    setItems,
     cartItems,
+    fetchItems,
     incrementItem,
     decrementItem,
     addItemToCart,
@@ -16,18 +19,9 @@ function Shop(props) {
     setIsShopRendered,
   } = props;
 
-  const [items, setItems] = useState([]);
   const [gameInfoModal, setGameInfoModal] = useState({});
   const [isModalRendered, setIsModalRendered] = useState(false);
   const gameInfoModalRef = useRef(null);
-
-  const fetchItems = async () => {
-    const urlToFetch = urlHandler(url);
-    const response = await fetch(urlToFetch);
-    const data = await response.json();
-    console.log(data.results);
-    setItems(data.results);
-  };
 
   const revealModal = () => {
     setIsModalRendered(true);
@@ -81,7 +75,7 @@ function Shop(props) {
   ));
 
   useEffect(() => {
-    fetchItems();
+    fetchItems(url);
   }, [url]);
 
   useEffect(() => {
