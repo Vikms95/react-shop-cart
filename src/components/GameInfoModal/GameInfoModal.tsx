@@ -15,7 +15,6 @@ import toOneDecimal from '../../utils/toOneDecimal';
 
 function GameInfoModal(props) {
   const {
-    rootRef,
     isItemInCart,
     addItemToCart,
     removeItemFromCart,

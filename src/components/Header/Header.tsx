@@ -35,16 +35,6 @@ function Header(props) {
     }
   };
 
-  const renderCategoryShown = () => {
-    const CATEGORIES = {
-      popular: 'Popular games',
-      highestrated: 'Best rated games',
-      recentlyreleased: 'Recently released games',
-      upcoming: 'Upcoming games',
-    };
-    return CATEGORIES[url];
-  };
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -78,6 +68,27 @@ function Header(props) {
           Shop
         </button>
       </Link>
+
+      <div className="search-container">
+        <div className="search-input-container">
+          <input
+            ref={input}
+            type="text"
+            placeholder=" Search a game"
+            className="search-input"
+          />
+          <hr className="search-input-bar" />
+        </div>
+
+        <button
+          type="button"
+          className="search-button"
+          onClick={() => setUrl(input.current.value)}
+        >
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </button>
+
+      </div>
       <button
         ref={dropdown}
         type="button"
@@ -87,18 +98,6 @@ function Header(props) {
         <FontAwesomeIcon icon={faBars} />
         {isDropdownRendered && <Dropdown setUrl={setUrl} />}
       </button>
-      <div className="search-container">
-        <button
-          type="button"
-          className="search-button"
-          onClick={() => setUrl(input.current.value)}
-        />
-        <input ref={input} type="text" placeholder="Search a game" />
-      </div>
-
-      <div className="category-shown">
-        {renderCategoryShown()}
-      </div>
 
       <Link to="/cart">
         <CartButton

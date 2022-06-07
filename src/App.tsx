@@ -12,7 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
-  const [url, setUrl] = useState('shin megami tensei');
+  const [url, setUrl] = useState('popular');
   const rootRef = useRef(null);
 
   const isItemInCart = (itemTitle) => (
