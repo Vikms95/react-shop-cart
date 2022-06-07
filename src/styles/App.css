@@ -11,6 +11,7 @@ ul{
   padding: 0;
 }
 
+
 html,
 body
 #root{
@@ -243,7 +244,7 @@ button{
 }
 
 .game-info{
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -279,32 +280,52 @@ button{
   gap: 1rem;
 }
 
-.game-info-title{
-  display: flex;
-}
-
-
-.age-rating{
-  font-size: 1.2rem;
-}
-
-
 .game-info-bottom-row{
   display: flex;
   width: 100%;
   justify-content: space-evenly;
-  
+  flex-wrap: wrap;
+}
+
+.game-platforms-container,
+.game-genres-container,
+.game-esrb-rating-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.game-genres-container{
+  font-size: 1.3rem;
+}
+
+.game-platforms-title,
+.game-genres-title,
+.game-esrb-rating-title{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  align-items: center;
+}
+
+.game-platforms-title > hr,
+.game-genres-title > hr,
+.game-esrb-rating-title > hr{
+  width:100%;
+}
+
+.game-platforms,
+.game-genres,
+.game-esrb-rating{
+  display: flex;
+  justify-content: center;
 }
 
 .game-platforms{
-  display: flex;
   gap: 1rem;
 }
-
-
-.game-genres{
-  font-size: 1.2rem;
-  display: flex;
+.game-esrb-rating{
+  font-size:1.3rem ;
 }
 
 .homepage-container{
@@ -514,10 +535,6 @@ button{
 .hidden{
   visibility: hidden;
   opacity: 0;
-}
-
-.dim{
-  filter: brightness(70%);
 }
 
 .hidden:hover{

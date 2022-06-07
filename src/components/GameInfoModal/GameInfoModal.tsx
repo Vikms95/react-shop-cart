@@ -51,9 +51,9 @@ function GameInfoModal(props) {
       <FontAwesomeIcon icon={faAngleRight} className="right-arrow" />
       <div className="game-info">
         <div className="game-info-top-row">
-          <h5 className="game-info-title">
+          <b className="game-info-title">
             {title}
-          </h5>
+          </b>
           <div className="rating-game-info">
             <span className="rating-score-game-info">
               {(rating === 0)
@@ -64,25 +64,47 @@ function GameInfoModal(props) {
           </div>
         </div>
         <div className="game-info-bottom-row">
-          <div className="game-platforms">
-            {platforms.map((platform) => (
-              <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
-            ))}
-
+          <div className="game-platforms-container">
+            <div className="game-platforms-title">
+              Platforms
+              <hr />
+            </div>
+            <div className="game-platforms">
+              {platforms.map((platform) => (
+                <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
+              ))}
+            </div>
           </div>
 
-          <div className="game-genres">
-            {genres.map((genre) => (
-              <div>
-                {' '}
-                {genre.name}
-                {' '}
-                {isNotLastIndex(genres, genre) && '/'}
-              </div>
-            ))}
+          <div className="game-genres-container">
+            <div className="game-genres-title">
+              Genres
+              <hr />
+            </div>
+            <div className="game-genres">
+              {genres.map((genre) => (
+                <div>
+                  {' '}
+                  {genre.name}
+                  {' '}
+                  {isNotLastIndex(genres, genre) && '/'}
+                </div>
+              ))}
 
+            </div>
           </div>
-          <div className="age-rating">{esrbRating?.name}</div>
+
+          {esrbRating && (
+          <div className="game-esrb-rating-container">
+            <div className="game-esrb-rating-title">
+              ESRB
+              <hr />
+            </div>
+            <div className="game-esrb-rating">
+              {esrbRating.name}
+            </div>
+          </div>
+          )}
         </div>
       </div>
     </div>
