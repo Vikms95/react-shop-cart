@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleLeft, faAngleRight, faDesktop, faGamepad, faStar,
 } from '@fortawesome/free-solid-svg-icons';
+// @ts-ignore
 import { faPlaystation, faXbox } from '@fortawesome/free-brands-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
@@ -20,6 +21,8 @@ function GameInfoModal(props) {
   });
 
   const renderPlatformIcon = (platform) => {
+    // We return undefined with Linux and Apple to avoid
+    // repeated PC icons
     if (platform === 'Linux' || platform === 'Apple Macintosh') return undefined;
 
     const PLATFORMS = {
@@ -32,20 +35,25 @@ function GameInfoModal(props) {
     return PLATFORMS[platform];
   };
 
-  const isNotLastIndex = (array, item) => (
-    array.indexOf(item) !== array.length - 1
-  );
+  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
 
   return (
-    <div ref={gameInfoModalRef} className="game-info-modal">
+    <div
+      ref={gameInfoModalRef}
+      style={{
+        backgroundImage: `url(${images[1].image})`,
+        backgroundSize: 'cover',
+
+      }}
+      className="game-info-modal"
+    >
       <FontAwesomeIcon icon={faAngleLeft} className="left-arrow" />
       <FontAwesomeIcon icon={faAngleRight} className="right-arrow" />
       <div className="game-info">
-        <img className="modal-gallery" src={images[5].image} alt="5" />
         <div className="game-info-top-row">
-          <h4 className="game-info-title">
+          <h5 className="game-info-title">
             {title}
-          </h4>
+          </h5>
           <div className="rating-game-info">
             <span className="rating-score-game-info">
               {(rating === 0)
@@ -55,26 +63,27 @@ function GameInfoModal(props) {
             </span>
           </div>
         </div>
-        <div className="game-platforms">
-          {platforms.map((platform) => (
-            <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
-          ))}
+        <div className="game-info-bottom-row">
+          <div className="game-platforms">
+            {platforms.map((platform) => (
+              <FontAwesomeIcon icon={renderPlatformIcon(platform.platform.name)} />
+            ))}
 
+          </div>
+
+          <div className="game-genres">
+            {genres.map((genre) => (
+              <div>
+                {' '}
+                {genre.name}
+                {' '}
+                {isNotLastIndex(genres, genre) && '/'}
+              </div>
+            ))}
+
+          </div>
+          <div className="age-rating">{esrbRating?.name}</div>
         </div>
-
-        <div className="game-genres">
-          {genres.map((genre) => (
-            <div>
-              {' '}
-              {genre.name}
-              {' '}
-              {isNotLastIndex(genres, genre) && '/'}
-            </div>
-          ))}
-
-        </div>
-        <div className="age-rating">{esrbRating?.name}</div>
-
       </div>
     </div>
   );

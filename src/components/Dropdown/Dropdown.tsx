@@ -6,8 +6,8 @@ function Dropdown(props) {
 
   return (
     <div className="dropdown">
-      <DropdownItem itemText="Hot games" url="popular" setUrl={setUrl} />
-      <DropdownItem itemText="Best games of this year" url="highestrated" setUrl={setUrl} />
+      <DropdownItem itemText="Popular" url="popular" setUrl={setUrl} />
+      <DropdownItem itemText="Best rated" url="highestrated" setUrl={setUrl} />
       <DropdownItem itemText="Recently released" url="recentlyreleased" setUrl={setUrl} />
       <DropdownItem itemText="Upcoming" url="upcoming" setUrl={setUrl} />
     </div>

@@ -142,7 +142,7 @@ button{
   height: 2px;
   top: 59px;
   left: 0;
-  background-color: #c00cae;
+  background-color: #17C3B2;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -159,7 +159,7 @@ button{
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #c00cae;
+  background-color: #17C3B2;
 
 }
 
@@ -222,7 +222,7 @@ button{
 }
 
 .game-info-modal{
-  color: black;
+  color: #17C3B2;
   background-color: rgb(255,255,255);
   position:fixed;
   display: flex;
@@ -246,7 +246,8 @@ button{
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1.5rem;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   flex: 1;
   height: 30%;
@@ -273,14 +274,26 @@ button{
 
 .game-info-top-row{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
 }
 
 .game-info-title{
   display: flex;
-  color: black;
+}
+
+
+.age-rating{
+  font-size: 1.2rem;
+}
+
+
+.game-info-bottom-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  
 }
 
 .game-platforms{
@@ -288,13 +301,10 @@ button{
   gap: 1rem;
 }
 
+
 .game-genres{
   font-size: 1.2rem;
   display: flex;
-}
-
-.age-rating{
-  font-size: 1.2rem;
 }
 
 .homepage-container{
