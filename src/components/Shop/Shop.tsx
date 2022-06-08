@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Item from '../Item/Item';
-import urlHandler from '../../utils/urlHandler';
 import GameInfoModal from '../GameInfoModal/GameInfoModal';
 
 function Shop(props) {
   const {
     url,
     items,
-    setItems,
     cartItems,
     fetchItems,
     incrementItem,
@@ -16,10 +14,12 @@ function Shop(props) {
     removeItemFromCart,
     isItemInCart,
     setIsShopRendered,
+    isClickOutside,
   } = props;
 
   const [gameInfoModal, setGameInfoModal] = useState({});
   const [isModalRendered, setIsModalRendered] = useState(false);
+
   const gameInfoModalRef = useRef(null);
 
   const revealModal = () => {
@@ -29,30 +29,20 @@ function Shop(props) {
   const addItemToGameInfo = (itemTitle) => {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
-    setGameInfoModal((prevItemCart) => ({
-      title: itemToAdd.name,
-      rating: itemToAdd.rating,
-      image: itemToAdd.background_image,
-      images: [...itemToAdd.short_screenshots],
-      release: itemToAdd.released,
-      platforms: itemToAdd.parent_platforms,
-      genres: itemToAdd.genres,
-      esrbRating: itemToAdd.esrb_rating,
-    }));
+    setGameInfoModal(() => (
+      {
+        title: itemToAdd.name,
+        rating: itemToAdd.rating,
+        image: itemToAdd.background_image,
+        images: [...itemToAdd.short_screenshots],
+        release: itemToAdd.released,
+        platforms: itemToAdd.parent_platforms,
+        genres: itemToAdd.genres,
+        esrbRating: itemToAdd.esrb_rating,
+      }
+    ));
 
     revealModal();
-  };
-
-  const isClickOutsideModal = (event) => (
-    gameInfoModalRef.current
-    && isModalRendered
-    && !gameInfoModalRef.current.contains(event.target)
-  );
-
-  const handleClickOutside = (event) => {
-    if (isClickOutsideModal(event)) {
-      setIsModalRendered(false);
-    }
   };
 
   const renderItemsShop = () => items.map((item) => (
@@ -93,8 +83,9 @@ function Shop(props) {
         removeItemFromCart={removeItemFromCart}
         gameInfoModal={gameInfoModal}
         gameInfoModalRef={gameInfoModalRef}
+        isModalRendered={isModalRendered}
         setIsModalRendered={setIsModalRendered}
-        handleClickOutside={handleClickOutside}
+        isClickOutside={isClickOutside}
       />
       )}
       {renderItemsShop()}

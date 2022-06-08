@@ -20,7 +20,8 @@ function GameInfoModal(props) {
     removeItemFromCart,
     gameInfoModal,
     gameInfoModalRef,
-    handleClickOutside,
+    isClickOutside,
+    isModalRendered,
     setIsModalRendered,
   } = props;
 
@@ -38,12 +39,6 @@ function GameInfoModal(props) {
   const NEXT_IMAGE_INTERVAL = useRef(8000);
   const interval = useRef(null);
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
   const setNextImageInterval = () => setInterval(() => {
     changeToNextImage();
   }, NEXT_IMAGE_INTERVAL.current);
@@ -70,6 +65,11 @@ function GameInfoModal(props) {
     ));
   };
 
+  const handleClickOutsideModal = (event) => {
+    if (isClickOutside(event, gameInfoModalRef, isModalRendered)) {
+      setIsModalRendered(false);
+    }
+  };
   /**
    * We set an interval to change to the next
    * game every 8 seconds. We clear the interval
@@ -79,6 +79,13 @@ function GameInfoModal(props) {
     interval.current = setNextImageInterval();
     return () => clearInterval(interval.current);
   }, []);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutsideModal);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideModal);
+    };
+  });
 
   const renderPlatformIcon = (platform) => {
     // We return undefined with Linux and Apple

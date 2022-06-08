@@ -1,41 +1,32 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import React, { useRef, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Shop from './components/Shop/Shop';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
-import Shop from './components/Shop/Shop';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import urlHandler from './utils/urlHandler';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [url, setUrl] = useState('popular');
   const [cartItems, setCartItems] = useState([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
-  const [url, setUrl] = useState('popular');
-
-  const isItemInCart = (itemTitle) => (
-    cartItems.some((item) => item.title === itemTitle)
-  );
 
   /**
-     *Take element image, title and props from
-     *the clicked item and pass it to ShoppingCart state
-     *if element is already in Cart, removeItemFromCart button
-     *will appear
+   *Take element image, title and props from
+    *the clicked item and pass it to ShoppingCart state
+    *if element is already in Cart, removeItemFromCart button
+    *will appear
   */
   const addItemToCart = (itemImage, itemTitle) => {
-    // Obsolete when conditional rendering is added
-    if (isItemInCart(itemTitle)) return;
-
     setCartItems((prevCartItems) => (
       [...prevCartItems, { image: itemImage, title: itemTitle, amount: 1 }]
     ));
   };
 
   const removeItemFromCart = (itemTitle) => {
-    if (!isItemInCart(itemTitle)) return;
-
     setCartItems((prevCartItems) => (
       prevCartItems.filter((item) => item.title !== itemTitle)
     ));
@@ -80,9 +71,18 @@ function App() {
     const urlToFetch = urlHandler(urlToPass);
     const response = await fetch(urlToFetch);
     const data = await response.json();
-    console.log(data.results);
     setItems(data.results);
   };
+
+  const isClickOutside = (event, ref, condition) => (
+    ref.current
+    && condition
+    && !ref.current.contains(event.target)
+  );
+
+  const isItemInCart = (itemTitle) => (
+    cartItems.some((item) => item.title === itemTitle)
+  );
 
   return (
     <main className="App">
@@ -94,6 +94,7 @@ function App() {
           cartItems={cartItems}
           fetchItems={fetchItems}
           isShopRendered={isShopRendered}
+          isClickOutside={isClickOutside}
         />
         )}
         <Routes>
@@ -120,6 +121,7 @@ function App() {
                 decrementItem={decrementItem}
                 setIsShopRendered={setIsShopRendered}
                 isItemInCart={isItemInCart}
+                isClickOutside={isClickOutside}
               />
     )}
           />

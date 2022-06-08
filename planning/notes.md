@@ -44,7 +44,7 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 - Loading screen on API call?
 
-- Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there
+<!-- - Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there -->
 
 - Check possible refactoring or new Components to create
 

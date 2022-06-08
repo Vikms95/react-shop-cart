@@ -6,31 +6,27 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/logo.png';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
+import SearchBar from '../SearchBar/SearchBar';
+import logo from '../../assets/logo.png';
 
 function Header(props) {
   const {
     setUrl,
     cartItems,
     isShopRendered,
+    isClickOutside,
   } = props;
 
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
   const [inputValue, setInputValue] = useState('');
+
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // Can merge with isClickOutsideModal
-  const isClickOutsideDropdown = (event) => (
-    dropdownRef.current
-    && isDropdownRendered
-    && !dropdownRef.current.contains(event.target)
-  );
-
   const handleClickOutsideDropdown = (event) => {
-    if (isClickOutsideDropdown(event)) {
+    if (isClickOutside(event, dropdownRef, isDropdownRendered)) {
       setIsDropdownRendered(false);
     }
   };
@@ -82,28 +78,12 @@ function Header(props) {
         </button>
       </Link>
 
-      <div className="search-container">
-        <div className="search-input-container">
-          <input
-            ref={inputRef}
-            value={inputValue}
-            type="text"
-            onChange={handleInputChange}
-            placeholder=" Search a game"
-            className="search-input"
-          />
-          <hr className="search-input-bar" />
-        </div>
-
-        <button
-          type="button"
-          className="search-button"
-          onClick={() => handleSearchClick(inputValue)}
-        >
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-
-      </div>
+      <SearchBar
+        inputRef={inputRef}
+        inputValue={inputValue}
+        handleInputChange={handleInputChange}
+        handleSearchClick={handleSearchClick}
+      />
       <button
         ref={dropdownRef}
         type="button"
