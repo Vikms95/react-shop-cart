@@ -58,17 +58,18 @@ button{
 }
 
 .logo-homepage{
-  transform: rotate(-20deg);
-  width: 9rem;
+  transform: rotate(-30deg);
+  width: 11rem;
 }
 
 .logo-container-homepage{
   display: flex;
   flex-direction: row;
   position: absolute;
-  left: 5%;
-  top: 1.5%;
+  left: 3%;
+  top: 5%;
   gap: .5rem;
+  z-index: 1;
 }
 
 .title-homepage{
@@ -81,7 +82,7 @@ button{
 .gotoshop-button{
   position: absolute;
   top: 4%;
-  left: 80%;
+  right: 5%;
   overflow: hidden;
   padding: 0.8em 1.8em;
   background-color: transparent;
@@ -89,7 +90,6 @@ button{
   text-transform: uppercase;
   font-size: 1rem;
   transition: .3s;
-  font-family: inherit;
   border: 1px solid #17C3B2;
   color: #17C3B2;
   z-index: 1;
@@ -415,14 +415,17 @@ button{
 
 .homepage-container{
   position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
+  height: 100vh;
   flex-direction: column;
+  background-color: black;
 }
 
-#hero-video{
-  min-width:90%;
+.homepage-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .shop-container{

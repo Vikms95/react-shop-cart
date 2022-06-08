@@ -38,9 +38,9 @@ TODO
 
 <!-- - Show which games you are showing next to the list icon -->
 
-- Check API to search for specific games
+<!-- - Check API to search for specific games
 https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fetch-and-hooks-6b76e2bf83a2
-  :managed to get it working, needs styling
+  :managed to get it working, needs styling -->
 
 - Loading screen on API call?
 
