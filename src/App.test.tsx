@@ -1,37 +1,53 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 import App from './App';
 
 /**
  * Mostly test what the App renders when several buttons are clicked
  */
 
-beforeEach(() => {
-  const component = render(<App />);
-  const goToShopButton = component.getByText('GO TO SHOP');
-  userEvent.click(goToShopButton);
-});
+describe('render contents when general buttons are clicked', () => {
+  it('renders content from home when home button is clicked', () => {
+    render(<App />);
+    const goToShopButton = screen.getByText('GO TO SHOP');
+    act(() => {
+      userEvent.click(goToShopButton);
+    });
 
-it.only('renders content from home when home button is clicked', () => {
-  const component = render(<App />);
-  const button = component.getAllByRole('button', { name: 'Home' });
-  userEvent.click(button[0]);
-  expect(component.getByText('GO TO SHOP')).toBeInTheDocument();
-});
+    const button = screen.getByRole('button', { name: 'Home' });
+    act(() => {
+      userEvent.click(button);
+    });
 
-it('renders content from shop when shop button is clicked', () => {
-  const component = render(<App />);
-  const button = component.getByRole('heading', { name: 'Shop' });
-  userEvent.click(button);
-  expect(component.getByRole('heading', { name: 'Game List' })).toBeInTheDocument();
-});
+    expect(screen.getByText('GO TO SHOP')).toBeInTheDocument();
+  });
 
-it('renders content from shopping cart when shopping cart button is clicked', () => {
-  const component = render(<App />);
-  // This will break when adding more buttons
-  const button = component.getAllByRole('button')[2];
-  userEvent.click(button);
-  expect(component.getByText('Check-out')).toBeInTheDocument();
+  it('renders content from shop when shop button is clicked', () => {
+    render(<App />);
+    const goToShopButton = screen.getByText('GO TO SHOP');
+    act(() => {
+      userEvent.click(goToShopButton);
+    });
+
+    const button = screen.getByRole('button', { name: 'Shop' });
+    act(() => {
+      userEvent.click(button);
+    });
+
+    expect(screen.getByText('Shop')).toBeInTheDocument();
+  });
+
+  it('renders content from shopping cart when shopping cart button is clicked', () => {
+    render(<App />);
+
+    const button = screen.getByTestId('cart-button');
+    act(() => {
+      userEvent.click(button);
+    });
+
+    expect(screen.getByRole('button', { name: 'Proceed to pay' })).toBeInTheDocument();
+  });
 });

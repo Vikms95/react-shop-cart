@@ -78,6 +78,7 @@ function Shop(props) {
     <section className="shop-container">
       {isModalRendered && (
       <GameInfoModal
+        key={gameInfoModal}
         isItemInCart={isItemInCart}
         addItemToCart={addItemToCart}
         removeItemFromCart={removeItemFromCart}

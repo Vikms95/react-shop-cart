@@ -85,57 +85,55 @@ function App() {
   );
 
   return (
-    <main className="App">
-      <BrowserRouter>
-        {!isHomePageRendered && (
-        <Header
-          url={url}
-          setUrl={setUrl}
-          cartItems={cartItems}
-          fetchItems={fetchItems}
-          isShopRendered={isShopRendered}
-          isClickOutside={isClickOutside}
+    <BrowserRouter>
+      {!isHomePageRendered && (
+      <Header
+        url={url}
+        setUrl={setUrl}
+        cartItems={cartItems}
+        fetchItems={fetchItems}
+        isShopRendered={isShopRendered}
+        isClickOutside={isClickOutside}
+      />
+      )}
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <HomePage
+              setIsHomePageRendered={setIsHomePageRendered}
+            />
+    )}
         />
-        )}
-        <Routes>
-          <Route
-            path="/"
-            element={(
-              <HomePage
-                setIsHomePageRendered={setIsHomePageRendered}
-              />
+        <Route
+          path="/shop"
+          element={(
+            <Shop
+              url={url}
+              items={items}
+              setItems={setItems}
+              cartItems={cartItems}
+              fetchItems={fetchItems}
+              addItemToCart={addItemToCart}
+              removeItemFromCart={removeItemFromCart}
+              incrementItem={incrementItem}
+              decrementItem={decrementItem}
+              setIsShopRendered={setIsShopRendered}
+              isItemInCart={isItemInCart}
+              isClickOutside={isClickOutside}
+            />
     )}
-          />
-          <Route
-            path="/shop"
-            element={(
-              <Shop
-                url={url}
-                items={items}
-                setItems={setItems}
-                cartItems={cartItems}
-                fetchItems={fetchItems}
-                addItemToCart={addItemToCart}
-                removeItemFromCart={removeItemFromCart}
-                incrementItem={incrementItem}
-                decrementItem={decrementItem}
-                setIsShopRendered={setIsShopRendered}
-                isItemInCart={isItemInCart}
-                isClickOutside={isClickOutside}
-              />
+        />
+        <Route
+          path="/cart"
+          element={(
+            <ShoppingCart
+              cartItems={cartItems}
+            />
     )}
-          />
-          <Route
-            path="/cart"
-            element={(
-              <ShoppingCart
-                cartItems={cartItems}
-              />
-    )}
-          />
-        </Routes>
-      </BrowserRouter>
-    </main>
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -88,7 +88,7 @@ function GameInfoModal(props) {
   }, []);
 
   return (
-    <div className="background-blur-wrapper">
+    <div className="background-brightness-wrapper">
       <div
         ref={gameInfoModalRef}
         key={images[imageToShow].id}
@@ -97,6 +97,7 @@ function GameInfoModal(props) {
         }}
         className="game-info-modal"
       >
+
         <ImageSliderArrow
           moveSlider={changeToNextImage}
           arrowIcon={faAngleRight}

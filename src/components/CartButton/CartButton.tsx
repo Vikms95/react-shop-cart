@@ -7,6 +7,7 @@ function CartButton(props) {
 
   return (
     <button
+      data-testid="cart-button"
       className={`cart-button ${isShopRendered ? 'show' : 'hidden'}`}
       type="button"
     >

@@ -3,8 +3,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-absolute-path */
 import React, { useState, useRef, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';

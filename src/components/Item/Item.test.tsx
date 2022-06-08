@@ -16,30 +16,10 @@ test('triggers add item function the right amount of times', () => {
 
   act(() => {
     const button = screen.getAllByRole('button', { name: 'Add to cart' });
-
+    userEvent.hover(button[0]);
     userEvent.click(button[0]);
     userEvent.click(button[0]);
   });
 
   expect(mockAddItemToCart).toHaveBeenCalledTimes(2);
-});
-
-test('incrementItem triggers right amount of times when clicked', () => {
-  const mockAddItemToCart = jest.fn();
-  const mockIsItemInCart = jest.fn();
-  const mockIncrementItem = jest.fn();
-
-  render(<Item
-    incrementItem={mockIncrementItem}
-    addItemToCart={mockAddItemToCart}
-    isItemInCart={mockIsItemInCart}
-  />);
-
-  act(() => {
-    const addButton = screen.getByRole('button', { name: 'Add to cart' });
-    userEvent.click(addButton);
-    const incrementButton = screen.getByRole('button');
-  });
-
-  expect(mockIncrementItem).toHaveBeenCalledTimes(2);
 });

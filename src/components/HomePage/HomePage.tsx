@@ -23,7 +23,13 @@ function HomePage(props) {
       <Link to="/shop">
         <button type="button" className="gotoshop-button"> GO TO SHOP </button>
       </Link>
-      <video autoPlay loop muted playsInline id="hero-video">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        data-testid="hero-video"
+      >
         <source src={heroVideo} type="video/mp4" />
       </video>
     </div>

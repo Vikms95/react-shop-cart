@@ -14,7 +14,6 @@ const upcoming = (currentYear, currentMonth, nextMonth, today) => (
 );
 
 const search = (searchTerm) => {
-  console.log(searchTerm);
   const formattedSearchTerm = searchTerm.split(' ').join('-').toLowerCase();
   return `https://rawg.io/api/games?search=${formattedSearchTerm}&ordering=-added&key=888f6e198d894fcdac3d561150fc3732`;
 };
@@ -31,7 +30,6 @@ function urlHandler(url) {
     recentlyreleased: lastReleased(currentYear, currentMonth),
     upcoming: upcoming(currentYear, currentMonth, nextMonth, today),
   };
-  console.log(search(url));
   if (!RETURN_URL[url]) return search(url);
 
   return RETURN_URL[url];
