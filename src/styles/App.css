@@ -24,12 +24,13 @@ body
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
-  gap: 3rem;
-  padding-right: 40%;
-  padding-left: 40%;
-  padding-bottom: 2rem;
-  padding-top: .5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-right: 30%;
+  padding-left: 10rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 a{
@@ -42,15 +43,10 @@ button{
 
 .logo-title-container{
   display: flex;
-  flex-direction: row;
-  position: absolute;
-  left: 5%;
-  top: 1.5%;
   gap: .5rem;
 }
 
 .title{
-  /* font-family: 'IBM Plex Mono', monospace; */
   letter-spacing: .1rem;
   font-size: 3rem;
   font-variant: small-caps;
@@ -178,6 +174,7 @@ button{
   display: flex;
   flex-direction: column;
   top: 58px;
+  left: 1px;
   width: 300px;
   background-color: #ffffff;
   padding: 1rem;
@@ -185,7 +182,7 @@ button{
   border: #490000;
   border-radius: 5px;
   z-index: 1;
-  animation: rotateMenu 400ms ease-in-out forwards;
+  animation: rotateMenu 400ms ease-in forwards;
   transform-origin: top center;
 }
 
@@ -237,6 +234,7 @@ button{
   outline: none;
   font-size: 1.1rem;
   border-radius: 25px;
+  margin-left: 3rem;
 }
 
 .category-shown{
@@ -441,7 +439,7 @@ button{
 .cart-button{
   position: fixed;
   border: none;
-  left: 92%;
+  right: 2%;
   bottom: 92%;
   padding: .4rem;
   z-index: 1;
