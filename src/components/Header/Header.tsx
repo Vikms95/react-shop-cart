@@ -5,7 +5,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartButton from '../CartButton/CartButton';
 import Dropdown from '../Dropdown/Dropdown';
 import SearchBar from '../SearchBar/SearchBar';
@@ -91,7 +91,8 @@ function Header(props) {
         onClick={() => setIsDropdownRendered(!isDropdownRendered)}
       >
         <FontAwesomeIcon icon={faBars} />
-        {isDropdownRendered && <Dropdown handleSearchClick={handleSearchClick} />}
+        {(isDropdownRendered)
+         && <Dropdown handleSearchClick={handleSearchClick} />}
       </button>
 
       <Link to="/cart">

@@ -4,6 +4,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function CartButton(props) {
   const { cartItems, isShopRendered } = props;
+
   return (
     <button
       className={`cart-button ${isShopRendered ? 'show' : 'hidden'}`}
