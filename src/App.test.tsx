@@ -8,11 +8,16 @@ import App from './App';
  * Mostly test what the App renders when several buttons are clicked
  */
 
-it('renders content from home when home button is clicked', () => {
+beforeEach(() => {
   const component = render(<App />);
-  const button = component.getByRole('heading', { name: 'Home' });
-  userEvent.click(button);
-  expect(component.getByRole('heading', { name: 'Buy your favourite games with the best price' })).toBeInTheDocument();
+  const goToShopButton = component.getByText('GO TO SHOP');
+  userEvent.click(goToShopButton);
+});
+
+it.only('renders content from home when home button is clicked', () => {
+  const component = render(<App />);
+  const button = component.getAllByRole('button', { name: 'Home' });
+  userEvent.click(button[0]);
   expect(component.getByText('GO TO SHOP')).toBeInTheDocument();
 });
 

@@ -15,7 +15,7 @@ test('triggers add item function the right amount of times', () => {
   />);
 
   act(() => {
-    const button = screen.getAllByRole('button', { name: '+' });
+    const button = screen.getAllByRole('button', { name: 'Add to cart' });
 
     userEvent.click(button[0]);
     userEvent.click(button[0]);
@@ -36,9 +36,9 @@ test('incrementItem triggers right amount of times when clicked', () => {
   />);
 
   act(() => {
-    const button = screen.getAllByRole('button', { name: '+' });
-    userEvent.click(button[1]);
-    userEvent.click(button[1]);
+    const button = screen.getByRole('button', { name: 'Add to cart' });
+    userEvent.click(button);
+    userEvent.click(button);
   });
 
   expect(mockIncrementItem).toHaveBeenCalledTimes(2);

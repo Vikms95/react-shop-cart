@@ -46,7 +46,7 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 <!-- - Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there -->
 
-- Check possible refactoring or new Components to create
+<!-- - Check possible refactoring or new Components to create -->
 
 - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx

@@ -1,5 +1,5 @@
 import './styles/App.css';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
 import Header from './components/Header/Header';
