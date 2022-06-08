@@ -1,16 +1,10 @@
 /* eslint-disable no-use-before-define */
 import React, { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // @ts-ignore
-import { faPlaystation, faXbox } from '@fortawesome/free-brands-svg-icons';
 import {
   faAngleLeft,
   faAngleRight,
-  faDesktop,
-  faGamepad,
-  faStar,
 } from '@fortawesome/free-solid-svg-icons';
-import toOneDecimal from '../../utils/toOneDecimal';
 import ImageSliderArrow from '../ImageSliderArrow/ImageSliderArrow';
 import ModalButtons from '../ModalButtons/ModalButtons';
 import GameInfo from '../GameInfo/GameInfo';
@@ -42,19 +36,13 @@ function GameInfoModal(props) {
   const NEXT_IMAGE_INTERVAL = useRef(8000);
   const interval = useRef(null);
 
-  const setNextImageInterval = () => {
-    setInterval(() => {
-      changeToNextImage();
-    }, NEXT_IMAGE_INTERVAL.current);
-  };
-
-  const resetInterval = () => {
-    clearInterval(interval.current);
-    interval.current = setNextImageInterval();
-  };
+  const setNextImageInterval = () => setInterval(() => {
+    changeToNextImage();
+  }, NEXT_IMAGE_INTERVAL.current);
 
   const changeToNextImage = () => {
-    resetInterval();
+    clearInterval(interval.current);
+    interval.current = setNextImageInterval();
 
     setImageToShow((prevImageToShow) => (
       (prevImageToShow === images.length - 1)
@@ -64,7 +52,8 @@ function GameInfoModal(props) {
   };
 
   const changeToPreviousImage = () => {
-    resetInterval();
+    clearInterval(interval.current);
+    interval.current = setNextImageInterval();
 
     setImageToShow((prevImageToShow) => (
       (prevImageToShow === 0)
@@ -96,7 +85,7 @@ function GameInfoModal(props) {
     return () => {
       document.removeEventListener('mousedown', handleClickOutsideModal);
     };
-  });
+  }, []);
 
   return (
     <div className="background-blur-wrapper">
@@ -127,6 +116,7 @@ function GameInfoModal(props) {
           setIsModalRendered={setIsModalRendered}
         />
         <GameInfo
+          title={title}
           rating={rating}
           genres={genres}
           platforms={platforms}
