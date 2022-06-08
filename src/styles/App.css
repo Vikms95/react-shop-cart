@@ -249,7 +249,7 @@ button{
   background-color: rgb(234, 234, 234);
 }
 
-.modal-background-blur{
+.background-blur-wrapper{
   position: fixed;
   top: 0px;
   right: 0px;
@@ -336,12 +336,12 @@ button{
 .right-arrow{
   font-size: 5rem;
   position: absolute;
-  top: 50%;
+  top: 20%;
   cursor: pointer;
 }
 
 .left-arrow{
-  left: 2%;
+  left: 5%;
 }
 
 .left-arrow:hover{
@@ -350,7 +350,7 @@ button{
 }
 
 .right-arrow{
-  right: 2%;
+  right: 5%;
 }
 
 .right-arrow:hover{

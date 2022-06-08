@@ -9,9 +9,11 @@ import {
   faDesktop,
   faGamepad,
   faStar,
-  faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
+import ImageSliderArrow from '../ImageSliderArrow/ImageSliderArrow';
+import ModalButtons from '../ModalButtons/ModalButtons';
+import GameInfo from '../GameInfo/GameInfo';
 
 function GameInfoModal(props) {
   const {
@@ -36,16 +38,23 @@ function GameInfoModal(props) {
   } = gameInfoModal;
 
   const [imageToShow, setImageToShow] = useState(0);
+
   const NEXT_IMAGE_INTERVAL = useRef(8000);
   const interval = useRef(null);
 
-  const setNextImageInterval = () => setInterval(() => {
-    changeToNextImage();
-  }, NEXT_IMAGE_INTERVAL.current);
+  const setNextImageInterval = () => {
+    setInterval(() => {
+      changeToNextImage();
+    }, NEXT_IMAGE_INTERVAL.current);
+  };
 
-  const changeToNextImage = () => {
+  const resetInterval = () => {
     clearInterval(interval.current);
     interval.current = setNextImageInterval();
+  };
+
+  const changeToNextImage = () => {
+    resetInterval();
 
     setImageToShow((prevImageToShow) => (
       (prevImageToShow === images.length - 1)
@@ -55,8 +64,7 @@ function GameInfoModal(props) {
   };
 
   const changeToPreviousImage = () => {
-    clearInterval(interval.current);
-    interval.current = setNextImageInterval();
+    resetInterval();
 
     setImageToShow((prevImageToShow) => (
       (prevImageToShow === 0)
@@ -70,6 +78,9 @@ function GameInfoModal(props) {
       setIsModalRendered(false);
     }
   };
+
+  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
+
   /**
    * We set an interval to change to the next
    * game every 8 seconds. We clear the interval
@@ -87,25 +98,8 @@ function GameInfoModal(props) {
     };
   });
 
-  const renderPlatformIcon = (platform) => {
-    // We return undefined with Linux and Apple
-    //  to avoid repeated PC icons
-    if (platform === 'Linux' || platform === 'Apple Macintosh') return undefined;
-
-    const PLATFORMS = {
-      PC: faDesktop,
-      Xbox: faXbox,
-      PlayStation: faPlaystation,
-      Nintendo: faGamepad,
-    };
-
-    return PLATFORMS[platform];
-  };
-
-  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
-
   return (
-    <div className="modal-background-blur">
+    <div className="background-blur-wrapper">
       <div
         ref={gameInfoModalRef}
         key={images[imageToShow].id}
@@ -114,94 +108,32 @@ function GameInfoModal(props) {
         }}
         className="game-info-modal"
       >
-        <button
-          type="button"
-          onClick={
-              (isItemInCart(title))
-                ? () => removeItemFromCart(title)
-                : () => addItemToCart(image, title)
-            }
-          className="add-to-cart-modal"
-        >
-          {(isItemInCart(title))
-            ? 'Remove from cart'
-            : 'Add to cart'}
-        </button>
-        <FontAwesomeIcon
-          onClick={() => setIsModalRendered(false)}
-          icon={faCircleXmark}
-          className="close-button"
+        <ImageSliderArrow
+          moveSlider={changeToNextImage}
+          arrowIcon={faAngleRight}
+          arrowClass="right-arrow"
         />
-        <FontAwesomeIcon
-          onClick={changeToPreviousImage}
-          icon={faAngleLeft}
-          className="left-arrow"
+        <ImageSliderArrow
+          moveSlider={changeToPreviousImage}
+          arrowIcon={faAngleLeft}
+          arrowClass="left-arrow"
         />
-        <FontAwesomeIcon
-          onClick={changeToNextImage}
-          icon={faAngleRight}
-          className="right-arrow"
+        <ModalButtons
+          title={title}
+          image={image}
+          isItemInCart={isItemInCart}
+          addItemToCart={addItemToCart}
+          removeItemFromCart={removeItemFromCart}
+          setIsModalRendered={setIsModalRendered}
         />
-        <div className="game-info">
-          <div className="game-info-top-row">
-            <b className="game-info-title">
-              {title}
-            </b>
-            <div className="rating-game-info">
-              <span className="rating-score-game-info">
-                {(rating === 0)
-                  ? <span className="no-reviews">Pending</span>
-                  : toOneDecimal(rating)}
-                <FontAwesomeIcon icon={faStar} />
-              </span>
-            </div>
-          </div>
-          <div className="game-info-bottom-row">
-            <div className="game-platforms-container">
-              <div className="game-platforms-title">
-                Platforms
-                <hr />
-              </div>
-              <div className="game-platforms">
-                {platforms.map(({ platform }) => (
-                  <FontAwesomeIcon
-                    key={platform.name}
-                    icon={renderPlatformIcon(platform.name)}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="game-genres-container">
-              <div className="game-genres-title">
-                Genres
-                <hr />
-              </div>
-              <div className="game-genres">
-                {genres.map((genre) => (
-                  <div
-                    key={genre.name}
-                  >
-                    {' '}
-                    {genre.name}
-                    {' '}
-                    {isNotLastIndex(genres, genre) && '/'}
-                  </div>
-                ))}
-              </div>
-            </div>
-            {esrbRating && (
-            <div className="game-esrb-rating-container">
-              <div className="game-esrb-rating-title">
-                ESRB
-                <hr />
-              </div>
-              <div className="game-esrb-rating">
-                {esrbRating.name}
-              </div>
-            </div>
-            )}
-          </div>
-        </div>
+        <GameInfo
+          rating={rating}
+          genres={genres}
+          platforms={platforms}
+          esrbRating={esrbRating}
+          isNotLastIndex={isNotLastIndex}
+        />
+
       </div>
     </div>
   );
