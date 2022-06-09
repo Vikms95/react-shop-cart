@@ -30,6 +30,7 @@ function ItemBottom(props) {
       >
         <button
           type="button"
+          data-testid="decrement"
           className="decrement"
           onClick={() => decrementItem(title)}
         >
@@ -42,6 +43,7 @@ function ItemBottom(props) {
         </div>
         <button
           type="button"
+          data-testid="increment"
           className="increment"
           onClick={() => incrementItem(title)}
         >

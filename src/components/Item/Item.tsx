@@ -23,6 +23,7 @@ function Item(props) {
   return (
     <div
       className="item"
+      data-testid="item"
       data-image={image}
       data-title={title}
     >

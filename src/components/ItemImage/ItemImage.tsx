@@ -26,10 +26,12 @@ function ItemImage(props) {
         className="game-details-icon"
         onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
       />
-      <div className={`display-item-in-cart ${(
-        isItemInCart(title))
-        ? 'show'
-        : 'hidden'}`}
+      <div
+        data-testid="display-item-in-cart"
+        className={`display-item-in-cart ${(
+          isItemInCart(title))
+          ? 'show'
+          : 'hidden'}`}
       >
         <FontAwesomeIcon icon={faShoppingCart} />
       </div>
