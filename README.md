@@ -7,6 +7,15 @@
 ## Description
 Videogame digital key webpage where you can filter videogames with the various options provided. You can later modify the amount of items of each unit and check-out to proceed with the payment. 
 
+## Getting started
+
+```
+git clone https://github.com/Vikms95/react-shop-cart.git
+cd react-shop-cart
+npm install
+npm start
+```
+
 ## Project Objectives
 
 1. Do my first project which incorporates React, Typescript, TDD and react-router
