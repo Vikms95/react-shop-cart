@@ -14,10 +14,10 @@ import SearchBar from './SearchBar';
 import logo from '../../assets/logo.png';
 
 interface Props{
-    setUrl: React.Dispatch<React.SetStateAction<string>>
+    setUrl: React.Dispatch<React.SetStateAction<string | HTMLInputElement>>
     cartItems: object[]
     isShopRendered: boolean
-    isClickOutside: (event: SyntheticEvent, dropdownRef, isDropdownRendered) => boolean
+    isClickOutside: (event: MouseEvent, dropdownRef: any, isDropdownRendered: any) => boolean
 }
 
 function Header(props: Props) {
@@ -29,26 +29,27 @@ function Header(props: Props) {
   } = props;
 
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string | HTMLInputElement>('');
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const handleClickOutsideDropdown = (event) => {
+  const handleClickOutsideDropdown = (event: MouseEvent) => {
     if (isClickOutside(event, dropdownRef, isDropdownRendered)) {
       setIsDropdownRendered(false);
     }
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const handleInputChange = (event: MouseEvent | SyntheticEvent) => {
+    const value: HTMLInputElement = event.target as HTMLInputElement;
+    setInputValue(value);
   };
 
   const eraseInputValue = () => {
     setInputValue('');
   };
 
-  const handleSearchClick = (url) => {
+  const handleSearchClick = (url: string | HTMLInputElement) => {
     setUrl(url);
     eraseInputValue();
   };

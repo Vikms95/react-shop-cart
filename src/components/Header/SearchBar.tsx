@@ -4,9 +4,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 interface Props{
     inputRef: React.MutableRefObject<any>
-    inputValue: string
+    inputValue: string | HTMLInputElement
     handleInputChange: (event: SyntheticEvent) => void
-    handleSearchClick: (inputValue: string) => void
+    handleSearchClick: (inputValue: string | HTMLInputElement) => void
 }
 
 function SearchBar(props: Props) {
@@ -22,7 +22,7 @@ function SearchBar(props: Props) {
       <div className="search-input-container">
         <input
           ref={inputRef}
-          value={inputValue}
+          value={inputValue as string}
           type="text"
           onChange={handleInputChange}
           placeholder=" Search a game"

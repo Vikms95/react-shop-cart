@@ -6,7 +6,7 @@ import toOneDecimal from '../../utils/toOneDecimal';
 interface Props{
   title: string
   image: string
-  rating: number
+  rating: string
   isItemInCart: (event: any, ref?: any, condition?: any) => boolean
   addItemToCart: (itemImage: string, itemTitle: string) => void
   removeItemFromCart: (itemTitle: string) => void
@@ -40,7 +40,7 @@ function ItemTop(props: Props) {
       </button>
       <div className="rating">
         <span className="rating-score">
-          {(rating === 0)
+          {(parseFloat(rating) === 0)
             ? <span className="no-reviews">Pending</span>
             : toOneDecimal(rating)}
         </span>

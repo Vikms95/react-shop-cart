@@ -7,7 +7,7 @@ interface Props{
   isShopRendered: boolean
 }
 
-function CartButton(props) {
+function CartButton(props: Props) {
   const { cartItems, isShopRendered } = props;
 
   return (

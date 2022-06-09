@@ -1,3 +1,3 @@
-const toOneDecimal = (num) => (Math.round(parseFloat(num) * 10) / 10).toFixed(1);
+const toOneDecimal = (num: string) => (Math.round(parseFloat(num) * 10) / 10).toFixed(1);
 
 export default toOneDecimal;

@@ -1,21 +1,21 @@
 import React, { SyntheticEvent } from 'react';
 import ItemTop from '../ItemTop/ItemTop';
 import ItemImage from '../ItemImage/ItemImage';
-import ItemBottom from '../ItemBottom/ItemBottom';
 /* eslint-disable import/no-cycle */
-import { ICartItem } from '../Shop/Shop';
+import ItemBottom from '../ItemBottom/ItemBottom';
+import { ICartItem } from '../../App';
 
 interface Props{
     cartItems: ICartItem[]
     image: string
     title: string
-    rating: number
+    rating: string
     slug: string
     addItemToCart: (itemImage: string, itemTitle: string) => void
     removeItemFromCart: (itemTitle: string) => void
     incrementItem: (itemTitle: string) => void
     decrementItem: (itemTitle: string) => void
-    isItemInCart: (event: SyntheticEvent, ref: any, condition: any) => boolean
+    isItemInCart: (itemTitle: string) => boolean
     addItemToGameInfo: (itemTitle: string) => void
 }
 

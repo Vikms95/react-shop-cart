@@ -1,12 +1,6 @@
 /* eslint-disable no-use-before-define */
-import React, {
-  SyntheticEvent, useEffect, useRef, useState,
-} from 'react';
-// @ts-ignore
-import {
-  faAngleLeft,
-  faAngleRight,
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useRef, useState } from 'react';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import ImageSliderArrow from './ImageSliderArrow';
 import ModalButtons from './ModalButtons';
 import ModalGameInfo from './ModalGameInfo';
@@ -15,7 +9,7 @@ interface Props {
   isItemInCart: (event: any, ref: any, condition: any) => boolean
   addItemToCart: (itemImage: string, itemTitle: string) => void
   gameInfoModal: any
-  isClickOutside: (event: SyntheticEvent, ref: any, condition: any) => boolean
+  isClickOutside: (event: MouseEvent, ref: any, condition: any) => boolean
   isModalRendered: true
   gameInfoModalRef: React.MutableRefObject<any>
   setIsModalRendered: (itemTitle: boolean) => void
@@ -47,7 +41,7 @@ function Modal(props: Props) {
   const [imageToShow, setImageToShow] = useState(0);
 
   const NEXT_IMAGE_INTERVAL = useRef(8000);
-  const interval = useRef(null);
+  const interval = useRef<any>(null);
 
   /**
    * Sets an interval base on NEXT_IMAGE_INTERVAL to execute
@@ -79,11 +73,11 @@ function Modal(props: Props) {
     ));
   };
 
-  const handleClickOutsideModal = (event) => {
+  function handleClickOutsideModal(this: Document, event: MouseEvent) {
     if (isClickOutside(event, gameInfoModalRef, isModalRendered)) {
       setIsModalRendered(false);
     }
-  };
+  }
 
   /**
    * We set an interval to change to the next

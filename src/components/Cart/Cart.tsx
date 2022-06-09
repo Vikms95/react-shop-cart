@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCart from '../ItemCart/ItemCart';
-import { ICartItem } from '../Shop/Shop';
+/* eslint-disable import/no-cycle */
+import { ICartItem } from '../../App';
 
 interface Props {
   cartItems: ICartItem[]

@@ -1,16 +1,23 @@
 import './styles/App.css';
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Shop from './components/Shop/Shop';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
+/* eslint-disable import/no-cycle */
 import Cart from './components/Cart/Cart';
+import Shop from './components/Shop/Shop';
 import urlHandler from './utils/urlHandler';
+
+export interface ICartItem{
+  amount: number
+  image: string
+  title: string
+}
 
 function App() {
   const [items, setItems] = useState([]);
-  const [url, setUrl] = useState('popular');
-  const [cartItems, setCartItems] = useState([]);
+  const [url, setUrl] = useState<string | HTMLInputElement>('popular');
+  const [cartItems, setCartItems] = useState<Array<ICartItem>>([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
 
@@ -18,7 +25,7 @@ function App() {
    *Gets image and title from
     *the clicked item and pass it to CartItems state
   */
-  const addItemToCart = (itemImage, itemTitle) => {
+  const addItemToCart = (itemImage: string, itemTitle: string) => {
     setCartItems((prevCartItems) => (
       [...prevCartItems, { image: itemImage, title: itemTitle, amount: 1 }]
     ));
@@ -27,7 +34,7 @@ function App() {
   /**
    *Gets title from the clicked item and pass it to CartItems state
   */
-  const removeItemFromCart = (itemTitle) => {
+  const removeItemFromCart = (itemTitle:string) => {
     setCartItems((prevCartItems) => (
       prevCartItems.filter((item) => item.title !== itemTitle)
     ));
@@ -37,7 +44,7 @@ function App() {
    * Increments an Item that has been already
    * added to the cart by one unit
    */
-  const incrementItem = (itemTitle) => {
+  const incrementItem = (itemTitle:string) => {
     const itemToIncrement = cartItems.find((item) => item.title === itemTitle);
     setCartItems((prevCartItems) => (
       prevCartItems.map((item) => (
@@ -52,9 +59,9 @@ function App() {
    * Decrements an Item that has been already
    * added to the cart by one unit
    */
-  const decrementItem = (itemTitle) => {
+  const decrementItem = (itemTitle:string) => {
     const itemToDecrement = cartItems.find((item) => item.title === itemTitle);
-    if (itemToDecrement.amount === 1) {
+    if (itemToDecrement?.amount === 1) {
       removeItemFromCart(itemTitle);
       return;
     }
@@ -72,7 +79,7 @@ function App() {
    * Gets a string representing an URL, fetches that
    * URL and sets the items state to the returned data
    */
-  const fetchItems = async (urlToPass) => {
+  const fetchItems = async (urlToPass: string | HTMLInputElement) => {
     const urlToFetch = urlHandler(urlToPass);
     const response = await fetch(urlToFetch);
     const data = await response.json();
@@ -83,17 +90,21 @@ function App() {
    * Takes a reference from an element and checks if
    * the click is within the element
    */
-  const isClickOutside = (event, ref, condition) => (
-    ref.current
+  const isClickOutside = (
+    event: MouseEvent,
+    ref?: React.MutableRefObject<any>,
+    condition?: any,
+  ) => (
+    ref?.current
     && condition
-    && !ref.current.contains(event.target)
+    && !ref?.current.contains(event.target as HTMLInputElement)
   );
 
   /**
    * Checks if the passed item title is found
    * within the cartItems state
    */
-  const isItemInCart = (itemTitle) => (
+  const isItemInCart = (itemTitle:string) => (
     cartItems.some((item) => item.title === itemTitle)
   );
 

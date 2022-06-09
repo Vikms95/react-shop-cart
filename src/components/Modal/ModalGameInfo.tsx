@@ -2,12 +2,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faDesktop, faGamepad } from '@fortawesome/free-solid-svg-icons';
 import { faXbox, faPlaystation } from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 interface IPlatform{
-  platform : {
-    name: string
-  }
+  name: string
+}
+
+interface IPlatformObject{
+    platform: IPlatform
 }
 
 interface IGenre{
@@ -20,8 +23,8 @@ interface IEsrbRating{
 
 interface Props{
     title: string
-    rating: number
-    platforms: IPlatform[]
+    rating: string
+    platforms: IPlatformObject[]
     genres: IGenre[] | null
     esrbRating: IEsrbRating | null
 }
@@ -39,9 +42,9 @@ function ModalGameInfo(props: Props) {
   /**
    * Returns a FA icon based on the string taken as parameter
    */
-  const renderPlatformIcon = (platform) => {
+  const renderPlatformIcon = (platform: IPlatform) => {
     // We return undefined with Linux and Apple to avoid repeated PC icons
-    if (platform === 'Linux' || platform === 'Apple Macintosh') return undefined;
+    if (platform.name === 'Linux' || platform.name === 'Apple Macintosh') return undefined;
 
     const PLATFORMS = {
       PC: faDesktop,
@@ -50,18 +53,21 @@ function ModalGameInfo(props: Props) {
       Nintendo: faGamepad,
     };
 
-    return PLATFORMS[platform];
+    return PLATFORMS[platform.name as keyof typeof PLATFORMS];
   };
 
   /**
    * Used to apply conditional rendering on the game genres
    */
-  const hasGameGenres = () => genres.length > 0;
+  const hasGameGenres = () => genres!.length > 0;
 
   /**
    * Used to render a '/' only if there is another genre upcoming
    */
-  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
+  const isNotLastIndex = (
+    array: IGenre[] | null,
+    item: IGenre,
+  ) => array!.indexOf(item) !== array!.length - 1;
 
   return (
     <div className="game-info">
@@ -72,7 +78,7 @@ function ModalGameInfo(props: Props) {
         </b>
         <div className="rating-game-info">
           <span className="rating-score-game-info">
-            {(rating === 0)
+            {(parseFloat(rating) === 0)
               ? <span className="no-reviews">Pending</span>
               : toOneDecimal(rating)}
             <FontAwesomeIcon icon={faStar} />
@@ -90,21 +96,21 @@ function ModalGameInfo(props: Props) {
           <div className="game-platforms">
             {platforms.map(({ platform }) => (
               <FontAwesomeIcon
-                key={platform.name}
-                icon={renderPlatformIcon(platform.name)}
+                key={platform.name as React.Key}
+                icon={renderPlatformIcon(platform) as IconProp}
               />
             ))}
           </div>
         </div>
 
-        { hasGameGenres && (
+        { hasGameGenres() && (
         <div className="game-genres-container">
           <div className="game-genres-title">
             Genres
             <hr />
           </div>
           <div className="game-genres">
-            {genres.map((genre) => (
+            {genres!.map((genre) => (
               <div
                 key={genre.name}
               >

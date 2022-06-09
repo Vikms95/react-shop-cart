@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 /* eslint-disable import/no-cycle */
-import { ICartItem } from '../Shop/Shop';
+import { ICartItem } from '../../App';
 
 interface Props{
   title: string
@@ -27,7 +27,7 @@ function ItemBottom(props: Props) {
    */
   const renderItemAmount = () => {
     const itemToRender = cartItems.find((cartItem) => cartItem.title === title);
-    return itemToRender.amount;
+    return itemToRender?.amount;
   };
 
   return (

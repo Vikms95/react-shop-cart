@@ -1,28 +1,23 @@
 import React, {
   useEffect, useState, useRef, SyntheticEvent,
 } from 'react';
+import Modal from '../Modal/Modal';
 /* eslint-disable import/no-cycle */
 import Item from '../Item/Item';
-import Modal from '../Modal/Modal';
-
-export interface ICartItem{
-  amount: number
-  image: string
-  title: string
-}
+import { ICartItem } from '../../App';
 
 interface Props{
-  url: string
+  url: string | HTMLInputElement
   items: any[]
   cartItems: ICartItem[]
-  fetchItems: (urlToPass: string) => Promise<void>
+  fetchItems: (urlToPass: string | HTMLInputElement) => Promise<void>
   addItemToCart: (itemImage: string, itemTitle: string) => void
   removeItemFromCart: (itemTitle: string) => void
   incrementItem: (itemTitle: string) => void
   decrementItem: (itemTitle: string) => void
   setIsShopRendered: React.Dispatch<React.SetStateAction<boolean>>
-  isItemInCart: (event: SyntheticEvent, ref?: any, condition?: any) => boolean
-  isClickOutside: (event: SyntheticEvent, ref?: any, condition?: any) => boolean
+  isItemInCart: (itemTitle: string) => boolean
+  isClickOutside: (event: MouseEvent, ref?: any, condition?: any) => boolean
 }
 
 function Shop(props: Props) {
@@ -53,7 +48,7 @@ function Shop(props: Props) {
    * Takes the info from the items prop
    * to prepare that which will be displayed on the GameInfoModal
    */
-  const addItemToGameInfo = (itemTitle) => {
+  const addItemToGameInfo = (itemTitle: string) => {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
     setGameInfoModal(() => (
@@ -113,7 +108,7 @@ function Shop(props: Props) {
     <section className="shop-container">
       {isModalRendered && (
       <Modal
-        key={url}
+        key={url as any}
         isItemInCart={isItemInCart}
         addItemToCart={addItemToCart}
         gameInfoModal={gameInfoModal}
