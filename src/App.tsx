@@ -15,10 +15,8 @@ function App() {
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
 
   /**
-   *Gets element image, title and props from
-    *the clicked item and pass it to ShoppingCart state
-    *if element is already in Cart, removeItemFromCart button
-    *will appear
+   *Gets image and title from
+    *the clicked item and pass it to CartItems state
   */
   const addItemToCart = (itemImage, itemTitle) => {
     setCartItems((prevCartItems) => (
@@ -26,6 +24,9 @@ function App() {
     ));
   };
 
+  /**
+   *Gets title from the clicked item and pass it to CartItems state
+  */
   const removeItemFromCart = (itemTitle) => {
     setCartItems((prevCartItems) => (
       prevCartItems.filter((item) => item.title !== itemTitle)
@@ -67,6 +68,10 @@ function App() {
       ))));
   };
 
+  /**
+   * Gets a string representing an URL, fetches that
+   * URL and sets the items state to the returned data
+   */
   const fetchItems = async (urlToPass) => {
     const urlToFetch = urlHandler(urlToPass);
     const response = await fetch(urlToFetch);
@@ -74,12 +79,20 @@ function App() {
     setItems(data.results);
   };
 
+  /**
+   * Takes a reference from an element and checks if
+   * the click is within the element
+   */
   const isClickOutside = (event, ref, condition) => (
     ref.current
     && condition
     && !ref.current.contains(event.target)
   );
 
+  /**
+   * Checks if the passed item title is found
+   * within the cartItems state
+   */
   const isItemInCart = (itemTitle) => (
     cartItems.some((item) => item.title === itemTitle)
   );

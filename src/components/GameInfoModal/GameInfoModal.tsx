@@ -47,6 +47,10 @@ function GameInfoModal(props: Props) {
   const NEXT_IMAGE_INTERVAL = useRef(8000);
   const interval = useRef(null);
 
+  /**
+   * Sets an interval base on NEXT_IMAGE_INTERVAL to execute
+   * changeToNextImage function after certain time
+   */
   const setNextImageInterval = () => setInterval(() => {
     changeToNextImage();
   }, NEXT_IMAGE_INTERVAL.current);
@@ -79,8 +83,6 @@ function GameInfoModal(props: Props) {
     }
   };
 
-  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
-
   /**
    * We set an interval to change to the next
    * game every 8 seconds. We clear the interval
@@ -91,6 +93,10 @@ function GameInfoModal(props: Props) {
     return () => clearInterval(interval.current);
   }, []);
 
+  /**
+   * Adds event listener to check if each button click is located
+   * within the GameInfoModal component, if not, close the component
+   */
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutsideModal);
     return () => {
@@ -134,7 +140,6 @@ function GameInfoModal(props: Props) {
           genres={genres}
           platforms={platforms}
           esrbRating={esrbRating}
-          isNotLastIndex={isNotLastIndex}
         />
 
       </div>

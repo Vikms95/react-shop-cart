@@ -10,7 +10,6 @@ interface Props{
     platforms: any
     genres: any
     esrbRating: any
-    isNotLastIndex: (array: any, item: any) => boolean
 }
 
 function GameInfo(props: Props) {
@@ -20,13 +19,14 @@ function GameInfo(props: Props) {
     platforms,
     genres,
     esrbRating,
-    isNotLastIndex,
 
   } = props;
 
+  /**
+   * Returns a FA icon based on the string taken as parameter
+   */
   const renderPlatformIcon = (platform) => {
-    // We return undefined with Linux and Apple
-    //  to avoid repeated PC icons
+    // We return undefined with Linux and Apple to avoid repeated PC icons
     if (platform === 'Linux' || platform === 'Apple Macintosh') return undefined;
 
     const PLATFORMS = {
@@ -39,7 +39,15 @@ function GameInfo(props: Props) {
     return PLATFORMS[platform];
   };
 
+  /**
+   * Used to apply conditional rendering on the game genres
+   */
   const hasGameGenres = () => genres.length > 0;
+
+  /**
+   * Used to render a '/' only if there is another genre upcoming
+   */
+  const isNotLastIndex = (array, item) => array.indexOf(item) !== array.length - 1;
 
   return (
     <div className="game-info">

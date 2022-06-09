@@ -40,6 +40,11 @@ function Shop(props: Props) {
     setIsModalRendered(true);
   };
 
+  /**
+   * Takes the info from the items prop
+   * to prepare that which will be displayed on the GameInfoModal
+   */
+
   const addItemToGameInfo = (itemTitle) => {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
@@ -76,10 +81,19 @@ function Shop(props: Props) {
     />
   ));
 
+  /**
+   * Whenever the Shop is loaded, fetch the data
+   * and only do it again when the URL prop is changed
+   */
   useEffect(() => {
     fetchItems(url);
   }, [url]);
 
+  /**
+   * We set the isShopRendered prop on component
+   * mount to let the components on the upper scope
+   * know if the Shop is rendered
+   */
   useEffect(() => {
     setIsShopRendered(true);
     return () => {

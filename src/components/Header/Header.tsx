@@ -53,6 +53,10 @@ function Header(props: Props) {
     eraseInputValue();
   };
 
+  /**
+   * Adds event listener to check if each button click is located
+   * within the Dropdown component, if not, close the component
+   */
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutsideDropdown);
     return () => {

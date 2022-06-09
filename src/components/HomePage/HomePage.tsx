@@ -11,6 +11,11 @@ interface Props{
 function HomePage(props: Props) {
   const { setIsHomePageRendered } = props;
 
+  /**
+   * We set the isHomePageRendered prop on component
+   * mount to let the components on the upper scope
+   * know if the Homepage is rendered
+   */
   useEffect(() => {
     setIsHomePageRendered(true);
     return () => {
