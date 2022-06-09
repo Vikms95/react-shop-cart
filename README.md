@@ -1,4 +1,4 @@
-# LeagueCart
+# VGKeys
 
 # 👉 [LIVE PREVIEW](https://vikms95.github.io/react-shop-cart/) 👈
 
