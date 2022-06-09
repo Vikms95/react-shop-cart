@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props{
-  handleSearchClick: (url) => void
+  handleSearchClick: (url:string) => void
   itemText: string
   url: string
 }

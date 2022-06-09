@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 interface Props{
     inputRef: React.MutableRefObject<any>
     inputValue: string
-    handleInputChange: (event) => void
-    handleSearchClick: (inputValue) => void
+    handleInputChange: (event: SyntheticEvent) => void
+    handleSearchClick: (inputValue: string) => void
 }
 
 function SearchBar(props: Props) {

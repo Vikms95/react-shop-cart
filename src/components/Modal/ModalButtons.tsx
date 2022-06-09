@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
 interface Props {
-    title: any
-    image: any
-    isItemInCart: (event: any, ref?: any, condition?: any) => boolean
-    addItemToCart: (itemImage: any, itemTitle: any) => void
-    removeItemFromCart: (itemTitle: any) => void
-    setIsModalRendered: (itemTitle: any) => void
+    title: string
+    image: string
+    isItemInCart: (event: string, ref?: any, condition?: any) => boolean
+    addItemToCart: (itemImage: string, itemTitle: string) => void
+    removeItemFromCart: (itemTitle: string) => void
+    setIsModalRendered: (itemTitle: boolean) => void
 }
 
 function ModalButtons(props: Props) {

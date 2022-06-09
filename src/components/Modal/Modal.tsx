@@ -1,5 +1,7 @@
 /* eslint-disable no-use-before-define */
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  SyntheticEvent, useEffect, useRef, useState,
+} from 'react';
 // @ts-ignore
 import {
   faAngleLeft,
@@ -11,13 +13,13 @@ import ModalGameInfo from './ModalGameInfo';
 
 interface Props {
   isItemInCart: (event: any, ref: any, condition: any) => boolean
-  addItemToCart: (itemImage: any, itemTitle: any) => void
+  addItemToCart: (itemImage: string, itemTitle: string) => void
   gameInfoModal: any
-  isClickOutside: (event: any, ref: any, condition: any) => boolean
+  isClickOutside: (event: SyntheticEvent, ref: any, condition: any) => boolean
   isModalRendered: true
   gameInfoModalRef: React.MutableRefObject<any>
-  setIsModalRendered: (itemTitle: any) => void
-  removeItemFromCart: React.Dispatch<React.SetStateAction<boolean>>
+  setIsModalRendered: (itemTitle: boolean) => void
+  removeItemFromCart: (itemTitle: string) => void
 }
 
 function Modal(props: Props) {

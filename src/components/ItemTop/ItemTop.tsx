@@ -4,12 +4,12 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
 interface Props{
-  title: any
-  image: any
-  rating: any
+  title: string
+  image: string
+  rating: number
   isItemInCart: (event: any, ref?: any, condition?: any) => boolean
-  addItemToCart: (itemImage: any, itemTitle: any) => void
-  removeItemFromCart: (itemTitle: any) => void
+  addItemToCart: (itemImage: string, itemTitle: string) => void
+  removeItemFromCart: (itemTitle: string) => void
 }
 
 function ItemTop(props: Props) {

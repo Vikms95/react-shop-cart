@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import ItemTop from '../ItemTop/ItemTop';
 import ItemImage from '../ItemImage/ItemImage';
 import ItemBottom from '../ItemBottom/ItemBottom';
+/* eslint-disable import/no-cycle */
+import { ICartItem } from '../Shop/Shop';
 
 interface Props{
-    cartItems: any[]
-    image: any
-    title: any
-    rating: any
-    slug: any
-    addItemToCart: (itemImage: any, itemTitle: any) => void
-    removeItemFromCart: (itemTitle: any) => void
-    incrementItem: (itemTitle: any) => void
-    decrementItem: (itemTitle: any) => void
-    isItemInCart: (event: any, ref: any, condition: any) => boolean
-    addItemToGameInfo: (itemTitle: any) => void
+    cartItems: ICartItem[]
+    image: string
+    title: string
+    rating: number
+    slug: string
+    addItemToCart: (itemImage: string, itemTitle: string) => void
+    removeItemFromCart: (itemTitle: string) => void
+    incrementItem: (itemTitle: string) => void
+    decrementItem: (itemTitle: string) => void
+    isItemInCart: (event: SyntheticEvent, ref: any, condition: any) => boolean
+    addItemToGameInfo: (itemTitle: string) => void
 }
 
 function Item(props: Props) {

@@ -4,12 +4,26 @@ import { faStar, faDesktop, faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faXbox, faPlaystation } from '@fortawesome/free-brands-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
+interface IPlatform{
+  platform : {
+    name: string
+  }
+}
+
+interface IGenre{
+  name: string
+}
+
+interface IEsrbRating{
+  name: string
+}
+
 interface Props{
-    title: any
-    rating: any
-    platforms: any
-    genres: any
-    esrbRating: any
+    title: string
+    rating: number
+    platforms: IPlatform[]
+    genres: IGenre[] | null
+    esrbRating: IEsrbRating | null
 }
 
 function ModalGameInfo(props: Props) {

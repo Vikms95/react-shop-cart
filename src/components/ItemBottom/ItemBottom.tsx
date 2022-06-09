@@ -1,13 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+/* eslint-disable import/no-cycle */
+import { ICartItem } from '../Shop/Shop';
 
 interface Props{
-  title: any
-  cartItems: any[]
+  title: string
+  cartItems: ICartItem[]
   isItemInCart: (event: any, ref?: any, condition?: any) => boolean
-  decrementItem: (itemTitle: any) => void
-  incrementItem: (itemTitle: any) => void
+  decrementItem: (itemTitle: string) => void
+  incrementItem: (itemTitle: string) => void
 }
 
 function ItemBottom(props: Props) {

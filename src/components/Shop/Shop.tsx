@@ -1,19 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {
+  useEffect, useState, useRef, SyntheticEvent,
+} from 'react';
+/* eslint-disable import/no-cycle */
 import Item from '../Item/Item';
 import Modal from '../Modal/Modal';
+
+export interface ICartItem{
+  amount: number
+  image: string
+  title: string
+}
 
 interface Props{
   url: string
   items: any[]
-  cartItems: any[]
-  fetchItems: (urlToPass) => Promise<void>
-  addItemToCart: (itemImage: any, itemTitle: any) => void
-  removeItemFromCart: (itemTitle: any) => void
-  incrementItem: (itemTitle: any) => void
-  decrementItem: (itemTitle: any) => void
+  cartItems: ICartItem[]
+  fetchItems: (urlToPass: string) => Promise<void>
+  addItemToCart: (itemImage: string, itemTitle: string) => void
+  removeItemFromCart: (itemTitle: string) => void
+  incrementItem: (itemTitle: string) => void
+  decrementItem: (itemTitle: string) => void
   setIsShopRendered: React.Dispatch<React.SetStateAction<boolean>>
-  isItemInCart: (event: any, ref: any, condition: any) => boolean
-  isClickOutside: (event: any, ref: any, condition: any) => boolean
+  isItemInCart: (event: SyntheticEvent, ref?: any, condition?: any) => boolean
+  isClickOutside: (event: SyntheticEvent, ref?: any, condition?: any) => boolean
 }
 
 function Shop(props: Props) {

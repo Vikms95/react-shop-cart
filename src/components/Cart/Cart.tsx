@@ -1,8 +1,9 @@
 import React from 'react';
 import ItemCart from '../ItemCart/ItemCart';
+import { ICartItem } from '../Shop/Shop';
 
 interface Props {
-  cartItems: any[]
+  cartItems: ICartItem[]
 }
 
 function Cart(props: Props) {

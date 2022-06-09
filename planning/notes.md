@@ -57,7 +57,7 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 <!-- - Comment methods -->
 
-- Clean CSS
+<!-- - Clean CSS -->
 
 - Setup TS strict mode
 

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 interface Props{
-  title: any
-  image: any
-  slug: any
+  title: string
+  image: string
+  slug: string
   isItemInCart: (event: any, ref?: any, condition?: any) => boolean
-  addItemToGameInfo: (itemTitle: any) => void
+  addItemToGameInfo: (itemTitle: string) => void
 }
 
 function ItemImage(props: Props) {
