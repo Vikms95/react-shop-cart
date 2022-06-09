@@ -23,6 +23,7 @@ function ItemImage(props) {
       />
       <FontAwesomeIcon
         icon={faEye}
+        data-testid="game-details-icon"
         className="game-details-icon"
         onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
       />

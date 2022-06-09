@@ -5,48 +5,52 @@ import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ItemBottom from './ItemBottom';
 
-it('increments item amount when increment button is clicked', () => {
-//   const mockCartItems = [{
-//     title: 'test', amount: 0,
-//   }];
-//   const mockIncrementItem = jest.fn();
-//   const mockIsItemInCart = jest.fn();
-//   mockIsItemInCart.mockReturnValue(true);
+it('triggers increment function increment button is clicked', () => {
+  const mockCartItems = [{
+    title: 'test',
+  }];
+  const mockIncrementItem = jest.fn();
+  const mockIsItemInCart = jest.fn();
+  mockIsItemInCart.mockReturnValue(true);
 
-  //   render(<ItemBottom
-  //     title="test"
-  //     cartItems={mockCartItems}
-  //     incrementItem={mockIncrementItem}
-  //     isItemInCart={mockIsItemInCart}
-  //   />);
+  render(<ItemBottom
+    title="test"
+    cartItems={mockCartItems}
+    incrementItem={mockIncrementItem}
+    isItemInCart={mockIsItemInCart}
+  />);
 
-  //   const button = screen.getByTestId('increment');
+  const incButton = screen.getByTestId('increment');
 
-  //   act(() => {
-  //     userEvent.click(button);
-  //   });
+  act(() => {
+    userEvent.click(incButton);
+    userEvent.click(incButton);
+  });
 
-//   expect(screen.getByText('2')).toBeInTheDocument();
+  expect(mockIncrementItem).toHaveBeenCalledTimes(2);
 });
 
-// it('increments item amount when increment button is clicked', () => {
-//   const mockCartItems = [{
-//     test: 'test',
-//   }];
-//   const mockDecrementItem = jest.fn();
-//   const mockIsItemInCart = jest.fn();
-//   mockIsItemInCart.mockReturnValue(true);
+it('triggers decrement function decrement button is clicked', () => {
+  const mockCartItems = [{
+    title: 'test',
+  }];
+  const mockDecrementItem = jest.fn();
+  const mockIsItemInCart = jest.fn();
+  mockIsItemInCart.mockReturnValue(true);
 
-//   render(<ItemBottom
-//     cartItems={mockCartItems}
-//     decrementItem={mockDecrementItem}
-//     isItemInCart={mockIsItemInCart}
-//   />);
+  render(<ItemBottom
+    title="test"
+    cartItems={mockCartItems}
+    decrementItem={mockDecrementItem}
+    isItemInCart={mockIsItemInCart}
+  />);
 
-//   const button = screen.getByTestId('decrement');
+  const decButton = screen.getByTestId('decrement');
 
-//   act(() => {
-//     userEvent.click(button);
-//   });
+  act(() => {
+    userEvent.click(decButton);
+    userEvent.click(decButton);
+  });
 
-// });
+  expect(mockDecrementItem).toHaveBeenCalledTimes(2);
+});

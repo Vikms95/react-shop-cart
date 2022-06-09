@@ -42,7 +42,7 @@ TODO
 https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fetch-and-hooks-6b76e2bf83a2
   :managed to get it working, needs styling -->
 
-- Loading screen on API call?
+<!-- - Loading screen on API call? -->
 
 <!-- - Finish up ShoppingCart component styling, checkout div and possibility to increment and decrement items from there -->
 
@@ -54,6 +54,10 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
   : all components > https://github.com/TheOdinProject/theodinproject/tree/main/app/javascript/components/project-submissions/components
 
   :structure of tests > http://wiki.c2.com/?ArrangeActAssert
+
+- Comment methods
+
+- Clean CSS
 
 - Setup TS strict mode
 

@@ -95,6 +95,7 @@ function GameInfoModal(props) {
         style={{
           backgroundImage: `url(${images[imageToShow].image})`,
         }}
+        data-testid="game-info-modal"
         className="game-info-modal"
       >
 

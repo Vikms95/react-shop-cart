@@ -48,7 +48,7 @@ function Shop(props) {
   const renderItemsShop = () => items.map((item) => (
     <Item
       cartItems={cartItems}
-      key={item.slug}
+      key={item.name}
       alt={item.slug}
       image={item.background_image}
       title={item.name}
