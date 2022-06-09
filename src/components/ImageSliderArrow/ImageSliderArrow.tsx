@@ -10,6 +10,7 @@ function ImageSliderArrow(props) {
       icon={arrowIcon}
       onClick={moveSlider}
       className={arrowClass}
+      data-testid="arrow"
     />
   );
 }

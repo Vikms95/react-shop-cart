@@ -100,14 +100,14 @@ function GameInfoModal(props) {
       >
 
         <ImageSliderArrow
-          moveSlider={changeToNextImage}
-          arrowIcon={faAngleRight}
           arrowClass="right-arrow"
+          arrowIcon={faAngleRight}
+          moveSlider={changeToNextImage}
         />
         <ImageSliderArrow
-          moveSlider={changeToPreviousImage}
-          arrowIcon={faAngleLeft}
           arrowClass="left-arrow"
+          arrowIcon={faAngleLeft}
+          moveSlider={changeToPreviousImage}
         />
         <ModalButtons
           title={title}
