@@ -1,6 +1,6 @@
 # LeagueCart
 
-# 👉 [LIVE PREVIEW](link) 👈
+# 👉 [LIVE PREVIEW](vikms95.github.io/react-shop-cart/) 👈
 
 ![alt text](/src/assets/VGKeys-showcase.gif "gif of shop cart demo")
 
