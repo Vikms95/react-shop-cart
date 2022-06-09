@@ -44,7 +44,6 @@ function Shop(props: Props) {
    * Takes the info from the items prop
    * to prepare that which will be displayed on the GameInfoModal
    */
-
   const addItemToGameInfo = (itemTitle) => {
     const itemToAdd = items.find((item) => item.name === itemTitle);
 
@@ -66,9 +65,9 @@ function Shop(props: Props) {
 
   const renderItemsShop = () => items.map((item) => (
     <Item
+      key={item.name}
       cartItems={cartItems}
       slug={item.slug}
-      key={item.name}
       image={item.background_image}
       title={item.name}
       rating={item.rating}

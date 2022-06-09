@@ -14,6 +14,7 @@ function DropdownItem(props: Props) {
       <div
         role="button"
         className="dropdown-item"
+        data-testid="dropdown-item"
         onClick={() => handleSearchClick(url)}
         onKeyDown={() => handleSearchClick(url)}
         tabIndex={0}

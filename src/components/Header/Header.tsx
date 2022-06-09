@@ -101,6 +101,7 @@ function Header(props: Props) {
         ref={dropdownRef}
         type="button"
         className="dropdown-button"
+        data-testid="dropdown-button"
         onClick={() => setIsDropdownRendered(!isDropdownRendered)}
       >
         <FontAwesomeIcon icon={faBars} />
