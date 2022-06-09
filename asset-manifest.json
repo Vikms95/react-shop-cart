@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-shop-cart/static/css/main.4984c989.css",
+    "main.js": "/react-shop-cart/static/js/main.bbf374d4.js",
+    "static/media/hero-video.mp4": "/react-shop-cart/static/media/hero-video.1fb94d4590b28017c4af.mp4",
+    "static/media/logo.png": "/react-shop-cart/static/media/logo.3b569afe51e40b4121e9.png",
+    "index.html": "/react-shop-cart/index.html",
+    "main.4984c989.css.map": "/react-shop-cart/static/css/main.4984c989.css.map",
+    "main.bbf374d4.js.map": "/react-shop-cart/static/js/main.bbf374d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4984c989.css",
+    "static/js/main.bbf374d4.js"
+  ]
+}
