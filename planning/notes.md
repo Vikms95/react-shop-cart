@@ -48,14 +48,14 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 <!-- - Check possible refactoring or new Components to create -->
 
-- Test UI of all the components created so far
+<!-- - Test UI of all the components created so far
   :example TOP > https://github.com/TheOdinProject/theodinproject/blob/main/app/javascript/components/project-submissions/components/__tests__/submissions-list.test.jsx
   
   : all components > https://github.com/TheOdinProject/theodinproject/tree/main/app/javascript/components/project-submissions/components
 
-  :structure of tests > http://wiki.c2.com/?ArrangeActAssert
+  :structure of tests > http://wiki.c2.com/?ArrangeActAssert -->
 
-- Comment methods
+<!-- - Comment methods -->
 
 - Clean CSS
 

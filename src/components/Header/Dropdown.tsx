@@ -1,5 +1,5 @@
 import React from 'react';
-import DropdownItem from '../DropdownItem/DropdownItem';
+import DropdownItem from './DropdownItem';
 
 interface Props{
   handleSearchClick: (url) => void

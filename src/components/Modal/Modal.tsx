@@ -5,9 +5,9 @@ import {
   faAngleLeft,
   faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
-import ImageSliderArrow from '../ImageSliderArrow/ImageSliderArrow';
-import ModalButtons from '../ModalButtons/ModalButtons';
-import GameInfo from '../GameInfo/GameInfo';
+import ImageSliderArrow from './ImageSliderArrow';
+import ModalButtons from './ModalButtons';
+import ModalGameInfo from './ModalGameInfo';
 
 interface Props {
   isItemInCart: (event: any, ref: any, condition: any) => boolean
@@ -20,7 +20,7 @@ interface Props {
   removeItemFromCart: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function GameInfoModal(props: Props) {
+function Modal(props: Props) {
   const {
     isItemInCart,
     addItemToCart,
@@ -134,7 +134,7 @@ function GameInfoModal(props: Props) {
           removeItemFromCart={removeItemFromCart}
           setIsModalRendered={setIsModalRendered}
         />
-        <GameInfo
+        <ModalGameInfo
           title={title}
           rating={rating}
           genres={genres}
@@ -147,4 +147,4 @@ function GameInfoModal(props: Props) {
   );
 }
 
-export default GameInfoModal;
+export default Modal;

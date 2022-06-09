@@ -12,7 +12,7 @@ interface Props{
     esrbRating: any
 }
 
-function GameInfo(props: Props) {
+function ModalGameInfo(props: Props) {
   const {
     title,
     rating,
@@ -121,4 +121,4 @@ function GameInfo(props: Props) {
   );
 }
 
-export default GameInfo;
+export default ModalGameInfo;

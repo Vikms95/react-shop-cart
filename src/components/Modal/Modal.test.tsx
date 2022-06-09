@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { platform } from 'os';
-import GameInfoModal from './GameInfoModal';
+import Modal from './Modal';
 
 it('renders background image', () => {
   const mockGameInfoModal = {
@@ -15,7 +15,7 @@ it('renders background image', () => {
   };
   const mockIsItemInCart = jest.fn();
 
-  render(<GameInfoModal
+  render(<Modal
     images={[0, 1, 2]}
     isItemInCart={mockIsItemInCart}
     gameInfoModal={mockGameInfoModal}

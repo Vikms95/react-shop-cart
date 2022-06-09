@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

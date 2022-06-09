@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import ItemCart from '../ItemCart/ItemCart';
 
@@ -6,7 +5,7 @@ interface Props {
   cartItems: any[]
 }
 
-function ShoppingCart(props: Props) {
+function Cart(props: Props) {
   const { cartItems } = props;
 
   const renderItemsCart = () => cartItems.map((item) => (
@@ -54,4 +53,4 @@ function ShoppingCart(props: Props) {
   );
 }
 
-export default ShoppingCart;
+export default Cart;

@@ -1,17 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ShoppingCart from './ShoppingCart';
+import Cart from './Cart';
 
-test('renders shopping cart section with the right styles', () => {
+test('renders shopping cart section with the right styles and amount', () => {
   const cartItems = [
     { image: 'item-image', title: 'item-title', amount: 3 },
   ];
 
-  render(<ShoppingCart
+  render(<Cart
     cartItems={cartItems}
   />);
 
   screen.getAllByAltText('item-title');
   screen.getByRole('heading', { name: 'item-title' });
-  // screen.getByText('3');
+  screen.getByText('3');
 });

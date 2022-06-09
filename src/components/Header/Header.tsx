@@ -8,9 +8,9 @@ import React, {
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import CartButton from '../CartButton/CartButton';
-import Dropdown from '../Dropdown/Dropdown';
-import SearchBar from '../SearchBar/SearchBar';
+import CartButton from './CartButton';
+import Dropdown from './Dropdown';
+import SearchBar from './SearchBar';
 import logo from '../../assets/logo.png';
 
 interface Props{

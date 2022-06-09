@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import Cart from './components/Cart/Cart';
 import urlHandler from './utils/urlHandler';
 
 function App() {
@@ -137,7 +137,7 @@ function App() {
         <Route
           path="/cart"
           element={(
-            <ShoppingCart
+            <Cart
               cartItems={cartItems}
             />
     )}

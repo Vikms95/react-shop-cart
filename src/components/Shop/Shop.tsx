@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Item from '../Item/Item';
-import GameInfoModal from '../GameInfoModal/GameInfoModal';
+import Modal from '../Modal/Modal';
 
 interface Props{
   url: string
@@ -103,7 +103,7 @@ function Shop(props: Props) {
   return (
     <section className="shop-container">
       {isModalRendered && (
-      <GameInfoModal
+      <Modal
         key={url}
         isItemInCart={isItemInCart}
         addItemToCart={addItemToCart}
