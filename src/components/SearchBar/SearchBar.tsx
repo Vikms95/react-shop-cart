@@ -2,7 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-function SearchBar(props) {
+interface Props{
+    inputRef: React.MutableRefObject<any>
+    inputValue: string
+    handleInputChange: (event) => void
+    handleSearchClick: (inputValue) => void
+}
+
+function SearchBar(props: Props) {
   const {
     inputRef,
     inputValue,

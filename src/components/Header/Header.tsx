@@ -2,7 +2,9 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-absolute-path */
-import React, { useState, useRef, useEffect } from 'react';
+import React, {
+  useState, useRef, useEffect, SyntheticEvent,
+} from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +13,14 @@ import Dropdown from '../Dropdown/Dropdown';
 import SearchBar from '../SearchBar/SearchBar';
 import logo from '../../assets/logo.png';
 
-function Header(props) {
+interface Props{
+    setUrl: React.Dispatch<React.SetStateAction<string>>
+    cartItems: object[]
+    isShopRendered: boolean
+    isClickOutside: (event: SyntheticEvent, dropdownRef, isDropdownRendered) => boolean
+}
+
+function Header(props: Props) {
   const {
     setUrl,
     cartItems,

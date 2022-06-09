@@ -15,7 +15,7 @@ function App() {
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
 
   /**
-   *Take element image, title and props from
+   *Gets element image, title and props from
     *the clicked item and pass it to ShoppingCart state
     *if element is already in Cart, removeItemFromCart button
     *will appear
@@ -88,10 +88,8 @@ function App() {
     <BrowserRouter>
       {!isHomePageRendered && (
       <Header
-        url={url}
         setUrl={setUrl}
         cartItems={cartItems}
-        fetchItems={fetchItems}
         isShopRendered={isShopRendered}
         isClickOutside={isClickOutside}
       />

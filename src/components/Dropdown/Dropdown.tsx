@@ -1,7 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
-function Dropdown(props) {
+interface Props{
+  handleSearchClick: (url) => void
+}
+
+function Dropdown(props: Props) {
   const { handleSearchClick } = props;
 
   return (

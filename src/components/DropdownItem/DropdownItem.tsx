@@ -1,6 +1,12 @@
 import React from 'react';
 
-function DropdownItem(props) {
+interface Props{
+  handleSearchClick: (url) => void
+  itemText: string
+  url: string
+}
+
+function DropdownItem(props: Props) {
   const { handleSearchClick, itemText, url } = props;
 
   return (
