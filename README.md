@@ -20,7 +20,7 @@ Videogame digital key webpage where you can filter videogames with the various o
 1. Using react-router
 2. Passing setState as props to change state from parent component
 3. Check library documentation to look up the code logic and get to use its functions in a better manner
-4. 
+4. Typing props and function parameters with Typescript
 
 ## Technologies used
 
