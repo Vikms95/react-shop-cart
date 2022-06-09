@@ -1,6 +1,6 @@
 import './styles/App.css';
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 /* eslint-disable import/no-cycle */
@@ -109,7 +109,7 @@ function App() {
   );
 
   return (
-    <BrowserRouter basename="/">
+    <HashRouter>
       {!isHomePageRendered && (
       <Header
         setUrl={setUrl}
@@ -154,7 +154,7 @@ function App() {
     )}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

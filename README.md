@@ -2,7 +2,7 @@
 
 # 👉 [LIVE PREVIEW](link) 👈
 
-![alt text]( "screenshot of memory card gameplay")
+![alt text](/src/assets/VGKeys-showcase.gif "gif of shop cart demo")
 
 ## Description
 Videogame digital key webpage where you can filter videogames with the various options provided. You can later modify the amount of items of each unit and check-out to proceed with the payment. 
@@ -17,9 +17,9 @@ Videogame digital key webpage where you can filter videogames with the various o
 
 ## What I've learnt with this project
 
-1. 
-2. 
-3. 
+1. Using react-router
+2. Passing setState as props to change state from parent component
+3. Check library documentation to look up the code logic and get to use its functions in a better manner
 4. 
 
 ## Technologies used
@@ -27,11 +27,24 @@ Videogame digital key webpage where you can filter videogames with the various o
 1. React
 2. Jest / Testing-Library
 3. react-router
+4. Typescript
+5. ESLint
 
 ## Challenges I faced 
 
-1. 
-2. 
-3. 
+1. Make app aware of what is being rendered and what is not
+2. Figuring out what to test on my components
+3. Setting up Typescript strict mode
 
 ## Room for improvement
+
+- After further reading, saw that passing setState directly as props
+  is not good practice. Refactor to encapsulate setState within a function and then pass that function as props
+
+- Set loading animation upon loading
+
+- Set "No results found" message when no results from the API are given
+
+- Fix ImageSlider animation to be smoother
+
+- Fix video scaling or use another one with better aspect ratio
