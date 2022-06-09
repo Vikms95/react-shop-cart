@@ -57,3 +57,5 @@ npm start
 - Fix ImageSlider animation to be smoother
 
 - Fix video scaling or use another one with better aspect ratio
+
+- Add infinite scroll by making a bigger request while scrolling down the page
