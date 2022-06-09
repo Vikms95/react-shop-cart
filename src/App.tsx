@@ -109,7 +109,6 @@ function App() {
             <Shop
               url={url}
               items={items}
-              setItems={setItems}
               cartItems={cartItems}
               fetchItems={fetchItems}
               addItemToCart={addItemToCart}

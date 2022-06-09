@@ -9,16 +9,35 @@ import ImageSliderArrow from '../ImageSliderArrow/ImageSliderArrow';
 import ModalButtons from '../ModalButtons/ModalButtons';
 import GameInfo from '../GameInfo/GameInfo';
 
-function GameInfoModal(props) {
+interface Props {
+  isItemInCart: (event: any, ref: any, condition: any) => boolean
+  addItemToCart: (itemImage: any, itemTitle: any) => void
+  gameInfoModal: {
+    title,
+    rating,
+    image,
+    images,
+    platforms,
+    genres,
+    esrbRating,
+  }
+  isClickOutside: (event: any, ref: any, condition: any) => boolean
+  isModalRendered: true
+  gameInfoModalRef: React.MutableRefObject<any>
+  setIsModalRendered: (itemTitle: any) => void
+  removeItemFromCart: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function GameInfoModal(props: Props) {
   const {
     isItemInCart,
     addItemToCart,
-    removeItemFromCart,
     gameInfoModal,
-    gameInfoModalRef,
     isClickOutside,
     isModalRendered,
+    gameInfoModalRef,
     setIsModalRendered,
+    removeItemFromCart,
   } = props;
 
   const {

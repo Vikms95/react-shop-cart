@@ -2,18 +2,32 @@ import React, { useEffect, useState, useRef } from 'react';
 import Item from '../Item/Item';
 import GameInfoModal from '../GameInfoModal/GameInfoModal';
 
-function Shop(props) {
+interface Props{
+  url: string
+  items: any[]
+  cartItems: any[]
+  fetchItems: (urlToPass) => Promise<void>
+  addItemToCart: (itemImage: any, itemTitle: any) => void
+  removeItemFromCart: (itemTitle: any) => void
+  incrementItem: (itemTitle: any) => void
+  decrementItem: (itemTitle: any) => void
+  setIsShopRendered: React.Dispatch<React.SetStateAction<boolean>>
+  isItemInCart: (event: any, ref: any, condition: any) => boolean
+  isClickOutside: (event: any, ref: any, condition: any) => boolean
+}
+
+function Shop(props: Props) {
   const {
     url,
     items,
     cartItems,
     fetchItems,
-    incrementItem,
-    decrementItem,
     addItemToCart,
     removeItemFromCart,
-    isItemInCart,
+    incrementItem,
+    decrementItem,
     setIsShopRendered,
+    isItemInCart,
     isClickOutside,
   } = props;
 
@@ -48,8 +62,8 @@ function Shop(props) {
   const renderItemsShop = () => items.map((item) => (
     <Item
       cartItems={cartItems}
+      slug={item.slug}
       key={item.name}
-      alt={item.slug}
       image={item.background_image}
       title={item.name}
       rating={item.rating}
@@ -58,7 +72,6 @@ function Shop(props) {
       incrementItem={incrementItem}
       decrementItem={decrementItem}
       isItemInCart={isItemInCart}
-      gameInfoModalRef={gameInfoModalRef}
       addItemToGameInfo={addItemToGameInfo}
     />
   ));
@@ -78,15 +91,15 @@ function Shop(props) {
     <section className="shop-container">
       {isModalRendered && (
       <GameInfoModal
-        key={gameInfoModal}
+        key={url}
         isItemInCart={isItemInCart}
         addItemToCart={addItemToCart}
-        removeItemFromCart={removeItemFromCart}
         gameInfoModal={gameInfoModal}
-        gameInfoModalRef={gameInfoModalRef}
-        isModalRendered={isModalRendered}
-        setIsModalRendered={setIsModalRendered}
         isClickOutside={isClickOutside}
+        isModalRendered={isModalRendered}
+        gameInfoModalRef={gameInfoModalRef}
+        removeItemFromCart={removeItemFromCart}
+        setIsModalRendered={setIsModalRendered}
       />
       )}
       {renderItemsShop()}

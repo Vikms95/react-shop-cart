@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import heroVideo from '../../assets/hero-video.mp4';
 import logo from '../../assets/logo.png';
 
-function HomePage(props) {
+interface Props{
+  setIsHomePageRendered: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function HomePage(props: Props) {
   const { setIsHomePageRendered } = props;
 
   useEffect(() => {

@@ -4,7 +4,21 @@ import ItemTop from '../ItemTop/ItemTop';
 import ItemImage from '../ItemImage/ItemImage';
 import ItemBottom from '../ItemBottom/ItemBottom';
 
-function Item(props) {
+interface Props{
+    cartItems: any[]
+    image: any
+    title: any
+    rating: any
+    slug: any
+    addItemToCart: (itemImage: any, itemTitle: any) => void
+    removeItemFromCart: (itemTitle: any) => void
+    incrementItem: (itemTitle: any) => void
+    decrementItem: (itemTitle: any) => void
+    isItemInCart: (event: any, ref: any, condition: any) => boolean
+    addItemToGameInfo: (itemTitle: any) => void
+}
+
+function Item(props: Props) {
   const {
     cartItems,
     image,
@@ -17,7 +31,6 @@ function Item(props) {
     decrementItem,
     isItemInCart,
     addItemToGameInfo,
-    gameInfoModalRef,
   } = props;
 
   return (
@@ -41,7 +54,6 @@ function Item(props) {
         title={title}
         image={image}
         isItemInCart={isItemInCart}
-        gameInfoModalRef={gameInfoModalRef}
         addItemToGameInfo={addItemToGameInfo}
       />
 

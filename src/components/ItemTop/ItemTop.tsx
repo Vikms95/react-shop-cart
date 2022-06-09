@@ -3,9 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
-function ItemTop(props) {
+interface Props{
+  title: any
+  image: any
+  rating: any
+  isItemInCart: (event: any, ref?: any, condition?: any) => boolean
+  addItemToCart: (itemImage: any, itemTitle: any) => void
+  removeItemFromCart: (itemTitle: any) => void
+}
+
+function ItemTop(props: Props) {
   const {
-    title, image, rating, isItemInCart, removeItemFromCart, addItemToCart,
+    title,
+    image,
+    rating,
+    isItemInCart,
+    removeItemFromCart,
+    addItemToCart,
   } = props;
 
   return (

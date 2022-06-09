@@ -2,12 +2,20 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-function ItemBottom(props) {
+interface Props{
+  title: any
+  cartItems: any[]
+  isItemInCart: (event: any, ref?: any, condition?: any) => boolean
+  decrementItem: (itemTitle: any) => void
+  incrementItem: (itemTitle: any) => void
+}
+
+function ItemBottom(props: Props) {
   const {
-    cartItems,
-    decrementItem,
-    isItemInCart,
     title,
+    cartItems,
+    isItemInCart,
+    decrementItem,
     incrementItem,
   } = props;
 

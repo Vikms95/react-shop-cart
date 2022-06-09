@@ -2,12 +2,19 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-function ItemImage(props) {
+interface Props{
+  title: any
+  image: any
+  slug: any
+  isItemInCart: (event: any, ref?: any, condition?: any) => boolean
+  addItemToGameInfo: (itemTitle: any) => void
+}
+
+function ItemImage(props: Props) {
   const {
     title,
     image,
     slug,
-    gameInfoModalRef,
     addItemToGameInfo,
     isItemInCart,
   } = props;
@@ -18,14 +25,14 @@ function ItemImage(props) {
         className="item-image"
         src={image}
         alt={slug}
-        onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
+        onClick={() => addItemToGameInfo(title)}
         aria-hidden="true"
       />
       <FontAwesomeIcon
         icon={faEye}
         data-testid="game-details-icon"
         className="game-details-icon"
-        onClick={() => addItemToGameInfo(title, gameInfoModalRef)}
+        onClick={() => addItemToGameInfo(title)}
       />
       <div
         data-testid="display-item-in-cart"
