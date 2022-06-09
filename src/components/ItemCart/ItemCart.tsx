@@ -1,6 +1,12 @@
 import React from 'react';
 
-function ItemCart(props) {
+interface Props{
+  image: string
+  title: string
+  amount: number
+}
+
+function ItemCart(props: Props) {
   const {
     image, title, amount,
   } = props;

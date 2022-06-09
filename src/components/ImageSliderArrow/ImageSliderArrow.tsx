@@ -1,8 +1,15 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-function ImageSliderArrow(props) {
+interface Props{
+  moveSlider: () => void
+  arrowIcon: IconDefinition
+  arrowClass: string
+}
+
+function ImageSliderArrow(props: Props) {
   const { moveSlider, arrowIcon, arrowClass } = props;
 
   return (

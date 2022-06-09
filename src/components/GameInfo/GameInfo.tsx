@@ -4,7 +4,16 @@ import { faStar, faDesktop, faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faXbox, faPlaystation } from '@fortawesome/free-brands-svg-icons';
 import toOneDecimal from '../../utils/toOneDecimal';
 
-function GameInfo(props) {
+interface Props{
+    title: any
+    rating: any
+    platforms: any
+    genres: any
+    esrbRating: any
+    isNotLastIndex: (array: any, item: any) => boolean
+}
+
+function GameInfo(props: Props) {
   const {
     title,
     rating,

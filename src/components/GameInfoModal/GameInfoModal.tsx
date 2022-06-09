@@ -12,15 +12,7 @@ import GameInfo from '../GameInfo/GameInfo';
 interface Props {
   isItemInCart: (event: any, ref: any, condition: any) => boolean
   addItemToCart: (itemImage: any, itemTitle: any) => void
-  gameInfoModal: {
-    title,
-    rating,
-    image,
-    images,
-    platforms,
-    genres,
-    esrbRating,
-  }
+  gameInfoModal: any
   isClickOutside: (event: any, ref: any, condition: any) => boolean
   isModalRendered: true
   gameInfoModalRef: React.MutableRefObject<any>
