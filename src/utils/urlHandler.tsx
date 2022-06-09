@@ -15,7 +15,7 @@ const upcoming = (currentYear: string, currentMonth: string, nextMonth: string, 
 
 const search = (searchTerm: string | HTMLInputElement) => {
   const formattedSearchTerm = (searchTerm as string).split(' ').join('-').toLowerCase();
-  return `https://rawg.io/api/games?search=${formattedSearchTerm}&ordering=-added&key=888f6e198d894fcdac3d561150fc3732`;
+  return `https://rawg.io/api/games?search=${formattedSearchTerm}&key=888f6e198d894fcdac3d561150fc3732`;
 };
 
 function urlHandler(url: string | HTMLInputElement) {
