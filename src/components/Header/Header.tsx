@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-absolute-path */
 import React, {
   useState, useRef, useEffect, SyntheticEvent,
 } from 'react';
@@ -29,7 +25,7 @@ function Header(props: Props) {
   } = props;
 
   const [isDropdownRendered, setIsDropdownRendered] = useState(false);
-  const [inputValue, setInputValue] = useState<string | HTMLInputElement>('');
+  const [inputValue, setInputValue] = useState<string>('');
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -41,8 +37,8 @@ function Header(props: Props) {
   };
 
   const handleInputChange = (event: MouseEvent | SyntheticEvent) => {
-    const value: HTMLInputElement = event.target as HTMLInputElement;
-    setInputValue(value);
+    const inputElement = event.target as HTMLInputElement;
+    setInputValue(inputElement.value);
   };
 
   const eraseInputValue = () => {

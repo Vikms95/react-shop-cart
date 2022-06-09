@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import ItemTop from '../ItemTop/ItemTop';
 import ItemImage from '../ItemImage/ItemImage';
 /* eslint-disable import/no-cycle */
