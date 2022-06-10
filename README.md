@@ -59,3 +59,5 @@ npm start
 - Fix video scaling or use another one with better aspect ratio
 
 - Add infinite scroll by making a bigger request while scrolling down the page
+
+- Apply light forms background like in : https://filext.com/file-extension/RULES
