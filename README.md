@@ -61,3 +61,9 @@ npm start
 - Add infinite scroll by making a bigger request while scrolling down the page
 
 - Apply light forms background like in : https://filext.com/file-extension/RULES
+
+- Add more tests to make sure some components have certain elements rendered
+
+- Clean CSS using variables or add styles-components/MUI
+
+- Use the context API or HOC's
