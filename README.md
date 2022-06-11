@@ -67,3 +67,5 @@ npm start
 - Clean CSS using variables or add styles-components/MUI
 
 - Use the context API or HOC's
+
+. I0ve seen that using setInterval inside a function is bad idea..https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
