@@ -68,4 +68,26 @@ npm start
 
 - Use the context API or HOC's
 
-. I0ve seen that using setInterval inside a function is bad idea..https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
+. I've seen that using setInterval inside a function is bad idea..https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
+
+- White squares on the bottom of Homepage
+
+-Alternative to video?
+
+-Buttons nav too big, in some screens, the hamburguer menu gets placed below
+
+-Add hover styles to shopping cart button + hamburguer + search + adjust padding
+
+-Game items look missaligned in some cases
+
+- Work on checkout, allow users to decrement and increment items from there, use sticky for the checkout element?
+
+-Find a way to make images load on lower resolution, add a background so the white gap cannot be seen while loading
+
+-Add genre and platform filters
+
+-Add infinite scrolling
+
+-Zooming breaks the layout
+
+-Add to cart Item button shows up from below the dropdown whenever its opened
