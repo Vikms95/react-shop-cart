@@ -91,3 +91,5 @@ npm start
 -Zooming breaks the layout
 
 -Add to cart Item button shows up from below the dropdown whenever its opened
+
+-Check if any state can be avoided by calculating it out of the merging of other states
