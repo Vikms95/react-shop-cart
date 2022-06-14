@@ -97,3 +97,5 @@ npm start
 -Pull out the component any reusable constants (put them above the component)
 
 - Use typeof operator insteaf of booleans to type check
+
+- Use unique keys for my mapped elements (assign id or href)
