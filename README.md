@@ -99,3 +99,5 @@ npm start
 - Use typeof operator insteaf of booleans to type check
 
 - Use unique keys for my mapped elements (assign id or href)
+
+- Use tip 5 for the exports/modules (he calls it barrel)
