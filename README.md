@@ -95,3 +95,5 @@ npm start
 -Check if any state can be avoided by calculating it out of the merging of other states
 
 -Pull out the component any reusable constants (put them above the component)
+
+- Use typeof operator insteaf of booleans to type check
