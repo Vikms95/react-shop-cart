@@ -100,4 +100,4 @@ npm start
 
 - Use unique keys for my mapped elements (assign id or href)
 
-- Use tip 5 for the exports/modules (he calls it barrel)
+- Use tip 5 for the exports/modules (he calls it barrel) https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
