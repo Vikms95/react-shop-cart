@@ -1,22 +1,20 @@
-import React, {
-  useEffect, useState, useRef, SyntheticEvent,
-} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Modal from '../Modal/Modal';
 /* eslint-disable import/no-cycle */
 import Item from '../Item/Item';
 import { ICartItem } from '../../App';
 
 interface Props{
-  url: string | HTMLInputElement
   items: any[]
   cartItems: ICartItem[]
-  fetchItems: (urlToPass: string | HTMLInputElement) => Promise<void>
-  addItemToCart: (itemImage: string, itemTitle: string) => void
-  removeItemFromCart: (itemTitle: string) => void
+  url: string | HTMLInputElement
+  updateIsShopRendered: (value: boolean) => void
   incrementItem: (itemTitle: string) => void
   decrementItem: (itemTitle: string) => void
-  setIsShopRendered: React.Dispatch<React.SetStateAction<boolean>>
   isItemInCart: (itemTitle: string) => boolean
+  removeItemFromCart: (itemTitle: string) => void
+  addItemToCart: (itemImage: string, itemTitle: string) => void
+  fetchItems: (urlToPass: string | HTMLInputElement) => Promise<void>
   isClickOutside: (event: MouseEvent, ref?: any, condition?: any) => boolean
 }
 
@@ -26,19 +24,43 @@ function Shop(props: Props) {
     items,
     cartItems,
     fetchItems,
+    isItemInCart,
     addItemToCart,
-    removeItemFromCart,
     incrementItem,
     decrementItem,
-    setIsShopRendered,
-    isItemInCart,
     isClickOutside,
+    removeItemFromCart,
+    updateIsShopRendered,
   } = props;
 
   const [gameInfoModal, setGameInfoModal] = useState({});
   const [isModalRendered, setIsModalRendered] = useState(false);
 
   const gameInfoModalRef = useRef(null);
+
+  /**
+   * Whenever the Shop is loaded, fetch the data
+   * and only do it again when the URL prop is changed
+   */
+  useEffect(() => {
+    fetchItems(url);
+  }, [url]);
+
+  /**
+     * We set the isShopRendered prop on component
+     * mount to let the components on the upper scope
+     * know if the Shop is rendered
+     */
+  useEffect(() => {
+    updateIsShopRendered(true);
+    return () => {
+      updateIsShopRendered(false);
+    };
+  }, []);
+
+  const hideModal = () => {
+    setIsModalRendered(false);
+  };
 
   const revealModal = () => {
     setIsModalRendered(true);
@@ -70,53 +92,33 @@ function Shop(props: Props) {
   const renderItemsShop = () => items.map((item) => (
     <Item
       key={item.name}
-      cartItems={cartItems}
       slug={item.slug}
-      image={item.background_image}
       title={item.name}
       rating={item.rating}
+      cartItems={cartItems}
+      image={item.background_image}
+      isItemInCart={isItemInCart}
       addItemToCart={addItemToCart}
-      removeItemFromCart={removeItemFromCart}
       incrementItem={incrementItem}
       decrementItem={decrementItem}
-      isItemInCart={isItemInCart}
       addItemToGameInfo={addItemToGameInfo}
+      removeItemFromCart={removeItemFromCart}
     />
   ));
-
-  /**
-   * Whenever the Shop is loaded, fetch the data
-   * and only do it again when the URL prop is changed
-   */
-  useEffect(() => {
-    fetchItems(url);
-  }, [url]);
-
-  /**
-   * We set the isShopRendered prop on component
-   * mount to let the components on the upper scope
-   * know if the Shop is rendered
-   */
-  useEffect(() => {
-    setIsShopRendered(true);
-    return () => {
-      setIsShopRendered(false);
-    };
-  }, []);
 
   return (
     <section className="shop-container">
       {isModalRendered && (
       <Modal
-        key={url as any}
-        isItemInCart={isItemInCart}
-        addItemToCart={addItemToCart}
+        key={url as string}
         gameInfoModal={gameInfoModal}
-        isClickOutside={isClickOutside}
         isModalRendered={isModalRendered}
         gameInfoModalRef={gameInfoModalRef}
+        hideModal={hideModal}
+        isItemInCart={isItemInCart}
+        addItemToCart={addItemToCart}
+        isClickOutside={isClickOutside}
         removeItemFromCart={removeItemFromCart}
-        setIsModalRendered={setIsModalRendered}
       />
       )}
       {renderItemsShop()}

@@ -10,7 +10,7 @@ import SearchBar from './SearchBar';
 import logo from '../../assets/logo.png';
 
 interface Props{
-    setUrl: React.Dispatch<React.SetStateAction<string | HTMLInputElement>>
+    updateUrl: (state: string | HTMLInputElement) => void;
     cartItems: object[]
     isShopRendered: boolean
     isClickOutside: (event: MouseEvent, dropdownRef: any, isDropdownRendered: any) => boolean
@@ -18,7 +18,7 @@ interface Props{
 
 function Header(props: Props) {
   const {
-    setUrl,
+    updateUrl,
     cartItems,
     isShopRendered,
     isClickOutside,
@@ -46,7 +46,7 @@ function Header(props: Props) {
   };
 
   const handleSearchClick = (url: string | HTMLInputElement) => {
-    setUrl(url);
+    updateUrl(url);
     eraseInputValue();
   };
 
@@ -108,8 +108,8 @@ function Header(props: Props) {
 
       <Link to="/cart">
         <CartButton
-          isShopRendered={isShopRendered}
           cartItems={cartItems}
+          isShopRendered={isShopRendered}
         />
       </Link>
     </nav>

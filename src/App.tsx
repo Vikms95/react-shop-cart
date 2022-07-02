@@ -16,10 +16,22 @@ export interface ICartItem{
 
 function App() {
   const [items, setItems] = useState([]);
-  const [url, setUrl] = useState<string | HTMLInputElement>('popular');
-  const [cartItems, setCartItems] = useState<Array<ICartItem>>([]);
   const [isShopRendered, setIsShopRendered] = useState(false);
+  const [cartItems, setCartItems] = useState<Array<ICartItem>>([]);
   const [isHomePageRendered, setIsHomePageRendered] = useState(false);
+  const [url, setUrl] = useState<string | HTMLInputElement>('popular');
+
+  const updateUrl = (state: string | HTMLInputElement) => {
+    setUrl(state);
+  };
+
+  const updateIsShopRendered = (value: boolean) => {
+    setIsShopRendered(value);
+  };
+
+  const updateIsHomePageRendered = (value: boolean) => {
+    setIsHomePageRendered(value);
+  };
 
   /**
    *Gets image and title from
@@ -112,9 +124,9 @@ function App() {
     <HashRouter>
       {!isHomePageRendered && (
       <Header
-        setUrl={setUrl}
         cartItems={cartItems}
         isShopRendered={isShopRendered}
+        updateUrl={updateUrl}
         isClickOutside={isClickOutside}
       />
       )}
@@ -123,7 +135,7 @@ function App() {
           path="/"
           element={(
             <HomePage
-              setIsHomePageRendered={setIsHomePageRendered}
+              updateIsHomePageRendered={updateIsHomePageRendered}
             />
     )}
         />
@@ -139,7 +151,7 @@ function App() {
               removeItemFromCart={removeItemFromCart}
               incrementItem={incrementItem}
               decrementItem={decrementItem}
-              setIsShopRendered={setIsShopRendered}
+              updateIsShopRendered={updateIsShopRendered}
               isItemInCart={isItemInCart}
               isClickOutside={isClickOutside}
             />

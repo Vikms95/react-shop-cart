@@ -5,20 +5,20 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 interface Props {
     title: string
     image: string
+    hideModal: () => void
     isItemInCart: (event: string, ref?: any, condition?: any) => boolean
     addItemToCart: (itemImage: string, itemTitle: string) => void
     removeItemFromCart: (itemTitle: string) => void
-    setIsModalRendered: (itemTitle: boolean) => void
 }
 
 function ModalButtons(props: Props) {
   const {
     title,
     image,
+    hideModal,
     isItemInCart,
     removeItemFromCart,
     addItemToCart,
-    setIsModalRendered,
   } = props;
 
   return (
@@ -38,7 +38,7 @@ function ModalButtons(props: Props) {
       </button>
 
       <FontAwesomeIcon
-        onClick={() => setIsModalRendered(false)}
+        onClick={() => hideModal()}
         icon={faCircleXmark}
         className="close-button"
       />

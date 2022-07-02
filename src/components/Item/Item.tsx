@@ -26,12 +26,12 @@ function Item(props: Props) {
     title,
     slug,
     rating,
+    isItemInCart,
     addItemToCart,
-    removeItemFromCart,
     incrementItem,
     decrementItem,
-    isItemInCart,
     addItemToGameInfo,
+    removeItemFromCart,
   } = props;
 
   return (

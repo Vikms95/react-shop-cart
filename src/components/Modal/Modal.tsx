@@ -6,25 +6,25 @@ import ModalButtons from './ModalButtons';
 import ModalGameInfo from './ModalGameInfo';
 
 interface Props {
-  isItemInCart: (event: any, ref: any, condition: any) => boolean
-  addItemToCart: (itemImage: string, itemTitle: string) => void
   gameInfoModal: any
-  isClickOutside: (event: MouseEvent, ref: any, condition: any) => boolean
   isModalRendered: true
   gameInfoModalRef: React.MutableRefObject<any>
-  setIsModalRendered: (itemTitle: boolean) => void
+  hideModal: () => void
   removeItemFromCart: (itemTitle: string) => void
+  isItemInCart: (event: any, ref: any, condition: any) => boolean
+  addItemToCart: (itemImage: string, itemTitle: string) => void
+  isClickOutside: (event: MouseEvent, ref: any, condition: any) => boolean
 }
 
 function Modal(props: Props) {
   const {
-    isItemInCart,
-    addItemToCart,
     gameInfoModal,
-    isClickOutside,
     isModalRendered,
     gameInfoModalRef,
-    setIsModalRendered,
+    hideModal,
+    isItemInCart,
+    addItemToCart,
+    isClickOutside,
     removeItemFromCart,
   } = props;
 
@@ -47,9 +47,10 @@ function Modal(props: Props) {
    * Sets an interval base on NEXT_IMAGE_INTERVAL to execute
    * changeToNextImage function after certain time
    */
-  const setNextImageInterval = () => setInterval(() => {
-    changeToNextImage();
-  }, NEXT_IMAGE_INTERVAL.current);
+  const setNextImageInterval = () => (
+    setInterval(() => {
+      changeToNextImage();
+    }, NEXT_IMAGE_INTERVAL.current));
 
   const changeToNextImage = () => {
     clearInterval(interval.current);
@@ -75,7 +76,7 @@ function Modal(props: Props) {
 
   function handleClickOutsideModal(this: Document, event: MouseEvent) {
     if (isClickOutside(event, gameInfoModalRef, isModalRendered)) {
-      setIsModalRendered(false);
+      hideModal();
     }
   }
 
@@ -125,10 +126,10 @@ function Modal(props: Props) {
         <ModalButtons
           title={title}
           image={image}
+          hideModal={hideModal}
           isItemInCart={isItemInCart}
           addItemToCart={addItemToCart}
           removeItemFromCart={removeItemFromCart}
-          setIsModalRendered={setIsModalRendered}
         />
         <ModalGameInfo
           title={title}

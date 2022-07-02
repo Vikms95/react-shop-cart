@@ -5,11 +5,11 @@ import heroVideo from '../../assets/hero-video.mp4';
 import logo from '../../assets/logo.png';
 
 interface Props{
-  setIsHomePageRendered: React.Dispatch<React.SetStateAction<boolean>>
+  updateIsHomePageRendered: (value: boolean) => void
 }
 
 function HomePage(props: Props) {
-  const { setIsHomePageRendered } = props;
+  const { updateIsHomePageRendered } = props;
 
   /**
    * We set the isHomePageRendered prop on component
@@ -17,9 +17,9 @@ function HomePage(props: Props) {
    * know if the Homepage is rendered
    */
   useEffect(() => {
-    setIsHomePageRendered(true);
+    updateIsHomePageRendered(true);
     return () => {
-      setIsHomePageRendered(false);
+      updateIsHomePageRendered(false);
     };
   }, []);
 
