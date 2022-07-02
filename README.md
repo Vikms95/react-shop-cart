@@ -50,7 +50,7 @@ npm start
 - [x] After further reading, saw that passing setState directly as props
   is not good practice. Refactor to encapsulate setState within a function and then pass that function as props
 
-[] Set loading animation upon loading (after further reading, I should try doing it with a HOC https://www.smashingmagazine.com/2020/06/higher-order-components-react/)
+[ ] Set loading animation upon loading (after further reading, I should try doing it with a HOC https://www.smashingmagazine.com/2020/06/higher-order-components-react/)
 
 - [ ] Set "No results found" message when no results from the API are given
 
