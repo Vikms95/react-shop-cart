@@ -50,54 +50,54 @@ npm start
 - [x] After further reading, saw that passing setState directly as props
   is not good practice. Refactor to encapsulate setState within a function and then pass that function as props
 
-[ ] Set loading animation upon loading (after further reading, I should try doing it with a HOC https://www.smashingmagazine.com/2020/06/higher-order-components-react/)
+- [ ] Set loading animation upon loading (after further reading, I should try doing it with a HOC https://www.smashingmagazine.com/2020/06/higher-order-components-react/)
 
 - [ ] Set "No results found" message when no results from the API are given
 
-- Fix ImageSlider animation to be smoother
+- [ ] Fix ImageSlider animation to be smoother
 
-- Fix video scaling or use another one with better aspect ratio
+- [ ] Fix video scaling or use another one with better aspect ratio
 
-- Add infinite scroll by making a bigger request while scrolling down the page
+- [ ] Add infinite scroll by making a bigger request while scrolling down the page
 
-- Apply light forms background like in : https://filext.com/file-extension/RULES
+- [ ] Apply light forms background like in : https://filext.com/file-extension/RULES
 
-- Add more tests to make sure some components have certain elements rendered
+- [ ] Add more tests to make sure some components have certain elements rendered
 
-- Clean CSS using variables or add styles-components/MUI
+- [ ] Clean CSS using variables or add styles-components/MUI
 
-- Use the context API or HOC's
+- [ ] Use the context API or HOC's
 
-. I've seen that using setInterval inside a function is bad idea..https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
+- [ ] I've seen that using setInterval inside a function is bad idea..https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
 
-- White squares on the bottom of Homepage
+- [ ] White squares on the bottom of Homepage
 
--Alternative to video?
+- [ ] Alternative to video on homepage ? Use font with video on the background -> Idea -  Buy your videogame keys, EASIER, FASTER (slight fade in from up top)
 
--Buttons nav too big, in some screens, the hamburguer menu gets placed below
+- [ ] Buttons nav too big
 
--Add hover styles to shopping cart button + hamburguer + search + adjust padding
+- [ ] Add hover styles to shopping cart button + hamburguer + search + adjust padding
 
--Game items look missaligned in some cases
+- [ ] Game items look missaligned in some cases
 
-- Work on checkout, allow users to decrement and increment items from there, use sticky for the checkout element?
+- [ ] Work on checkout, allow users to decrement and increment items from there, use sticky for the checkout element?
 
--Find a way to make images load on lower resolution, add a background so the white gap cannot be seen while loading
+- [ ] Find a way to make images load on lower resolution, add a background so the white gap cannot be seen while loading
 
--Add genre and platform filters
+- [ ] Add genre and platform filters
 
--Add infinite scrolling
+- [ ] Add infinite scrolling - Intersection observer https://www.youtube.com/watch?v=oCHdFiCgOSE&list=PLV8x_i1fqBw0B008sQn79YxCjkHJU84pC&index=5&t=2753s
 
--Zooming breaks the layout
+- [ ] Zooming breaks the layout
 
--Add to cart Item button shows up from below the dropdown whenever its opened
+- [ ] Add to cart Item button shows up from below the dropdown whenever its opened
 
--Check if any state can be avoided by calculating it out of the merging of other states
+- [ ] Check if any state can be avoided by calculating it out of the merging of other states
 
--Pull out the component any reusable constants (put them above the component)
+- [ ] Pull out the component any reusable constants (put them above the component)
 
-- Use typeof operator insteaf of booleans to type check
+- [ ] Use typeof operator insteaf of booleans to type check
 
-- Use unique keys for my mapped elements (assign id or href)
+- [ ] Use unique keys for my mapped elements (assign id or href)
 
-- Use tip 5 for the exports/modules (he calls it barrel) https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
+- [ ] Use tip 5 for the exports/modules (he calls it barrel) https://www.youtube.com/watch?v=5KvlQDYDZwY&list=WL&index=51&t=263s
