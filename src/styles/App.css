@@ -220,8 +220,10 @@ button{
 }
 
 .responsive-dropdown-button{
-  padding-top: 1rem;
   color: #003049;
+  background-color: transparent;
+  border: none;
+  padding-top: 1rem;
   position: relative;
   display: none;
   font-size: 2em;

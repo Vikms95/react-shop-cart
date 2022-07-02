@@ -8,6 +8,7 @@ import CartButton from './CartButton';
 import Dropdown from './Dropdown';
 import SearchBar from './SearchBar';
 import logo from '../../assets/logo.png';
+import DropdownItem from './DropdownItem';
 
 interface Props{
     updateUrl: (state: string | HTMLInputElement) => void;
@@ -25,14 +26,16 @@ function Navbar(props: Props) {
   } = props;
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [isDropdownRendered, setIsDropdownRendered] = useState(false);
+  const [isNavDropdownRendered, setIsNavDropdownRendered] = useState(false);
+  const [isRespDropdownRendered, setIsRespDropdownRendered] = useState(false);
 
   const inputRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const navbarDropdownRef = useRef(null);
+  const respDropdownRef = useRef(null);
 
   const handleClickOutsideDropdown = (event: MouseEvent) => {
-    if (isClickOutside(event, dropdownRef, isDropdownRendered)) {
-      setIsDropdownRendered(false);
+    if (isClickOutside(event, navbarDropdownRef, isNavDropdownRendered)) {
+      setIsNavDropdownRendered(false);
     }
   };
 
@@ -101,15 +104,22 @@ function Navbar(props: Props) {
         handleSearchClick={handleSearchClick}
       />
       <button
-        ref={dropdownRef}
+        ref={navbarDropdownRef}
         type="button"
         className="dropdown-button"
         data-testid="dropdown-button"
-        onClick={() => setIsDropdownRendered(!isDropdownRendered)}
+        onClick={() => setIsNavDropdownRendered(!isNavDropdownRendered)}
       >
         <FontAwesomeIcon icon={faBars} />
-        {(isDropdownRendered)
-         && <Dropdown handleSearchClick={handleSearchClick} />}
+        {(isNavDropdownRendered)
+         && (
+         <Dropdown handleSearchClick={handleSearchClick}>
+           <DropdownItem itemText="Popular" url="popular" handleSearchClick={handleSearchClick} />
+           <DropdownItem itemText="Best rated" url="highestrated" handleSearchClick={handleSearchClick} />
+           <DropdownItem itemText="Recently released" url="recentlyreleased" handleSearchClick={handleSearchClick} />
+           <DropdownItem itemText="Upcoming" url="upcoming" handleSearchClick={handleSearchClick} />
+         </Dropdown>
+         )}
       </button>
 
       <Link to="/cart">
@@ -118,9 +128,15 @@ function Navbar(props: Props) {
           isShopRendered={isShopRendered}
         />
       </Link>
-
-      <div className="responsive-dropdown-button">
+      <button
+        ref={respDropdownRef}
+        type="button"
+        className="responsive-dropdown-button"
+        onClick={() => setIsRespDropdownRendered(!isRespDropdownRendered)}
+      >
         <FontAwesomeIcon icon={faEllipsis} />
+        {(isRespDropdownRendered)
+        && <Dropdown handleSearchClick={handleSearchClick} />}
         <ul className="responsive-dropdown-container">
           <li />
           <li />
@@ -128,7 +144,7 @@ function Navbar(props: Props) {
           <li />
           <li />
         </ul>
-      </div>
+      </button>
 
     </nav>
 

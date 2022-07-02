@@ -63,6 +63,8 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 - Make navbar resposnive
   :make base responsive dropdown
+    :fix TS typing of children
+    :opportunity to use composition pattern?
   :setup base header and use media-queries to show and hide each item
 
 FUNCTIONALITIES

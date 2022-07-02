@@ -3,17 +3,15 @@ import DropdownItem from './DropdownItem';
 
 interface Props{
   handleSearchClick: (url: string) => void
+  children: React.ReactNode
 }
 
 function Dropdown(props: Props) {
-  const { handleSearchClick } = props;
+  const { children, handleSearchClick } = props;
 
   return (
     <div className="dropdown">
-      <DropdownItem itemText="Popular" url="popular" handleSearchClick={handleSearchClick} />
-      <DropdownItem itemText="Best rated" url="highestrated" handleSearchClick={handleSearchClick} />
-      <DropdownItem itemText="Recently released" url="recentlyreleased" handleSearchClick={handleSearchClick} />
-      <DropdownItem itemText="Upcoming" url="upcoming" handleSearchClick={handleSearchClick} />
+      {children}
     </div>
   );
 }
