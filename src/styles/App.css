@@ -18,13 +18,19 @@ body
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 2rem;
   padding-right: 20%;
   padding-left: 10rem;
   padding-top: 1rem;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 1050px ) {
+  .dropdown-button{
+    display: none;
+  }
+}
+
 
 a{
   text-decoration: none;
@@ -208,12 +214,29 @@ button{
   color: white;
 }
 
+@media (max-width: 700px){
+  .shop-button-container{
+    display: none;
+  }
+}
+@media (max-width: 500px){
+  .home-button-container{
+    display: none;
+  }
+}
+
 .search-container{
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
   margin-bottom: -.5rem;
+}
+
+@media (max-width: 950px ) {
+  .search-container{
+    display: none;
+  }
 }
 
 .search-button{

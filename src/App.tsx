@@ -1,7 +1,7 @@
 import './styles/App.css';
 import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 import HomePage from './components/HomePage/HomePage';
 /* eslint-disable import/no-cycle */
 import Cart from './components/Cart/Cart';
@@ -123,7 +123,7 @@ function App() {
   return (
     <HashRouter>
       {!isHomePageRendered && (
-      <Header
+      <Navbar
         cartItems={cartItems}
         isShopRendered={isShopRendered}
         updateUrl={updateUrl}

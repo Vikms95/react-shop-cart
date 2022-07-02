@@ -16,7 +16,7 @@ interface Props{
     isClickOutside: (event: MouseEvent, dropdownRef: any, isDropdownRendered: any) => boolean
 }
 
-function Header(props: Props) {
+function Navbar(props: Props) {
   const {
     updateUrl,
     cartItems,
@@ -24,8 +24,8 @@ function Header(props: Props) {
     isClickOutside,
   } = props;
 
-  const [isDropdownRendered, setIsDropdownRendered] = useState(false);
   const [inputValue, setInputValue] = useState<string>('');
+  const [isDropdownRendered, setIsDropdownRendered] = useState(false);
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -67,9 +67,12 @@ function Header(props: Props) {
         <div className="logo-container">
           <img src={logo} alt="logo" className="logo" />
         </div>
-        <div className="title">VGKeys</div>
       </div>
-      <Link to="/">
+
+      <Link
+        to="/"
+        className="home-button-container"
+      >
         <button
           type="button"
           className="header-button"
@@ -78,7 +81,10 @@ function Header(props: Props) {
           Home
         </button>
       </Link>
-      <Link to="/shop">
+      <Link
+        className="shop-button-container"
+        to="/shop"
+      >
         <button
           type="button"
           className="header-button"
@@ -117,4 +123,4 @@ function Header(props: Props) {
   );
 }
 
-export default Header;
+export default Navbar;
