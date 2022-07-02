@@ -12,6 +12,10 @@ body
   margin: 0;
 }
 
+li{
+  list-style: none;
+}
+
 .navigation-bar{
   background-color:white;
   display: flex;
@@ -161,11 +165,12 @@ button{
 }
 
 .dropdown-button{
+  color: #003049;
   position: relative;
   margin-bottom: -.3rem;
   border: none;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 .dropdown{
@@ -214,6 +219,28 @@ button{
   color: white;
 }
 
+.responsive-dropdown-button{
+  padding-top: 1rem;
+  color: #003049;
+  position: relative;
+  display: none;
+  font-size: 2em;
+  flex-direction: column;
+}
+
+.responsive-dropdown-container{
+  position: absolute;
+  z-index: 1;
+  transform-origin: top center;
+  animation: rotateMenu 400ms ease-in forwards;
+}
+
+@media (max-width: 1050px){
+  .responsive-dropdown-button{
+    display: flex;
+  }
+}
+
 @media (max-width: 700px){
   .shop-button-container{
     display: none;
@@ -240,6 +267,7 @@ button{
 }
 
 .search-button{
+  color: #003049;
   font-size: 1.8rem;
   border: none;
   background-color: transparent;

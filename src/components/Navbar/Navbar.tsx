@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import CartButton from './CartButton';
 import Dropdown from './Dropdown';
 import SearchBar from './SearchBar';
@@ -118,6 +118,18 @@ function Navbar(props: Props) {
           isShopRendered={isShopRendered}
         />
       </Link>
+
+      <div className="responsive-dropdown-button">
+        <FontAwesomeIcon icon={faEllipsis} />
+        <ul className="responsive-dropdown-container">
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+        </ul>
+      </div>
+
     </nav>
 
   );

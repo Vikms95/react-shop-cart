@@ -59,7 +59,11 @@ https://codeburst.io/make-a-video-game-search-app-with-rawg-api-react-router-fet
 
 <!-- - Clean CSS -->
 
-- Setup TS strict mode
+<!-- - Setup TS strict mode -->
+
+- Make navbar resposnive
+  :make base responsive dropdown
+  :setup base header and use media-queries to show and hide each item
 
 FUNCTIONALITIES
 <!-- - A HomePage where you can click the "Shop" button to get into the Shop -->
